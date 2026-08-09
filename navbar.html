@@ -1,1 +1,41 @@
+<nav class="navbar" aria-label="Main Navigation">
+    <div class="nav-container">
+        <!-- Brand Logo -->
+        <a href="index.html" class="nav-logo">
+            Eightplus Media
+        </a>
 
+        <!-- Mobile Menu Toggle Button -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="academy.html">Academy</a></li>
+            <li><a href="newsroom.html">Newsroom</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Mobile Menu Toggle Script -->
+<script>
+    (function() {
+        const toggleBtn = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navLinks');
+
+        if (toggleBtn && navMenu) {
+            toggleBtn.addEventListener('click', function() {
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('is-active');
+            });
+        }
+    })();
+</script>
