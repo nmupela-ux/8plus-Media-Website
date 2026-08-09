@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eightplus Media | Strategic Public Relations & Brand Strategy</title>
+    <meta name="description" content="Eightplus Media is a premier public relations and communications consultancy driving measurable corporate positioning, brand transformation, and strategic messaging.">
+    
+    <!-- Shared Master Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
+    <style>
+        /* Base Styling & Theme Variables */
+        :root {
+            --bg-primary: #0F172A;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --accent-royal: #3B82F6;
+            --accent-gradient: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #1E40AF 100%);
+            --animated-gradient: linear-gradient(-45deg, #0F172A, #1E1B4B, #1E293B, #0F172A);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Hero Section with Animated Gradient Background */
+        .hero-section {
+            position: relative;
+            background: var(--animated-gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 120px 24px 80px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Hero Slider Display */
+        .slider-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .slide {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            color: var(--accent-royal);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .slide h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        .slide p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Slide Navigation Dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent-royal);
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        /* CTA Actions */
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #FFFFFF;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--card-border);
+            transition: background 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Layout Grid Sections */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 90px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 48px;
+            font-weight: 700;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 32px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .slide h1 { font-size: 2rem; }
+            .slide p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for Loaded Navigation Bar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section with Custom Slider & Gradient -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="slider-wrapper">
+                
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <span class="slide-tag">Strategic PR & Reputation Management</span>
+                    <h1>Empowering Brands Through Impactful Narrative Strategy</h1>
+                    <p>We craft tailored communications solutions that build authority, protect equity, and engage stakeholders across dynamic markets.</p>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <span class="slide-tag">Corporate Rebranding & Social Expansion</span>
+                    <h1>Proven Results in Organizational Growth</h1>
+                    <p>From complete corporate identity redesigns to active social media management that directly drives client membership sign-ups and engagement.</p>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <span class="slide-tag">Integrated Campaign Management</span>
+                    <h1>Precision Strategic Execution</h1>
+                    <p>Delivering high-performance, multi-channel media rollout proposals tailored to regional institutional standards and growth targets.</p>
+                </div>
+
+            </div>
+
+            <!-- Slider Controls -->
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="hero-actions">
+                <a href="services.html" class="btn-primary">Explore Our Services</a>
+                <a href="contact.html" class="btn-secondary">Request a Strategy Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Strategic Pillars Section -->
+    <main class="section-container">
+        <h2 class="section-title">Core Strategic Pillars</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Corporate Communications</h3>
+                <p>Developing clear, executive messaging and multi-channel strategies aligned with broad organizational objectives.</p>
+            </div>
+            <div class="card">
+                <h3>Strategic Brand Positioning</h3>
+                <p>Transforming market perception with targeted messaging frameworks, media outreach, and institutional identity alignment.</p>
+            </div>
+            <div class="card">
+                <h3>Digital Campaign Rollouts</h3>
+                <p>End-to-end execution of comprehensive, quantitative communication campaigns built to maximize engagement and conversion.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Resilient Component Loader & Hero Slider Script -->
+    <script>
+        // 1. Dynamic Navbar Loader with Fallback Execution
+        async function loadNavbar() {
+            const container = document.getElementById('navbar-placeholder');
+            try {
+                const response = await fetch('navbar.html');
+                if (response.ok) {
+                    container.innerHTML = await response.text();
+                    
+                    // Mark current page link as active
+                    const path = window.location.pathname.split("/").pop() || 'index.html';
+                    const activeLink = container.querySelector(`a[href="${path}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+
+                    // Re-bind Mobile Toggle Event
+                    const toggleBtn = document.getElementById('navToggle');
+                    const navMenu = document.getElementById('navLinks');
+                    if (toggleBtn && navMenu) {
+                        toggleBtn.addEventListener('click', function() {
+                            const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                            toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                            navMenu.classList.toggle('is-active');
+                        });
+                    }
+                }
+            } catch (error) {
+                console.warn('Navbar fetch deferred or running locally; ensure navbar.html is served via HTTP or embedded directly.');
+            }
+        }
+
+        // 2. Hero Slider Control
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let autoSlideTimer;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            slideIndex = (index + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        function currentSlide(index) {
+            clearInterval(autoSlideTimer);
+            showSlide(index);
+            startAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(() => {
+                showSlide(slideIndex + 1);
+            }, 6000);
+        }
+
+        // Initialize Page Handlers
+        document.addEventListener('DOMContentLoaded', () => {
+            loadNavbar();
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>
