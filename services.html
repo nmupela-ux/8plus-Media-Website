@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services & Solutions | Eightplus Media</title>
+    <title>Services & Capabilities | Eightplus Media</title>
     <meta name="description" content="Explore Eightplus Media's integrated communications capabilities—from strategy and advisory to production management and executive communications.">
     
     <!-- Shared Master Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Base Page Styles */
+        /* Scoped Light Editorial Theme */
         :root {
-            --bg-primary: #0F172A;
-            --text-primary: #F8FAFC;
-            --text-secondary: #94A3B8;
-            --accent-royal: #3B82F6;
-            --accent-gradient: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #1E40AF 100%);
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --card-border: rgba(255, 255, 255, 0.1);
+            --bg-canvas: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-heading: #0F172A;
+            --text-body: #334155;
+            --text-muted: #64748B;
+            --border-light: #E2E8F0;
+            --accent-blue: #2563EB;
+            --accent-teal: #0D9488;
+            --accent-light-blue: #EFF6FF;
+            --accent-light-teal: #CCFBF1;
         }
 
         * {
@@ -29,76 +32,78 @@
         }
 
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
+            background-color: var(--bg-canvas);
+            color: var(--text-body);
             line-height: 1.6;
         }
 
-        /* Page Banner Hero */
+        /* Page Hero Header */
         .page-hero {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, #0F172A 100%);
-            padding: 120px 24px 60px;
+            background-color: #FFFFFF;
+            padding: 100px 24px 50px;
             text-align: center;
-            border-bottom: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .page-hero-container {
-            max-width: 840px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .hero-tag {
+        .hero-badge {
             display: inline-block;
-            padding: 6px 16px;
-            background: rgba(59, 130, 246, 0.15);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 14px;
+            background-color: var(--accent-light-blue);
+            color: var(--accent-blue);
+            border: 1px solid #BFDBFE;
             border-radius: 20px;
-            color: var(--accent-royal);
-            font-size: 0.875rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 16px;
         }
 
         .page-hero h1 {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
+            color: var(--text-heading);
             font-weight: 800;
-            color: #FFFFFF;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
         }
 
         .page-hero p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
+            font-size: 1.1rem;
+            color: var(--text-muted);
         }
 
         /* Layout Container */
         .section-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 80px 24px;
+            padding: 60px 24px;
         }
 
         /* Model Highlight Banner */
         .model-banner {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--card-border);
-            border-left: 4px solid var(--accent-royal);
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--accent-blue);
             padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 70px;
-            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         .model-banner h2 {
-            font-size: 1.8rem;
-            color: #FFFFFF;
+            font-size: 1.75rem;
+            color: var(--text-heading);
             margin-bottom: 12px;
+            font-weight: 800;
         }
 
         .model-banner p {
-            color: var(--text-secondary);
+            color: var(--text-body);
             font-size: 1.05rem;
             margin-bottom: 24px;
             max-width: 900px;
@@ -112,75 +117,79 @@
         }
 
         .workflow-step {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid var(--card-border);
+            background-color: var(--bg-canvas);
+            border: 1px solid var(--border-light);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         .workflow-step span {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--accent-royal);
+            color: var(--accent-blue);
             font-weight: 700;
             display: block;
             margin-bottom: 6px;
         }
 
         .workflow-step h4 {
-            color: #FFFFFF;
+            color: var(--text-heading);
             font-size: 1rem;
             margin-bottom: 4px;
+            font-weight: 700;
         }
 
         .workflow-step p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
             margin-bottom: 0;
+            line-height: 1.5;
         }
 
         /* 8 Pillars Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 24px;
         }
 
         .service-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
             padding: 32px;
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .service-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-            transform: translateY(-3px);
+            border-color: #CBD5E1;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
         }
 
         .service-number {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 800;
-            color: var(--accent-royal);
+            color: var(--accent-teal);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 12px;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
             display: block;
         }
 
         .service-card h3 {
-            font-size: 1.35rem;
-            color: #FFFFFF;
-            margin-bottom: 12px;
+            font-size: 1.25rem;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .service-card p {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 20px;
             line-height: 1.6;
@@ -189,58 +198,60 @@
         .tag-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             list-style: none;
             margin-top: auto;
         }
 
         .tag-list li {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid var(--card-border);
-            color: var(--text-secondary);
+            background-color: var(--bg-canvas);
+            border: 1px solid var(--border-light);
+            color: var(--text-body);
             font-size: 0.78rem;
+            font-weight: 600;
             padding: 4px 10px;
             border-radius: 6px;
         }
 
         /* Bottom CTA */
         .cta-banner {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            background-color: #FFFFFF;
+            border: 1px solid var(--border-light);
             padding: 48px 32px;
             border-radius: 16px;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         .cta-banner h2 {
-            font-size: 2rem;
+            font-size: 1.85rem;
+            color: var(--text-heading);
             margin-bottom: 12px;
-            color: #FFFFFF;
         }
 
         .cta-banner p {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             margin-bottom: 24px;
-            max-width: 650px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .btn-primary {
             display: inline-block;
-            background: var(--accent-gradient);
+            background-color: var(--accent-blue);
             color: #FFFFFF;
-            padding: 14px 32px;
+            padding: 14px 28px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+            background-color: #1D4ED8;
+            transform: translateY(-1px);
         }
 
         @media (max-width: 768px) {
@@ -258,7 +269,7 @@
     <!-- Page Header Banner -->
     <section class="page-hero">
         <div class="page-hero-container">
-            <span class="hero-tag">Capabilities & Delivery Model</span>
+            <span class="hero-badge">Capabilities & Operating Model</span>
             <h1>Integrated Communications. Managed Delivery.</h1>
             <p>Specialist expertise, assembled precisely around your organizational objectives—led by strategic counsel from start to finish.</p>
         </div>
@@ -269,7 +280,7 @@
 
         <!-- The Operating Model Section -->
         <div class="model-banner">
-            <span class="hero-tag" style="margin-bottom: 8px; font-size: 0.75rem;">Operating Framework</span>
+            <span class="hero-badge" style="margin-bottom: 8px; font-size: 0.75rem;">Operating Framework</span>
             <h2>The Eightplus Delivery Model</h2>
             <p>Eightplus Media operates as a lean, agile communications consultancy. Rather than maintaining massive fixed production departments, we assemble specialized teams around the precise requirements of each client engagement—bringing together top-tier creative, media, and technical talent as needed.</p>
             
@@ -298,9 +309,9 @@
         </div>
 
         <!-- Section Title -->
-        <div style="text-align: center; margin-bottom: 48px;">
-            <h2 style="font-size: 2.2rem; color: #FFFFFF;">Core Service Pillars</h2>
-            <p style="color: var(--text-secondary); font-size: 1.05rem;">Comprehensive strategic communications tailored for dynamic market environments.</p>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; color: var(--text-heading); font-weight: 800;">Core Service Pillars</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem;">Comprehensive strategic communications tailored for dynamic market environments.</p>
         </div>
 
         <!-- 8 Searchable Service Pillars -->
