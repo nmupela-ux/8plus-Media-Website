@@ -1,1 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Solutions | Eightplus Media</title>
+    <meta name="description" content="Explore Eightplus Media's integrated communications capabilities—from strategy and advisory to production management and executive communications.">
+    
+    <!-- Shared Master Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
+    <style>
+        /* Base Page Styles */
+        :root {
+            --bg-primary: #0F172A;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --accent-royal: #3B82F6;
+            --accent-gradient: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #1E40AF 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Page Banner Hero */
+        .page-hero {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, #0F172A 100%);
+            padding: 120px 24px 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .page-hero-container {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            color: var(--accent-royal);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        /* Layout Container */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        /* Model Highlight Banner */
+        .model-banner {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--accent-royal);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 70px;
+            backdrop-filter: blur(10px);
+        }
+
+        .model-banner h2 {
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+
+        .model-banner p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .workflow-step {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .workflow-step span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-royal);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .workflow-step h4 {
+            color: #FFFFFF;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .workflow-step p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        /* 8 Pillars Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 32px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .service-number {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--accent-royal);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .tag-list li {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Bottom CTA */
+        .cta-banner {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 48px 32px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+
+        .cta-banner p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: #FFFFFF;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2rem; }
+            .model-banner { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loaded Navigation Bar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Header Banner -->
+    <section class="page-hero">
+        <div class="page-hero-container">
+            <span class="hero-tag">Capabilities & Delivery Model</span>
+            <h1>Integrated Communications. Managed Delivery.</h1>
+            <p>Specialist expertise, assembled precisely around your organizational objectives—led by strategic counsel from start to finish.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="section-container">
+
+        <!-- The Operating Model Section -->
+        <div class="model-banner">
+            <span class="hero-tag" style="margin-bottom: 8px; font-size: 0.75rem;">Operating Framework</span>
+            <h2>The Eightplus Delivery Model</h2>
+            <p>Eightplus Media operates as a lean, agile communications consultancy. Rather than maintaining massive fixed production departments, we assemble specialized teams around the precise requirements of each client engagement—bringing together top-tier creative, media, and technical talent as needed.</p>
+            
+            <div class="workflow-grid">
+                <div class="workflow-step">
+                    <span>Step 01</span>
+                    <h4>Strategy & Ownership</h4>
+                    <p>Eightplus leads the strategy, scope, narrative framework, and client alignment.</p>
+                </div>
+                <div class="workflow-step">
+                    <span>Step 02</span>
+                    <h4>Specialist Curation</h4>
+                    <p>We source and assemble verified production, design, media, and technical talent.</p>
+                </div>
+                <div class="workflow-step">
+                    <span>Step 03</span>
+                    <h4>Managed Execution</h4>
+                    <p>We direct creative execution, manage workflows, and maintain strict quality control.</p>
+                </div>
+                <div class="workflow-step">
+                    <span>Step 04</span>
+                    <h4>Accountable Results</h4>
+                    <p>Single-point accountability, clear measurement, and unified reporting for every campaign.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Title -->
+        <div style="text-align: center; margin-bottom: 48px;">
+            <h2 style="font-size: 2.2rem; color: #FFFFFF;">Core Service Pillars</h2>
+            <p style="color: var(--text-secondary); font-size: 1.05rem;">Comprehensive strategic communications tailored for dynamic market environments.</p>
+        </div>
+
+        <!-- 8 Searchable Service Pillars -->
+        <div class="services-grid">
+
+            <!-- Pillar 1 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 01</span>
+                    <h3>Communications Strategy & Advisory</h3>
+                    <p>High-level counsel to align organizational objectives with audience perception, brand authority, and stakeholder buy-in.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Corporate Strategy</li>
+                    <li>Integrated Planning</li>
+                    <li>Stakeholder Communications</li>
+                    <li>Reputation Strategy</li>
+                    <li>Executive Advisory</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 02</span>
+                    <h3>Integrated Marketing & Communications</h3>
+                    <p>Multi-channel campaign architectures designed to drive measurable audience growth, membership conversion, and public engagement.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Campaign Strategy</li>
+                    <li>Creative Concepts</li>
+                    <li>Digital Campaigns</li>
+                    <li>Media Coordination</li>
+                    <li>Influencer Partnerships</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 03</span>
+                    <h3>Corporate & Executive Communications</h3>
+                    <p>Positioning leadership voices to command authority through tailored thought leadership, keynotes, and internal messaging.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Executive Positioning</li>
+                    <li>Thought Leadership</li>
+                    <li>Speeches & Keynotes</li>
+                    <li>Internal Comms</li>
+                    <li>Corporate Messaging</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 04</span>
+                    <h3>Media Monitoring, Verification & Intelligence</h3>
+                    <p>Data-led media tracking and issue monitoring to protect brand reputation and evaluate campaign reach accurately.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Media Monitoring</li>
+                    <li>Verification & Proofs</li>
+                    <li>Reputation Analysis</li>
+                    <li>Issue Tracking</li>
+                    <li>Reporting Dashboards</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 5 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 05</span>
+                    <h3>Content Creation & Production Management</h3>
+                    <p>Managing the end-to-end production of high-grade visual, editorial, and digital media assets curated by top specialists.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Copywriting & Editorial</li>
+                    <li>Photography & Video</li>
+                    <li>Reels & Short-Form</li>
+                    <li>Motion Graphics</li>
+                    <li>Branded Media Assets</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 6 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 06</span>
+                    <h3>Creative & Brand Services</h3>
+                    <p>Executing institutional rebrands, visual identity systems, and high-impact digital advertising creatives with editorial precision.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Creative Direction</li>
+                    <li>Graphic Design</li>
+                    <li>Brand Guidelines</li>
+                    <li>Digital Ad Creatives</li>
+                    <li>Publication Design</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 7 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 07</span>
+                    <h3>Events & Experiential Communications</h3>
+                    <p>Strategic communication and media management for high-stakes launches, corporate summits, and stakeholder gatherings.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Event Strategy</li>
+                    <li>Launch Campaigns</li>
+                    <li>Stakeholder Summits</li>
+                    <li>Experiential Activations</li>
+                    <li>Media Management</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 8 -->
+            <div class="service-card">
+                <div>
+                    <span class="service-number">Pillar 08</span>
+                    <h3>Communications Training & Capacity Building</h3>
+                    <p>Empowering executive teams and corporate spokespeople with practical skills for media interviews and crisis communication.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Media Training</li>
+                    <li>Spokesperson Prep</li>
+                    <li>Crisis Comms Training</li>
+                    <li>Strategic PR Workshops</li>
+                    <li>Capacity Building</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div class="cta-banner">
+            <h2>Ready to Discuss Your Objectives?</h2>
+            <p>Contact us to explore how our integrated model can assemble the right capabilities for your next engagement.</p>
+            <a href="contact.html" class="btn-primary">Initiate a Consultation</a>
+        </div>
+
+    </main>
+
+    <!-- Resilient Component Loader Script -->
+    <script>
+        async function loadNavbar() {
+            const container = document.getElementById('navbar-placeholder');
+            try {
+                const response = await fetch('navbar.html');
+                if (response.ok) {
+                    container.innerHTML = await response.text();
+                    
+                    // Mark current page link as active
+                    const path = window.location.pathname.split("/").pop() || 'services.html';
+                    const activeLink = container.querySelector(`a[href="${path}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+
+                    // Re-bind Mobile Toggle Event
+                    const toggleBtn = document.getElementById('navToggle');
+                    const navMenu = document.getElementById('navLinks');
+                    if (toggleBtn && navMenu) {
+                        toggleBtn.addEventListener('click', function() {
+                            const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                            toggleBtn.setAttribute('aria-expanded', !isExpanded);
+                            navMenu.classList.toggle('is-active');
+                        });
+                    }
+                }
+            } catch (error) {
+                console.warn('Navbar fetch deferred or running locally; ensure navbar.html is served via HTTP.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNavbar);
+    </script>
+</body>
+</html>
