@@ -1,16 +1,29 @@
-/* =========================================================
-   MOBILE NAVIGATION TOGGLE CONTROLLER
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+    const navPlaceholder = document.getElementById("navbar-placeholder");
 
-(function() {
-    const toggleBtn = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navLinks');
+    if (navPlaceholder) {
+        fetch("./navbar.html")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Navbar failed to load");
+                }
+                return response.text();
+            })
+            .then(data => {
+                navPlaceholder.innerHTML = data;
 
-    if (toggleBtn && navMenu) {
-        toggleBtn.addEventListener('click', function() {
-            const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-            toggleBtn.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('is-active');
-        });
+                // Setup mobile toggle menu after navbar loads
+                const navToggle = document.getElementById("navToggle");
+                const navLinks = document.getElementById("navLinks");
+
+                if (navToggle && navLinks) {
+                    navToggle.addEventListener("click", function () {
+                        navLinks.classList.toggle("active");
+                        const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+                        navToggle.setAttribute("aria-expanded", !isExpanded);
+                    });
+                }
+            })
+            .catch(error => console.error("Error loading navbar:", error));
     }
-})();
+});
