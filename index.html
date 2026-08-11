@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,6 @@
     <style>
         /* =========================================================
            EIGHTPLUS HOMEPAGE
-           Hero + lightweight editorial homepage components
            ========================================================= */
 
         /* ---------- HERO ---------- */
@@ -42,9 +40,7 @@
             inset: 0;
             opacity: 0;
             visibility: hidden;
-            transition:
-                opacity 0.9s ease,
-                visibility 0.9s ease;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
             background-size: cover;
             background-position: center;
         }
@@ -54,24 +50,18 @@
             visibility: visible;
         }
 
-        /*
-         * Deep-blue editorial gradient.
-         * The left side protects the copy.
-         * The right side lets the photography breathe.
-         */
         .ep-hero-slide::after {
             content: "";
             position: absolute;
             inset: 0;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(5, 27, 52, 0.96) 0%,
-                    rgba(7, 31, 59, 0.88) 32%,
-                    rgba(8, 39, 72, 0.58) 58%,
-                    rgba(8, 39, 72, 0.16) 82%,
-                    rgba(8, 39, 72, 0.02) 100%
-                );
+            background: linear-gradient(
+                90deg,
+                rgba(5, 27, 52, 0.96) 0%,
+                rgba(7, 31, 59, 0.88) 32%,
+                rgba(8, 39, 72, 0.58) 58%,
+                rgba(8, 39, 72, 0.16) 82%,
+                rgba(8, 39, 72, 0.02) 100%
+            );
         }
 
         .ep-hero-content {
@@ -136,10 +126,7 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 700;
-            transition:
-                transform 0.25s ease,
-                background-color 0.25s ease,
-                border-color 0.25s ease;
+            transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
         }
 
         .ep-hero-button:hover {
@@ -184,10 +171,7 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.42);
             cursor: pointer;
-            transition:
-                width 0.25s ease,
-                border-radius 0.25s ease,
-                background-color 0.25s ease;
+            transition: width 0.25s ease, border-radius 0.25s ease, background-color 0.25s ease;
         }
 
         .ep-hero-dot.is-active {
@@ -232,7 +216,7 @@
             color: var(--color-muted, #64748b);
         }
 
-        /* ---------- HOW WE WORK ---------- */
+        /* ---------- HOW WE WORK (EDITORIAL NARRATIVE - NO CARDS) ---------- */
 
         .ep-model {
             padding: 96px 24px;
@@ -244,82 +228,59 @@
         .ep-model-inner {
             max-width: 1120px;
             margin: 0 auto;
-        }
-
-        .ep-model-heading {
-            max-width: 700px;
-            margin-bottom: 48px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+            align-items: start;
         }
 
         .ep-model-heading h2 {
-            margin: 0 0 12px;
+            margin: 0 0 16px;
             color: var(--color-heading, #0f172a);
-            font-size: clamp(2rem, 3vw, 2.7rem);
+            font-size: clamp(2rem, 3vw, 2.5rem);
             line-height: 1.15;
             letter-spacing: -0.03em;
         }
 
-        .ep-model-heading p {
+        .ep-model-narrative {
+            padding-left: 40px;
+            border-left: 2px solid var(--color-primary, #2563eb);
+        }
+
+        .ep-model-lead {
+            margin: 0 0 20px;
+            color: var(--color-heading, #0f172a);
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .ep-model-body {
             margin: 0;
             color: var(--color-muted, #64748b);
             font-size: 1.05rem;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        .ep-model-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            border-top: 1px solid var(--color-border, #e2e8f0);
-            border-bottom: 1px solid var(--color-border, #e2e8f0);
-        }
+        /* ---------- WHAT WE DO (FULL-WIDTH INTERACTIVE HORIZONTAL SLIDER) ---------- */
 
-        .ep-model-item {
-            padding: 30px 28px 30px 0;
-        }
-
-        .ep-model-item + .ep-model-item {
-            padding-left: 28px;
-            border-left: 1px solid var(--color-border, #e2e8f0);
-        }
-
-        .ep-model-number {
-            display: block;
-            margin-bottom: 18px;
-            color: var(--color-primary, #2563eb);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-        }
-
-        .ep-model-item h3 {
-            margin: 0 0 10px;
-            color: var(--color-heading, #0f172a);
-            font-size: 1.15rem;
-            line-height: 1.3;
-        }
-
-        .ep-model-item p {
-            margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        /* ---------- CAPABILITIES ---------- */
-
-        .ep-capabilities {
-            padding: 100px 24px;
+        .ep-capabilities-slider-section {
+            padding: 100px 0;
             background: #ffffff;
+            overflow: hidden;
         }
 
-        .ep-section-heading {
-            max-width: 720px;
+        .ep-capabilities-header {
+            max-width: 1120px;
             margin: 0 auto 48px;
-            text-align: center;
+            padding: 0 24px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
         }
 
-        .ep-section-heading h2 {
+        .ep-capabilities-header-text h2 {
             margin: 0 0 12px;
             color: var(--color-heading, #0f172a);
             font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -327,68 +288,164 @@
             letter-spacing: -0.03em;
         }
 
-        .ep-section-heading p {
+        .ep-capabilities-header-text p {
             margin: 0;
             color: var(--color-muted, #64748b);
             font-size: 1.02rem;
             line-height: 1.7;
+            max-width: 600px;
         }
 
-        .ep-capability-grid {
-            max-width: 1120px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid var(--color-border, #e2e8f0);
-            border-left: 1px solid var(--color-border, #e2e8f0);
+        .ep-slider-arrows {
+            display: flex;
+            gap: 12px;
         }
 
-        .ep-capability {
-            min-height: 210px;
-            padding: 32px;
-            border-right: 1px solid var(--color-border, #e2e8f0);
-            border-bottom: 1px solid var(--color-border, #e2e8f0);
-            transition: background-color 0.25s ease;
-        }
-
-        .ep-capability:hover {
-            background: var(--color-bg, #f8fafc);
-        }
-
-        .ep-capability-number {
-            display: block;
-            margin-bottom: 26px;
-            color: var(--color-secondary, #0d9488);
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-        }
-
-        .ep-capability h3 {
-            margin: 0 0 10px;
+        .ep-slider-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--color-border, #cbd5e1);
+            background: #ffffff;
             color: var(--color-heading, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
             font-size: 1.2rem;
+        }
+
+        .ep-slider-arrow:hover {
+            background: var(--color-heading, #0f172a);
+            color: #ffffff;
+            border-color: var(--color-heading, #0f172a);
+        }
+
+        /* Horizontal Carousel Container */
+        .ep-carousel-track-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 10px 0 30px;
+        }
+
+        .ep-carousel-track-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .ep-carousel-track {
+            display: flex;
+            gap: 30px;
+            padding-left: max(24px, calc((100vw - 1120px) / 2));
+            padding-right: max(24px, calc((100vw - 1120px) / 2));
+            width: max-content;
+        }
+
+        /* Individual Capability Slide Card */
+        .ep-cap-slide {
+            flex: 0 0 420px;
+            scroll-snap-align: start;
+            background: #ffffff;
+            border: 1px solid var(--color-border, #e2e8f0);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ep-cap-slide:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .ep-cap-media {
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+            background: #071b33;
+        }
+
+        .ep-cap-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .ep-cap-slide:hover .ep-cap-media img {
+            transform: scale(1.05);
+        }
+
+        .ep-cap-num {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(7, 27, 51, 0.85);
+            backdrop-filter: blur(4px);
+            color: #7dd3fc;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.08em;
+        }
+
+        .ep-cap-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .ep-cap-content h3 {
+            margin: 0 0 12px;
+            color: var(--color-heading, #0f172a);
+            font-size: 1.35rem;
             line-height: 1.3;
         }
 
-        .ep-capability p {
-            margin: 0;
+        .ep-cap-content p {
+            margin: 0 0 24px;
             color: var(--color-muted, #64748b);
-            font-size: 0.92rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            flex-grow: 1;
         }
 
-        .ep-section-link {
-            display: block;
-            width: fit-content;
-            margin: 34px auto 0;
+        .ep-cap-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .ep-cap-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
             color: var(--color-primary, #2563eb);
+            background: #eff6ff;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .ep-cap-link {
+            color: var(--color-heading, #0f172a);
+            font-size: 0.9rem;
             font-weight: 700;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.25s ease;
         }
 
-        .ep-section-link:hover {
-            text-decoration: underline;
+        .ep-cap-link:hover {
+            color: var(--color-primary, #2563eb);
         }
 
         /* ---------- SELECTED WORK ---------- */
@@ -414,6 +471,7 @@
             overflow: hidden;
             background: #ffffff;
             border: 1px solid var(--color-border, #e2e8f0);
+            border-radius: 6px;
         }
 
         .ep-work-image {
@@ -612,17 +670,17 @@
         /* ---------- RESPONSIVE ---------- */
 
         @media (max-width: 900px) {
-            .ep-model-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .ep-model-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
 
-            .ep-model-item:nth-child(3) {
-                border-left: 0;
-                padding-left: 0;
+            .ep-model-narrative {
+                padding-left: 20px;
             }
 
-            .ep-capability-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .ep-cap-slide {
+                flex: 0 0 340px;
             }
 
             .ep-difference-grid {
@@ -658,22 +716,8 @@
                 background-position: 60% center;
             }
 
-            .ep-hero-slide::after {
-                background:
-                    linear-gradient(
-                        90deg,
-                        rgba(5, 27, 52, 0.96) 0%,
-                        rgba(7, 31, 59, 0.88) 55%,
-                        rgba(8, 39, 72, 0.48) 100%
-                    );
-            }
-
-            .ep-hero h1 {
+            .ep-hero-h1 {
                 font-size: clamp(2.35rem, 11vw, 3.25rem);
-            }
-
-            .ep-hero-text {
-                font-size: 1rem;
             }
 
             .ep-hero-actions {
@@ -693,31 +737,24 @@
 
             .ep-positioning,
             .ep-model,
-            .ep-capabilities,
+            .ep-capabilities-slider-section,
             .ep-work,
             .ep-difference {
                 padding-top: 72px;
                 padding-bottom: 72px;
             }
 
-            .ep-model-grid,
-            .ep-capability-grid,
+            .ep-capabilities-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ep-cap-slide {
+                flex: 0 0 285px;
+            }
+
             .ep-work-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .ep-model-item,
-            .ep-model-item + .ep-model-item {
-                padding: 26px 0;
-                border-left: 0;
-            }
-
-            .ep-model-item + .ep-model-item {
-                border-top: 1px solid var(--color-border, #e2e8f0);
-            }
-
-            .ep-capability {
-                min-height: auto;
             }
 
             .ep-work-image {
@@ -729,12 +766,11 @@
             }
         }
 
-        /* ---------- ACCESSIBILITY ---------- */
-
         @media (prefers-reduced-motion: reduce) {
             .ep-hero-slide,
             .ep-hero-button,
-            .ep-work-image img {
+            .ep-work-image img,
+            .ep-cap-slide {
                 transition: none;
             }
         }
@@ -743,19 +779,11 @@
 
 <body>
 
-    <!-- =========================================================
-         NAVIGATION
-         ========================================================= -->
-
+    <!-- NAVIGATION PLACEHOLDER -->
     <div id="navbar-placeholder"></div>
 
-
-    <!-- =========================================================
-         HERO
-         ========================================================= -->
-
+    <!-- HERO SECTION (FUNCTIONAL SLIDER) -->
     <header class="ep-hero" aria-label="Eightplus Media introduction">
-
         <div class="ep-hero-slides">
 
             <!-- Slide 1 -->
@@ -767,34 +795,16 @@
             >
                 <div class="ep-hero-content">
                     <div class="ep-hero-copy">
-
-                        <span class="ep-hero-kicker">
-                            Strategic Communications
-                        </span>
-
-                        <h1>
-                            Communication that makes organisations understood, trusted and chosen.
-                        </h1>
-
-                        <p class="ep-hero-text">
-                            Strategic communications for organisations navigating complex markets,
-                            expectations and change.
-                        </p>
-
+                        <span class="ep-hero-kicker">Strategic Communications</span>
+                        <h1>Communication that makes organisations understood, trusted and chosen.</h1>
+                        <p class="ep-hero-text">Strategic communications for organisations navigating complex markets, expectations and change.</p>
                         <div class="ep-hero-actions">
-                            <a href="services.html" class="ep-hero-button ep-hero-button-primary">
-                                Explore our capabilities
-                            </a>
-
-                            <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">
-                                Start a conversation
-                            </a>
+                            <a href="services.html" class="ep-hero-button ep-hero-button-primary">Explore capabilities</a>
+                            <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">Start a conversation</a>
                         </div>
-
                     </div>
                 </div>
             </div>
-
 
             <!-- Slide 2 -->
             <div
@@ -805,34 +815,16 @@
             >
                 <div class="ep-hero-content">
                     <div class="ep-hero-copy">
-
-                        <span class="ep-hero-kicker">
-                            Executive Communications
-                        </span>
-
-                        <h1>
-                            Give leadership a voice people can trust.
-                        </h1>
-
-                        <p class="ep-hero-text">
-                            Executive positioning, thought leadership and communications support
-                            for leaders shaping what comes next.
-                        </p>
-
+                        <span class="ep-hero-kicker">Executive Communications</span>
+                        <h1>Give leadership a voice people can trust.</h1>
+                        <p class="ep-hero-text">Executive positioning, thought leadership and communications support for leaders shaping what comes next.</p>
                         <div class="ep-hero-actions">
-                            <a href="services.html" class="ep-hero-button ep-hero-button-primary">
-                                Explore our capabilities
-                            </a>
-
-                            <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">
-                                Work with us
-                            </a>
+                            <a href="services.html" class="ep-hero-button ep-hero-button-primary">Explore capabilities</a>
+                            <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">Work with us</a>
                         </div>
-
                     </div>
                 </div>
             </div>
-
 
             <!-- Slide 3 -->
             <div
@@ -843,802 +835,361 @@
             >
                 <div class="ep-hero-content">
                     <div class="ep-hero-copy">
-
-                        <span class="ep-hero-kicker">
-                            Reputation &amp; Stakeholders
-                        </span>
-
-                        <h1>
-                            When the stakes are high, communication matters.
-                        </h1>
-
-                        <p class="ep-hero-text">
-                            Building clarity, confidence and trust with the people who matter
-                            to your organisation.
-                        </p>
-
+                        <span class="ep-hero-kicker">Reputation &amp; Stakeholders</span>
+                        <h1>When the stakes are high, communication matters.</h1>
+                        <p class="ep-hero-text">Building clarity, confidence and trust with the people who matter to your organisation.</p>
                         <div class="ep-hero-actions">
-                            <a href="services.html" class="ep-hero-button ep-hero-button-primary">
-                                See how we work
-                            </a>
-
-                            <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">
-                                Start a conversation
-                            </a>
+                            <a href="services.html" class="ep-hero-button ep-hero-button-primary">See how we work</a>
+                            <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">Start a conversation</a>
                         </div>
-
                     </div>
                 </div>
             </div>
 
         </div>
 
-
-        <!-- Slider controls -->
-
+        <!-- Slider Controls -->
         <div class="ep-hero-controls" aria-label="Hero slides">
-
-            <button
-                class="ep-hero-dot is-active"
-                type="button"
-                aria-label="Show slide 1"
-                aria-current="true"
-                data-slide="0"
-            ></button>
-
-            <button
-                class="ep-hero-dot"
-                type="button"
-                aria-label="Show slide 2"
-                aria-current="false"
-                data-slide="1"
-            ></button>
-
-            <button
-                class="ep-hero-dot"
-                type="button"
-                aria-label="Show slide 3"
-                aria-current="false"
-                data-slide="2"
-            ></button>
-
+            <button class="ep-hero-dot is-active" type="button" aria-label="Show slide 1" aria-current="true" data-slide="0"></button>
+            <button class="ep-hero-dot" type="button" aria-label="Show slide 2" aria-current="false" data-slide="1"></button>
+            <button class="ep-hero-dot" type="button" aria-label="Show slide 3" aria-current="false" data-slide="2"></button>
         </div>
-
     </header>
-
 
     <main>
 
-        <!-- =====================================================
-             POSITIONING
-             ====================================================== -->
-
+        <!-- POSITIONING SECTION -->
         <section class="ep-positioning">
-
             <div class="ep-positioning-inner">
-
-                <span class="ep-eyebrow">
-                    Eightplus Media
-                </span>
-
+                <span class="ep-eyebrow">Eightplus Media</span>
                 <h2>
-                    In a world of constant scrutiny and rapid change,
-                    communication needs to be strategic, clear and purposeful.
-                    <span>
-                        Because being understood, trusted and chosen gives you
-                        the ultimate advantage.
-                    </span>
+                    In a world of constant scrutiny and rapid change, communication needs to be strategic, clear and purposeful.
+                    <span>Because being understood, trusted and chosen gives you the ultimate advantage.</span>
                 </h2>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             HOW EIGHTPLUS WORKS
-             ====================================================== -->
-
+        <!-- HOW WE WORK (EDITORIAL NARRATIVE - NO CARDS) -->
         <section class="ep-model">
-
             <div class="ep-model-inner">
-
                 <div class="ep-model-heading">
-
-                    <span class="ep-eyebrow">
-                        The Eightplus Model
-                    </span>
-
-                    <h2>
-                        One strategic lead. The right specialists. One accountable team.
-                    </h2>
-
-                    <p>
-                        Eightplus leads the strategy and manages the engagement,
-                        assembling specialist capability around what the work actually demands.
+                    <span class="ep-eyebrow">The Eightplus Model</span>
+                    <h2>Advisory lead. Flexible scale. Total accountability.</h2>
+                </div>
+                <div class="ep-model-narrative">
+                    <p class="ep-model-lead">
+                        We operate as an advisory-led consultancy designed to replace rigid agency bloat with senior strategic focus.
                     </p>
-
+                    <p class="ep-model-body">
+                        Every engagement is led directly by experienced strategic directors who set the direction, architecture, and narrative. Rather than maintaining heavy overhead, we integrate trusted, elite specialists—from digital managers to investigative journalists—tailored specifically to the client’s mission requirements.
+                    </p>
                 </div>
-
-
-                <div class="ep-model-grid">
-
-                    <div class="ep-model-item">
-                        <span class="ep-model-number">01 / STRATEGY</span>
-
-                        <h3>
-                            Strategic Direction
-                        </h3>
-
-                        <p>
-                            Narrative clarity, reputation thinking and communications strategy
-                            establish the direction before execution begins.
-                        </p>
-                    </div>
-
-
-                    <div class="ep-model-item">
-                        <span class="ep-model-number">02 / EDITORIAL</span>
-
-                        <h3>
-                            Content &amp; Editorial
-                        </h3>
-
-                        <p>
-                            Specialist writers and editors turn complex ideas into clear,
-                            credible communication.
-                        </p>
-                    </div>
-
-
-                    <div class="ep-model-item">
-                        <span class="ep-model-number">03 / CREATIVE</span>
-
-                        <h3>
-                            Creative &amp; Production
-                        </h3>
-
-                        <p>
-                            Design, photography, video and other creative capability is
-                            assembled according to the needs of the engagement.
-                        </p>
-                    </div>
-
-
-                    <div class="ep-model-item">
-                        <span class="ep-model-number">04 / MEDIA</span>
-
-                        <h3>
-                            Media &amp; Intelligence
-                        </h3>
-
-                        <p>
-                            Targeted distribution, media relations, monitoring and intelligence
-                            help messages reach the right audiences.
-                        </p>
-                    </div>
-
-                </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             CAPABILITIES
-             ====================================================== -->
-
-        <section class="ep-capabilities">
-
-            <div class="ep-section-heading">
-
-                <span class="ep-eyebrow">
-                    What We Do
-                </span>
-
-                <h2>
-                    Strategic capability, built around the work.
-                </h2>
-
-                <p>
-                    From strategy and advisory through content, creative and execution,
-                    we bring together the capabilities required to move the work forward.
-                </p>
-
+        <!-- WHAT WE DO (FULL-WIDTH INTERACTIVE SLIDER) -->
+        <section class="ep-capabilities-slider-section">
+            <div class="ep-capabilities-header">
+                <div class="ep-capabilities-header-text">
+                    <span class="ep-eyebrow">What We Do</span>
+                    <h2>Capabilities built for trust, authority, and transformation.</h2>
+                    <p>Discover how our advisory services help leadership teams and organisations navigate high-stakes moments.</p>
+                </div>
+                <div class="ep-slider-arrows">
+                    <button class="ep-slider-arrow" id="capPrevBtn" aria-label="Previous capabilities slide">&#x2190;</button>
+                    <button class="ep-slider-arrow" id="capNextBtn" aria-label="Next capabilities slide">&#x2192;</button>
+                </div>
             </div>
 
+            <!-- Horizontal Track -->
+            <div class="ep-carousel-track-wrapper" id="capTrackWrapper">
+                <div class="ep-carousel-track">
 
-            <div class="ep-capability-grid">
+                    <!-- Slide 1 -->
+                    <article class="ep-cap-slide">
+                        <div class="ep-cap-media">
+                            <span class="ep-cap-num">01 / ADVISORY</span>
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Strategic Communications Advisory">
+                        </div>
+                        <div class="ep-cap-content">
+                            <h3>Strategic Advisory</h3>
+                            <p>Messaging architecture, corporate positioning, and long-term narrative direction for high-stakes business environments.</p>
+                            <div class="ep-cap-tags">
+                                <span class="ep-cap-tag">Brand Architecture</span>
+                                <span class="ep-cap-tag">Narrative</span>
+                            </div>
+                            <a href="services.html#strategic-advisory" class="ep-cap-link">Explore capability &rarr;</a>
+                        </div>
+                    </article>
 
-                <article class="ep-capability">
+                    <!-- Slide 2 -->
+                    <article class="ep-cap-slide">
+                        <div class="ep-cap-media">
+                            <span class="ep-cap-num">02 / EXECUTIVE</span>
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Executive Communications">
+                        </div>
+                        <div class="ep-cap-content">
+                            <h3>Executive Positioning</h3>
+                            <p>Thought leadership, keynotes, and executive communications coaching that establishes C-suite authority and trust.</p>
+                            <div class="ep-cap-tags">
+                                <span class="ep-cap-tag">C-Suite</span>
+                                <span class="ep-cap-tag">Speechwriting</span>
+                            </div>
+                            <a href="services.html#executive-positioning" class="ep-cap-link">Explore capability &rarr;</a>
+                        </div>
+                    </article>
 
-                    <span class="ep-capability-number">
-                        01 / STRATEGY
-                    </span>
+                    <!-- Slide 3 -->
+                    <article class="ep-cap-slide">
+                        <div class="ep-cap-media">
+                            <span class="ep-cap-num">03 / EDITORIAL</span>
+                            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Corporate Publications">
+                        </div>
+                        <div class="ep-cap-content">
+                            <h3>Corporate Publications</h3>
+                            <p>Editorial design and production for annual reports, impact studies, and stakeholder documentation that inform and persuade.</p>
+                            <div class="ep-cap-tags">
+                                <span class="ep-cap-tag">Annual Reports</span>
+                                <span class="ep-cap-tag">Impact Studies</span>
+                            </div>
+                            <a href="services.html#publications" class="ep-cap-link">Explore capability &rarr;</a>
+                        </div>
+                    </article>
 
-                    <h3>
-                        Communications Strategy &amp; Advisory
-                    </h3>
+                    <!-- Slide 4 -->
+                    <article class="ep-cap-slide">
+                        <div class="ep-cap-media">
+                            <span class="ep-cap-num">04 / REPUTATION</span>
+                            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Media Relations and PR">
+                        </div>
+                        <div class="ep-cap-content">
+                            <h3>Stakeholder &amp; PR</h3>
+                            <p>Precision media relations, strategic partnerships, and targeted public engagement across regional and international platforms.</p>
+                            <div class="ep-cap-tags">
+                                <span class="ep-cap-tag">Media Relations</span>
+                                <span class="ep-cap-tag">Stakeholders</span>
+                            </div>
+                            <a href="services.html#stakeholder-pr" class="ep-cap-link">Explore capability &rarr;</a>
+                        </div>
+                    </article>
 
-                    <p>
-                        Strategic communications planning, corporate communications,
-                        reputation strategy and stakeholder alignment.
-                    </p>
+                    <!-- Slide 5 -->
+                    <article class="ep-cap-slide">
+                        <div class="ep-cap-media">
+                            <span class="ep-cap-num">05 / DIGITAL</span>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Media Strategy">
+                        </div>
+                        <div class="ep-cap-content">
+                            <h3>Digital Strategy</h3>
+                            <p>Content ecosystems, social media management, and digital campaign execution engineered for maximum clarity and engagement.</p>
+                            <div class="ep-cap-tags">
+                                <span class="ep-cap-tag">Social Growth</span>
+                                <span class="ep-cap-tag">Campaigns</span>
+                            </div>
+                            <a href="services.html#digital-strategy" class="ep-cap-link">Explore capability &rarr;</a>
+                        </div>
+                    </article>
 
-                </article>
+                    <!-- Slide 6 -->
+                    <article class="ep-cap-slide">
+                        <div class="ep-cap-media">
+                            <span class="ep-cap-num">06 / TRAINING</span>
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Executive Masterclass and Capacity Building">
+                        </div>
+                        <div class="ep-cap-content">
+                            <h3>Capacity Building</h3>
+                            <p>Tailored corporate training, executive communications workshops, and team skill development for modern organisations.</p>
+                            <div class="ep-cap-tags">
+                                <span class="ep-cap-tag">Masterclasses</span>
+                                <span class="ep-cap-tag">Workshops</span>
+                            </div>
+                            <a href="services.html#capacity-building" class="ep-cap-link">Explore capability &rarr;</a>
+                        </div>
+                    </article>
 
-
-                <article class="ep-capability">
-
-                    <span class="ep-capability-number">
-                        02 / EXECUTIVE
-                    </span>
-
-                    <h3>
-                        Corporate &amp; Executive Communications
-                    </h3>
-
-                    <p>
-                        Executive preparation, thought leadership, media relations
-                        and leadership communications.
-                    </p>
-
-                </article>
-
-
-                <article class="ep-capability">
-
-                    <span class="ep-capability-number">
-                        03 / CONTENT
-                    </span>
-
-                    <h3>
-                        Content &amp; Creative Production
-                    </h3>
-
-                    <p>
-                        Copywriting, editorial, photography, videography, motion graphics
-                        and branded communication assets.
-                    </p>
-
-                </article>
-
-
-                <article class="ep-capability">
-
-                    <span class="ep-capability-number">
-                        04 / REPUTATION
-                    </span>
-
-                    <h3>
-                        Reputation &amp; Stakeholder Management
-                    </h3>
-
-                    <p>
-                        Communications designed to build trust, navigate expectations
-                        and support relationships with important audiences.
-                    </p>
-
-                </article>
-
-
-                <article class="ep-capability">
-
-                    <span class="ep-capability-number">
-                        05 / CAMPAIGNS
-                    </span>
-
-                    <h3>
-                        Integrated Campaigns &amp; Digital
-                    </h3>
-
-                    <p>
-                        Campaign strategy, content, creative coordination, digital activation
-                        and performance reporting.
-                    </p>
-
-                </article>
-
-
-                <article class="ep-capability">
-
-                    <span class="ep-capability-number">
-                        06 / EXPERIENCES
-                    </span>
-
-                    <h3>
-                        Events &amp; Experiential Communications
-                    </h3>
-
-                    <p>
-                        Event strategy, launches, stakeholder gatherings, experiential
-                        activations and production support.
-                    </p>
-
-                </article>
-
+                </div>
             </div>
-
-
-            <a href="services.html" class="ep-section-link">
-                Explore all capabilities →
-            </a>
-
         </section>
 
-
-        <!-- =====================================================
-             SELECTED WORK
-             ====================================================== -->
-
+        <!-- SELECTED WORK SECTION -->
         <section class="ep-work">
-
             <div class="ep-work-inner">
-
                 <div class="ep-section-heading">
-
-                    <span class="ep-eyebrow">
-                        Selected Work
-                    </span>
-
-                    <h2>
-                        Strategy translated into action.
-                    </h2>
-
-                    <p>
-                        Selected engagements demonstrating how Eightplus brings strategic
-                        direction and managed execution together.
-                    </p>
-
+                    <span class="ep-eyebrow">Selected Impact</span>
+                    <h2>Delivering clear results for ambitious organisations.</h2>
                 </div>
-
-
                 <div class="ep-work-grid">
 
-                    <article class="ep-work-card">
-
+                    <div class="ep-work-card">
                         <div class="ep-work-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
-                                alt="Business team collaborating during a communications project"
-                                loading="lazy"
-                            >
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Executive Masterclass Session">
                         </div>
-
                         <div class="ep-work-body">
-
-                            <span class="ep-work-client">
-                                PAYZ
-                            </span>
-
-                            <h3>
-                                Six-Month Communications Transformation
-                            </h3>
-
-                            <p>
-                                Institutional rebrand, digital channel management and
-                                structured campaign rollout supporting direct growth
-                                in membership sign-ups.
-                            </p>
-
-                            <a href="case-studies.html" class="ep-work-link">
-                                Read the case study →
-                            </a>
-
+                            <span class="ep-work-client">Financial Insights &amp; ACI Zambia</span>
+                            <h3>Executive Communications Masterclass</h3>
+                            <p>Delivered specialized strategic communications training for financial sector professionals and corporate leaders.</p>
+                            <a href="work.html" class="ep-work-link">Read Case Study &rarr;</a>
                         </div>
+                    </div>
 
-                    </article>
-
-
-                    <article class="ep-work-card">
-
+                    <div class="ep-work-card">
                         <div class="ep-work-image">
-                            <img
-                                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
-                                alt="Corporate training and executive communications session"
-                                loading="lazy"
-                            >
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80" alt="Brand Strategy and Digital Media">
                         </div>
-
                         <div class="ep-work-body">
-
-                            <span class="ep-work-client">
-                                Financial Insights Zambia × Eightplus Media
-                            </span>
-
-                            <h3>
-                                Executive Communications Masterclass
-                            </h3>
-
-                            <p>
-                                Executive preparation and strategic communications training
-                                designed for corporate and financial leadership.
-                            </p>
-
-                            <a href="case-studies.html" class="ep-work-link">
-                                Read the case study →
-                            </a>
-
+                            <span class="ep-work-client">PAYZ Strategic Campaign</span>
+                            <h3>Brand Rebrand &amp; Stakeholder Growth</h3>
+                            <p>Executed a high-impact digital takeover and rebrand campaign driving increased membership sign-ups and stakeholder invitations.</p>
+                            <a href="work.html" class="ep-work-link">Read Case Study &rarr;</a>
                         </div>
-
-                    </article>
+                    </div>
 
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             DIFFERENTIATOR
-             ====================================================== -->
-
+        <!-- DIFFERENTIATOR SECTION -->
         <section class="ep-difference">
-
             <div class="ep-difference-inner">
-
                 <div class="ep-difference-heading">
-
-                    <span class="ep-eyebrow">
-                        Why Eightplus
-                    </span>
-
-                    <h2>
-                        One engagement. Multiple capabilities. One clear direction.
-                    </h2>
-
-                    <p>
-                        You shouldn't have to coordinate individual specialists yourself.
-                        Eightplus provides a single strategic partner responsible for
-                        direction, quality and delivery.
-                    </p>
-
+                    <span class="ep-eyebrow">The Difference</span>
+                    <h2>Advisory-first thinking. Built for clarity.</h2>
+                    <p>We move beyond traditional agency models to deliver senior-level focus, strategic direction, and nimble execution.</p>
                 </div>
-
-
                 <div class="ep-difference-grid">
-
-                    <article class="ep-difference-item">
-
-                        <h3>
-                            Wholly Aligned Framework™
-                        </h3>
-
-                        <p>
-                            Our approach aligns strategy, reputation and communication
-                            directly with your primary business objectives.
-                        </p>
-
-                    </article>
-
-
-                    <article class="ep-difference-item">
-
-                        <h3>
-                            Single-Point Oversight
-                        </h3>
-
-                        <p>
-                            Eightplus remains responsible for strategic direction,
-                            quality control, coordination and delivery.
-                        </p>
-
-                    </article>
-
-
-                    <article class="ep-difference-item">
-
-                        <h3>
-                            Scalable Capability
-                        </h3>
-
-                        <p>
-                            Specialist teams expand or contract around project requirements,
-                            giving you the capability the work actually needs.
-                        </p>
-
-                    </article>
-
+                    <div class="ep-difference-item">
+                        <h3>Strategy Over Volume</h3>
+                        <p>We prioritize clear, high-impact strategies over vanity metrics and unnecessary output.</p>
+                    </div>
+                    <div class="ep-difference-item">
+                        <h3>Senior Engagement</h3>
+                        <p>You work directly with strategic leads who understand business realities and executive priorities.</p>
+                    </div>
+                    <div class="ep-difference-item">
+                        <h3>Flexible Scale</h3>
+                        <p>Our agile agency model brings in elite specialized talent precisely when and where it's needed.</p>
+                    </div>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             SECTORS
-             ====================================================== -->
-
+        <!-- SECTORS SECTION -->
         <section class="ep-sectors">
-
             <div class="ep-sectors-inner">
-
                 <div class="ep-sectors-heading">
-
-                    <span class="ep-eyebrow">
-                        Where We Work
-                    </span>
-
-                    <h2>
-                        Built for organisations navigating complexity.
-                    </h2>
-
+                    <h2>Sectors We Serve</h2>
                 </div>
-
-
                 <div class="ep-sector-list">
-
-                    <span class="ep-sector">
-                        Financial Services
-                    </span>
-
-                    <span class="ep-sector">
-                        Fintech
-                    </span>
-
-                    <span class="ep-sector">
-                        Mining &amp; Extractives
-                    </span>
-
-                    <span class="ep-sector">
-                        Non-Profit &amp; Development
-                    </span>
-
-                    <span class="ep-sector">
-                        FMCG
-                    </span>
-
-                    <span class="ep-sector">
-                        Professional Services
-                    </span>
-
+                    <span class="ep-sector">Financial Services</span>
+                    <span class="ep-sector">Technology &amp; ICT</span>
+                    <span class="ep-sector">Corporate &amp; Professional Services</span>
+                    <span class="ep-sector">Non-Profit &amp; Development</span>
+                    <span class="ep-sector">Public Sector Advisory</span>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =====================================================
-             FINAL CTA
-             ====================================================== -->
-
+        <!-- FINAL CTA SECTION -->
         <section class="ep-final-cta">
-
             <div class="ep-final-cta-inner">
-
-                <span class="ep-eyebrow">
-                    Start a Conversation
-                </span>
-
-                <h2>
-                    Have a complex communications challenge?
-                </h2>
-
-                <p>
-                    Tell us what you're trying to achieve. We'll determine the strategic
-                    approach, identify the capabilities required and build the right team
-                    around the work.
-                </p>
-
-                <a
-                    href="contact.html"
-                    class="ep-hero-button ep-hero-button-primary"
-                >
-                    Start a conversation →
-                </a>
-
+                <span class="ep-eyebrow">Get In Touch</span>
+                <h2>Ready to bring clarity to your organization's voice?</h2>
+                <p>Let's discuss how strategic communications can support your business objectives and protect your reputation.</p>
+                <div class="ep-hero-actions" style="justify-content: center;">
+                    <a href="contact.html" class="ep-hero-button ep-hero-button-primary">Start a conversation</a>
+                </div>
             </div>
-
         </section>
 
     </main>
 
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
 
-    <!-- =========================================================
-         HERO SLIDER + NAVIGATION SCRIPT
-         ========================================================= -->
-
+    <!-- JAVASCRIPT CONTROLLERS -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            /* ----------------------------------------------------
+               1. HERO SLIDER CONTROLLER
+               ---------------------------------------------------- */
+            const slides = document.querySelectorAll('.ep-hero-slide');
+            const dots = document.querySelectorAll('.ep-hero-dot');
+            let currentIndex = 0;
+            const slideInterval = 6000;
+            let timer;
 
-            /* ---------- NAVBAR ---------- */
-
-            async function loadNavbar() {
-
-                const container =
-                    document.getElementById("navbar-placeholder");
-
-                if (!container) return;
-
-                try {
-
-                    const response = await fetch("navbar.html");
-
-                    if (!response.ok) {
-                        throw new Error("Navbar failed to load");
+            function goToSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.add('is-active');
+                    } else {
+                        slide.classList.remove('is-active');
                     }
-
-                    container.innerHTML = await response.text();
-
-                    const activeLink =
-                        container.querySelector('a[href="index.html"]');
-
-                    if (activeLink) {
-                        activeLink.classList.add("active");
-                    }
-
-                    const toggleBtn =
-                        document.getElementById("navToggle");
-
-                    const navMenu =
-                        document.getElementById("navLinks");
-
-                    if (toggleBtn && navMenu) {
-
-                        toggleBtn.addEventListener("click", function () {
-
-                            const isExpanded =
-                                toggleBtn.getAttribute("aria-expanded") === "true";
-
-                            toggleBtn.setAttribute(
-                                "aria-expanded",
-                                String(!isExpanded)
-                            );
-
-                            navMenu.classList.toggle("is-active");
-
-                        });
-
-                    }
-
-                } catch (error) {
-
-                    console.warn(
-                        "Navbar could not be loaded:",
-                        error
-                    );
-
-                }
-
-            }
-
-
-            /* ---------- HERO SLIDER ---------- */
-
-            const slides =
-                document.querySelectorAll(".ep-hero-slide");
-
-            const dots =
-                document.querySelectorAll(".ep-hero-dot");
-
-            if (!slides.length) return;
-
-            let currentSlide = 0;
-            let slideTimer = null;
-
-            function showSlide(index) {
-
-                currentSlide =
-                    (index + slides.length) % slides.length;
-
-                slides.forEach(function (slide, i) {
-
-                    slide.classList.toggle(
-                        "is-active",
-                        i === currentSlide
-                    );
-
                 });
 
-                dots.forEach(function (dot, i) {
-
-                    const isActive =
-                        i === currentSlide;
-
-                    dot.classList.toggle(
-                        "is-active",
-                        isActive
-                    );
-
-                    dot.setAttribute(
-                        "aria-current",
-                        isActive ? "true" : "false"
-                    );
-
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('is-active');
+                        dot.setAttribute('aria-current', 'true');
+                    } else {
+                        dot.classList.remove('is-active');
+                        dot.setAttribute('aria-current', 'false');
+                    }
                 });
 
+                currentIndex = index;
             }
 
-
-            function startSlider() {
-
-                stopSlider();
-
-                slideTimer = setInterval(function () {
-
-                    showSlide(currentSlide + 1);
-
-                }, 6000);
-
+            function nextSlide() {
+                const next = (currentIndex + 1) % slides.length;
+                goToSlide(next);
             }
 
-
-            function stopSlider() {
-
-                if (slideTimer) {
-
-                    clearInterval(slideTimer);
-
-                    slideTimer = null;
-
-                }
-
+            function startTimer() {
+                timer = setInterval(nextSlide, slideInterval);
             }
 
+            function resetTimer() {
+                clearInterval(timer);
+                startTimer();
+            }
 
-            dots.forEach(function (dot) {
-
-                dot.addEventListener("click", function () {
-
-                    const index =
-                        Number(dot.dataset.slide);
-
-                    showSlide(index);
-
-                    startSlider();
-
+            dots.forEach((dot) => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
+                    goToSlide(slideIndex);
+                    resetTimer();
                 });
-
             });
 
+            startTimer();
 
-            const hero =
-                document.querySelector(".ep-hero");
+            /* ----------------------------------------------------
+               2. CAPABILITIES HORIZONTAL SLIDER CONTROLLER
+               ---------------------------------------------------- */
+            const trackWrapper = document.getElementById('capTrackWrapper');
+            const prevBtn = document.getElementById('capPrevBtn');
+            const nextBtn = document.getElementById('capNextBtn');
 
-            if (hero) {
+            if (trackWrapper && prevBtn && nextBtn) {
+                const scrollAmount = 450;
 
-                hero.addEventListener(
-                    "mouseenter",
-                    stopSlider
-                );
+                prevBtn.addEventListener('click', function() {
+                    trackWrapper.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
 
-                hero.addEventListener(
-                    "mouseleave",
-                    startSlider
-                );
-
+                nextBtn.addEventListener('click', function() {
+                    trackWrapper.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
             }
-
-
-            document.addEventListener(
-                "visibilitychange",
-                function () {
-
-                    if (document.hidden) {
-
-                        stopSlider();
-
-                    } else {
-
-                        startSlider();
-
-                    }
-
-                }
-            );
-
-
-            loadNavbar();
-            showSlide(0);
-            startSlider();
-
         });
     </script>
 
 </body>
 </html>
-```
