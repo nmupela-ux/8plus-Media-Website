@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Takeover | Eightplus Media</title>
+    <meta name="description" content="Bringing the people behind the profession into the room. Bridging classroom theory and real-world communications practice.">
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- CUSTOM INDUSTRY TAKEOVER STYLES -->
+    <style>
+        /* Hero Section */
+        .takeover-hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #071b33 0%, #0f172a 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .takeover-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(2, 132, 199, 0.18) 0%, rgba(7, 27, 51, 0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(125, 211, 252, 0.1);
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            color: #7dd3fc;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.825rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            color: #7dd3fc;
+        }
+
+        .hero-lead {
+            font-size: 1.2rem;
+            line-height: 1.65;
+            color: #cbd5e1;
+            max-width: 820px;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Generic Section Headers */
+        .page-section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: #f8fafc;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #0284c7;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 760px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* 2-Column Classroom Split */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .split-text h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .split-text p {
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .questions-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .question-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0284c7;
+            padding: 18px 20px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .question-item:hover {
+            transform: translateX(6px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06);
+        }
+
+        .question-item h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+        }
+
+        .question-item p {
+            font-size: 0.925rem;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* UNZA Spotlight Showcase */
+        .spotlight-box {
+            background: linear-gradient(135deg, #071b33 0%, #1e293b 100%);
+            border-radius: 20px;
+            padding: 56px;
+            color: #ffffff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+        }
+
+        .spotlight-header {
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .spotlight-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .spotlight-header p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* Speaker Cards Grid */
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .speaker-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #7dd3fc;
+        }
+
+        .speaker-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #1e293b;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px dashed #475569;
+        }
+
+        .speaker-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .speaker-role {
+            font-size: 0.825rem;
+            color: #7dd3fc;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+
+        .spotlight-footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Formats / Offerings Grid */
+        .grid {
+            display: grid;
+            gap: 28px;
+        }
+
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+        .format-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .format-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: #0284c7;
+            transition: width 0.3s ease;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .format-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .format-card:hover::before {
+            width: 100%;
+        }
+
+        .format-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .format-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Principal Invitation Booking Section */
+        .invite-section {
+            background: #071b33;
+            color: #ffffff;
+            padding: 90px 0;
+        }
+
+        .invite-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .invite-text h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .invite-text p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .invite-form {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 36px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.825rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #ffffff;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            transition: border-color 0.25s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #7dd3fc;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary { background-color: #0284c7; color: #ffffff; }
+        .btn-primary:hover { background-color: #0369a1; }
+
+        .btn-secondary { background-color: rgba(255,255,255,0.1); color: #ffffff; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-secondary:hover { background-color: rgba(255,255,255,0.2); }
+
+        .btn-full { width: 100%; }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .split-container, .invite-box { grid-template-columns: 1fr; gap: 40px; }
+            .speaker-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .speaker-grid { grid-template-columns: 1fr; }
+            .spotlight-box { padding: 28px; }
+            .invite-form { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR INJECTION PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- 1. HERO SECTION -->
+        <section class="takeover-hero">
+            <div class="container">
+                <span class="hero-badge">Eightplus Campus Initiative</span>
+                <h1 class="hero-title">Bringing the people behind the <span>profession</span> into the room.</h1>
+                <p class="hero-lead">
+                    What does a career in communications actually look like? Beyond job titles, LinkedIn profiles, and university course descriptions is an industry made up of writers, strategists, journalists, designers, researchers, producers, digital specialists, corporate affairs professionals, and public relations practitioners.
+                </p>
+                <div class="hero-actions">
+                    <a href="#invite" class="btn btn-primary">Invite Eightplus To Your Institution</a>
+                    <a href="#unza-spotlight" class="btn btn-secondary">Explore Campus Impact &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FROM CLASSROOM TO INDUSTRY (SPLIT LAYOUT) -->
+        <section class="page-section">
+            <div class="container">
+                <div class="split-container">
+                    <div class="split-text">
+                        <span class="section-tag"> Bridging Classroom &amp; Career</span>
+                        <h2>From the classroom to the industry.</h2>
+                        <p>
+                            Career choices become easier to imagine when students can see the people doing the work. Industry Takeover gives students direct access to practitioners and industry experts who share their experiences, explain the realities of their fields, and open up conversations that don't always happen in the lecture hall.
+                        </p>
+                        <p>
+                            An Eightplus initiative designed to help students and emerging professionals see where their education can take them — and meet the people shaping the field today.
+                        </p>
+                    </div>
+
+                    <div class="questions-list">
+                        <div class="question-item">
+                            <h4>What careers exist within communications?</h4>
+                            <p>From strategic comms and PR to journalism, digital, creative, corporate affairs, public affairs, and research.</p>
+                        </div>
+                        <div class="question-item">
+                            <h4>What does the work actually involve?</h4>
+                            <p>Because the job description rarely tells the whole story of daily industry execution.</p>
+                        </div>
+                        <div class="question-item">
+                            <h4>What skills matter once you enter?</h4>
+                            <p>Technical skills matter. So do judgment, curiosity, writing, research, collaboration, and human understanding.</p>
+                        </div>
+                        <div class="question-item">
+                            <h4>How do you get started?</h4>
+                            <p>Honest dialogue on entering the industry, building experience, finding opportunities, and navigating early careers.</p>
+                        </div>
+                        <div class="question-item">
+                            <h4>Where is the profession going?</h4>
+                            <p>Navigating how AI, data, technology, and evolving media landscapes are actively reshaping our field.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. UNZA CASE STUDY SPOTLIGHT -->
+        <section id="unza-spotlight" class="page-section section-alt">
+            <div class="container">
+                <div class="spotlight-box">
+                    <div class="spotlight-header">
+                        <span class="section-tag" style="color: #7dd3fc;">Featured Takeover</span>
+                        <h2>Industry Takeover: University of Zambia (UNZA)</h2>
+                        <p>
+                            Earlier this year, Eightplus brought communications practitioners together with students at the University of Zambia for an open conversation about careers, industry realities, and the many paths available within communications.
+                        </p>
+                    </div>
+
+                    <!-- Speaker Grid -->
+                    <div class="speaker-grid">
+                        <div class="speaker-card">
+                            <div class="speaker-photo">[ Speaker Photo ]</div>
+                            <div class="speaker-name">Featured Guest</div>
+                            <p class="speaker-role">Strategic PR / Corporate Comms</p>
+                        </div>
+
+                        <div class="speaker-card">
+                            <div class="speaker-photo">[ Speaker Photo ]</div>
+                            <div class="speaker-name">Featured Guest</div>
+                            <p class="speaker-role">Media &amp; Journalism</p>
+                        </div>
+
+                        <div class="speaker-card">
+                            <div class="speaker-photo">[ Speaker Photo ]</div>
+                            <div class="speaker-name">Featured Guest</div>
+                            <p class="speaker-role">Digital Strategy &amp; AI</p>
+                        </div>
+
+                        <div class="speaker-card">
+                            <div class="speaker-photo">[ Speaker Photo ]</div>
+                            <div class="speaker-name">Featured Guest</div>
+                            <p class="speaker-role">Public Affairs &amp; Governance</p>
+                        </div>
+                    </div>
+
+                    <div class="spotlight-footer">
+                        &mdash; More highlights and full media from the UNZA Industry Takeover coming soon. &mdash;
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. WHAT AN INDUSTRY TAKEOVER LOOKS LIKE (5 FORMAT CARDS) -->
+        <section class="page-section">
+            <div class="container">
+                <span class="section-tag">Flexible Session Formats</span>
+                <h2 class="section-title">What an Industry Takeover Can Look Like</h2>
+                <p class="section-desc">
+                    A conversation built around your students. Every Industry Takeover is custom-shaped around the host institution, student body, and specific academic theme.
+                </p>
+
+                <div class="grid grid-3" style="margin-bottom: 28px;">
+                    <div class="format-card">
+                        <h3>Careers in Communications</h3>
+                        <p>An introduction to the full breadth of careers available across communications, media, corporate affairs, public relations, digital, and creative industries.</p>
+                    </div>
+
+                    <div class="format-card">
+                        <h3>The Real World of Work</h3>
+                        <p>Practitioners share what their work actually involves day-to-day, what they wish they had known earlier, and what employers look for beyond academic qualifications.</p>
+                    </div>
+
+                    <div class="format-card">
+                        <h3>The Future of Communication</h3>
+                        <p>A forward-looking conversation about AI, data, technology, changing audience dynamics, and the modern capabilities future professionals need.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="format-card">
+                        <h3>From Student to Professional</h3>
+                        <p>Practical guidance on building experience, developing a personal professional identity, finding opportunities, and successfully making the transition into the workplace.</p>
+                    </div>
+
+                    <div class="format-card">
+                        <h3>Industry Spotlights</h3>
+                        <p>Focused sessions bringing specialists from specific sectors — such as mining, finance, tech, media, or creative industries — into direct conversation with students.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. VALUE PROPOSITION FOR INSTITUTIONS -->
+        <section class="page-section section-alt">
+            <div class="container" style="text-align: center; max-width: 860px; margin: 0 auto;">
+                <span class="section-tag">Institutional Impact</span>
+                <h2 class="section-title">More Than a Career Talk</h2>
+                <p style="font-size: 1.15rem; color: #475569; line-height: 1.7; margin-bottom: 24px;">
+                    We believe students need more than general inspiration — they need access, context, and honest information. That’s why Industry Takeover is built around real practitioners and candid conversations.
+                </p>
+                <p style="font-size: 1.05rem; color: #64748b; line-height: 1.65; margin: 0;">
+                    For institutions, it is an effortless way to bring current industry knowledge into the learning environment, enhance graduate employability, and connect students with professionals actively shaping the field.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. INVITATION FORM SECTION FOR PRINCIPALS / FACULTY -->
+        <section id="invite" class="invite-section">
+            <div class="container">
+                <div class="invite-box">
+                    <div class="invite-text">
+                        <span class="section-tag" style="color: #7dd3fc;">Bring Us To Campus</span>
+                        <h2>Bring Industry Takeover to your institution.</h2>
+                        <p>
+                            Whether you represent a university, college, professional institute, or learning community, we can design an Industry Takeover tailored to your students and curriculum.
+                        </p>
+                        <p style="font-size: 0.95rem; color: #94a3b8;">
+                            &check; Custom Session Formats &nbsp;|&nbsp; &check; Experienced Guest Speakers &nbsp;|&nbsp; &check; Turnkey Logistics
+                        </p>
+                    </div>
+
+                    <div class="invite-form">
+                        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for reaching out! The Eightplus team will be in touch with your institution shortly.');">
+                            <div class="form-group">
+                                <label for="inst-name">Institution Name</label>
+                                <input type="text" id="inst-name" class="form-input" placeholder="e.g. University of Zambia" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dept-name">Faculty / Department</label>
+                                <input type="text" id="dept-name" class="form-input" placeholder="e.g. Department of Media & Communication Studies" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Contact Email</label>
+                                <input type="email" id="contact-email" class="form-input" placeholder="principal@institution.edu" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="session-focus">Preferred Theme / Focus</label>
+                                <select id="session-focus" class="form-select">
+                                    <option value="careers">Careers in Communications</option>
+                                    <option value="real-world">The Real World of Work</option>
+                                    <option value="future">The Future of Communication &amp; AI</option>
+                                    <option value="transition">From Student to Professional</option>
+                                    <option value="spotlight">Sector Industry Spotlight</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full" style="margin-top: 8px;">Invite Eightplus To Campus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- NAVBAR INJECTION SCRIPT -->
+    <script src="./navbar.js" defer></script>
+</body>
+</html>
