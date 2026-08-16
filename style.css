@@ -74,6 +74,17 @@ button, input, textarea, select {
     color: inherit;
 }
 
+/* GLOBAL NAVBAR & LOGO LOCK */
+.navbar .logo img,
+.nav-brand img,
+#navbar-placeholder img {
+    height: 40px !important; /* Adjust height to match your brand style (35px - 45px) */
+    width: auto !important;
+    max-width: 180px !important;
+    object-fit: contain;
+    display: block;
+}
+
 /* ==========================================================================
    3. TYPOGRAPHY & REUSABLE UTILITIES
    ========================================================================== */
