@@ -1,1 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Newsroom | Eightplus Media</title>
+    <meta name="description" content="What's happening. What matters. What we're watching. Curated communications intelligence and Eightplus perspectives.">
+    <link rel="stylesheet" href="./style.css">
 
+    <!-- NEWSROOM CUSTOM STYLES -->
+    <style>
+        .newsroom-hero {
+            padding: 90px 0 50px;
+            background: #071b33;
+            color: #ffffff;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #7dd3fc;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .newsroom-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .newsroom-sub {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 0;
+        }
+
+        /* Category Filter Nav */
+        .filter-nav-wrap {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .filter-nav {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 4px;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .filter-nav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-size: 0.825rem;
+            font-weight: 700;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn:hover {
+            border-color: #0284c7;
+            color: #0284c7;
+        }
+
+        .filter-btn.active {
+            background: #071b33;
+            color: #ffffff;
+            border-color: #071b33;
+        }
+
+        /* Featured Story Card */
+        .featured-section {
+            padding: 60px 0 40px;
+        }
+
+        .featured-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .featured-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 340px;
+        }
+
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.825rem;
+        }
+
+        .card-category {
+            font-weight: 800;
+            color: #0284c7;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-source {
+            color: #64748b;
+        }
+
+        .featured-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .featured-excerpt {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .read-link {
+            font-weight: 700;
+            color: #0284c7;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .read-link:hover {
+            color: #0369a1;
+            text-decoration: underline;
+        }
+
+        /* Article Grid */
+        .grid-section {
+            padding: 40px 0 80px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .news-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f1f5f9;
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .card-excerpt {
+            font-size: 0.925rem;
+            color: #64748b;
+            line-height: 1.55;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Podcast Coming Soon Banner */
+        .podcast-banner {
+            background: linear-gradient(135deg, #071b33 0%, #0f172a 100%);
+            border-radius: 20px;
+            padding: 56px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+
+        .podcast-text h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .podcast-text p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .podcast-badge {
+            background: rgba(125, 211, 252, 0.1);
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            color: #7dd3fc;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .no-articles {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 0;
+            color: #64748b;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .featured-card { grid-template-columns: 1fr; }
+            .news-grid { grid-template-columns: repeat(2, 1fr); }
+            .podcast-banner { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 600px) {
+            .news-grid { grid-template-columns: 1fr; }
+            .newsroom-title { font-size: 2.1rem; }
+            .podcast-banner { padding: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR INJECTION PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- 1. HERO -->
+        <section class="newsroom-hero">
+            <div class="container">
+                <span class="hero-tag">Eightplus Intelligence &amp; Editorial</span>
+                <h1 class="newsroom-title">The Eightplus Newsroom</h1>
+                <p class="newsroom-sub">What's happening. What matters. What we're watching.</p>
+            </div>
+        </section>
+
+        <!-- 2. STICKY CATEGORY FILTER BAR -->
+        <div class="filter-nav-wrap">
+            <div class="container">
+                <div class="filter-nav">
+                    <button class="filter-btn active" data-category="ALL">All</button>
+                    <button class="filter-btn" data-category="EIGHTPLUS">Eightplus</button>
+                    <button class="filter-btn" data-category="COMMUNICATIONS">Communications</button>
+                    <button class="filter-btn" data-category="BUSINESS">Business</button>
+                    <button class="filter-btn" data-category="MINING">Mining</button>
+                    <button class="filter-btn" data-category="TECHNOLOGY">Technology</button>
+                    <button class="filter-btn" data-category="CULTURE">Culture</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. FEATURED STORY -->
+        <section class="featured-section">
+            <div class="container" id="featured-story-container">
+                <!-- Dynamically rendered via newsroom.js -->
+            </div>
+        </section>
+
+        <!-- 4. ARTICLES GRID -->
+        <section class="grid-section">
+            <div class="container">
+                <div class="news-grid" id="articles-grid">
+                    <!-- Dynamically rendered via newsroom.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PODCAST COMING SOON STRIP -->
+        <section>
+            <div class="container">
+                <div class="podcast-banner">
+                    <div class="podcast-text">
+                        <h2>The Eightplus Podcast</h2>
+                        <p>Conversations worth having with leaders, practitioners, and change-makers shaping strategic communications.</p>
+                    </div>
+                    <div>
+                        <span class="podcast-badge">&bull; Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="./navbar.js" defer></script>
+    <script src="./newsroom-data.js" defer></script>
+    <script src="./newsroom.js" defer></script>
+</body>
+</html>
