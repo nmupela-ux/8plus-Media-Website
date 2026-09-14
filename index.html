@@ -216,191 +216,153 @@
             color: var(--color-muted, #64748b);
         }
 
-        /* ---------- WHAT WE DO (FULL-WIDTH INTERACTIVE HORIZONTAL SLIDER) ---------- */
+        /* ---------- WHAT WE DO (SLIDER WITH OVERLAY ARROWS) ---------- */
 
-        .ep-capabilities-slider-section {
-            padding: 100px 0;
-            background: #ffffff;
-            overflow: hidden;
-        }
+.ep-capabilities-slider-section {
+    position: relative;
+    padding: 100px 0;
+    background: #ffffff;
+    overflow: hidden;
+}
 
-        .ep-capabilities-header {
-            max-width: 1120px;
-            margin: 0 auto 48px;
-            padding: 0 24px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 24px;
-        }
+.ep-capabilities-header {
+    max-width: 1120px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+}
 
-        .ep-capabilities-header-text h2 {
-            margin: 0 0 12px;
-            color: var(--color-heading, #0f172a);
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-        }
+.ep-capabilities-header-text h2 {
+    margin: 0 0 12px;
+    color: var(--color-heading, #0f172a);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
 
-        .ep-capabilities-header-text p {
-            margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 1.02rem;
-            line-height: 1.7;
-            max-width: 600px;
-        }
+.ep-capabilities-header-text p {
+    margin: 0;
+    color: var(--color-muted, #64748b);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    max-width: 600px;
+}
 
-        .ep-slider-arrows {
-            display: flex;
-            gap: 12px;
-        }
+/* Container for relative positioning of overlay arrows */
+.ep-capabilities-carousel-container {
+    position: relative;
+    width: 100%;
+}
 
-        .ep-slider-arrow {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 1px solid var(--color-border, #cbd5e1);
-            background: #ffffff;
-            color: var(--color-heading, #0f172a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-size: 1.2rem;
-        }
+/* Floating Arrows Over the Card Media (Image Level) */
+.ep-slider-arrow {
+    position: absolute;
+    top: 120px; /* Center aligned with the 240px high card images */
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(7, 27, 51, 0.75);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-        .ep-slider-arrow:hover {
-            background: var(--color-heading, #0f172a);
-            color: #ffffff;
-            border-color: var(--color-heading, #0f172a);
-        }
+.ep-slider-arrow-prev {
+    left: max(16px, calc((100vw - 1120px) / 2));
+}
 
-        /* Horizontal Carousel Container */
-        .ep-carousel-track-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding: 10px 0 30px;
-        }
+.ep-slider-arrow-next {
+    right: max(16px, calc((100vw - 1120px) / 2));
+}
 
-        .ep-carousel-track-wrapper::-webkit-scrollbar {
-            display: none;
-        }
+.ep-slider-arrow:hover {
+    background: #071b33;
+    color: #7dd3fc;
+    border-color: #7dd3fc;
+    transform: translateY(-50%) scale(1.08);
 
-        .ep-carousel-track {
-            display: flex;
-            gap: 30px;
-            padding-left: max(24px, calc((100vw - 1120px) / 2));
-            padding-right: max(24px, calc((100vw - 1120px) / 2));
-            width: max-content;
-        }
+    <!-- WHAT WE DO (FULL-WIDTH INTERACTIVE SLIDER) -->
+<section class="ep-capabilities-slider-section">
+    <div class="ep-capabilities-header">
+        <div class="ep-capabilities-header-text">
+            <span class="ep-eyebrow">What We Do</span>
+            <h2>Capabilities built for trust, authority, and transformation.</h2>
+            <p>Discover how our advisory services help leadership teams and organisations navigate high-stakes moments.</p>
+        </div>
+    </div>
 
-        /* Individual Capability Slide Card */
-        .ep-cap-slide {
-            flex: 0 0 420px;
-            scroll-snap-align: start;
-            background: #ffffff;
-            border: 1px solid var(--color-border, #e2e8f0);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    <!-- Carousel Container with Overlay Navigation -->
+    <div class="ep-capabilities-carousel-container">
+        <button class="ep-slider-arrow ep-slider-arrow-prev" id="capPrevBtn" aria-label="Previous capabilities slide">&#x2190;</button>
+        <button class="ep-slider-arrow ep-slider-arrow-next" id="capNextBtn" aria-label="Next capabilities slide">&#x2192;</button>
 
-        .ep-cap-slide:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+        <!-- Horizontal Track -->
+        <div class="ep-carousel-track-wrapper" id="capTrackWrapper">
+            <div class="ep-carousel-track">
 
-        .ep-cap-media {
-            height: 240px;
-            position: relative;
-            overflow: hidden;
-            background: #071b33;
-        }
+                <!-- Slide 1 -->
+                <article class="ep-cap-slide">
+                    <div class="ep-cap-media">
+                        <span class="ep-cap-num">01 / ADVISORY</span>
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Strategic Communications Advisory">
+                    </div>
+                    <div class="ep-cap-content">
+                        <h3>Strategic Advisory</h3>
+                        <p>Messaging architecture, corporate positioning, and long-term narrative direction for high-stakes business environments.</p>
+                        <div class="ep-cap-tags">
+                            <span class="ep-cap-tag">Brand Architecture</span>
+                            <span class="ep-cap-tag">Narrative</span>
+                        </div>
+                        <a href="services.html#strategic-advisory" class="ep-cap-link">Explore capability &rarr;</a>
+                    </div>
+                </article>
 
-        .ep-cap-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+                <!-- Slide 2 -->
+                <article class="ep-cap-slide">
+                    <div class="ep-cap-media">
+                        <span class="ep-cap-num">02 / EXECUTIVE</span>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Executive Communications">
+                    </div>
+                    <div class="ep-cap-content">
+                        <h3>Executive Positioning</h3>
+                        <p>Thought leadership, keynotes, and executive communications coaching that establishes C-suite authority and trust.</p>
+                        <div class="ep-cap-tags">
+                            <span class="ep-cap-tag">C-Suite</span>
+                            <span class="ep-cap-tag">Speechwriting</span>
+                        </div>
+                        <a href="services.html#executive-positioning" class="ep-cap-link">Explore capability &rarr;</a>
+                    </div>
+                </article>
 
-        .ep-cap-slide:hover .ep-cap-media img {
-            transform: scale(1.05);
-        }
+                <!-- Slide 3 -->
+                <article class="ep-cap-slide">
+                    <div class="ep-cap-media">
+                        <span class="ep-cap-num">03 / EDITORIAL</span>
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Corporate Publications">
+                    </div>
+                    <div class="ep-cap-content">
+                        <h3>Corporate Publications</h3>
+                        <p>High-impact annual reports, ESG disclosures, and thought leadership collateral built for institutional clarity.</p>
+                        <div class="ep-cap-tags">
+                            <span class="ep-cap-tag">Reports</span>
+                            <span class="ep-cap-tag">Editorial Design</span>
+                        </div>
+                        <a href="services.html#corporate-publications" class="ep-cap-link">Explore capability &rarr;</a>
+                    </div>
+                </article>
 
-        .ep-cap-num {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: rgba(7, 27, 51, 0.85);
-            backdrop-filter: blur(4px);
-            color: #7dd3fc;
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 4px;
-            letter-spacing: 0.08em;
-        }
-
-        .ep-cap-content {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .ep-cap-content h3 {
-            margin: 0 0 12px;
-            color: var(--color-heading, #0f172a);
-            font-size: 1.35rem;
-            line-height: 1.3;
-        }
-
-        .ep-cap-content p {
-            margin: 0 0 24px;
-            color: var(--color-muted, #64748b);
-            font-size: 0.95rem;
-            line-height: 1.65;
-            flex-grow: 1;
-        }
-
-        .ep-cap-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .ep-cap-tag {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--color-primary, #2563eb);
-            background: #eff6ff;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
-        .ep-cap-link {
-            color: var(--color-heading, #0f172a);
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.25s ease;
-        }
-
-        .ep-cap-link:hover {
-            color: var(--color-primary, #2563eb);
-        }
+            </div>
+        </div>
+    </div>
+</section>
 
          /* ---------- HOW WE WORK (EDITORIAL NARRATIVE - NO CARDS) ---------- */
 
