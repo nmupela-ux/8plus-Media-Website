@@ -3,484 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Eightplus Media</title>
-    <meta name="description" content="Eightplus Media is an independent strategic communications consultancy based in Zambia. Advisory-led, editorially precise, locally fluent.">
+    <title>About | Eightplus Media</title>
+    <meta name="description" content="Eightplus is an independent strategic communications consultancy built in Zambia. Advisory-led, editorially precise, locally fluent.">
     <link rel="stylesheet" href="./style.css">
-
-    <!-- PAGE-SPECIFIC ABOUT STYLES -->
+    
     <style>
-        /* Hero Section */
-        .about-hero {
-            padding: 100px 0 60px;
-            background: #071b33;
-            color: #ffffff;
+        /* Base Typography & Editorial Setup */
+        :root {
+            --navy-deep: #071b33;
+            --navy-mid: #0f2847;
+            --slate-dark: #0f172a;
+            --slate-body: #334155;
+            --slate-muted: #64748b;
+            --accent-blue: #0284c7;
+            --accent-light: #7dd3fc;
+            --bg-light: #f8fafc;
+            --border-light: #e2e8f0;
         }
 
-        .hero-tag {
-            font-size: 0.85rem;
+        body {
+            color: var(--slate-body);
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        /* Generic Editorial Components */
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: #7dd3fc;
+            color: var(--accent-blue);
             margin-bottom: 16px;
-            display: block;
+        }
+        .eyebrow-light {
+            color: var(--accent-light);
         }
 
-        .about-hero h1 {
+        .editorial-section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .editorial-section.dark {
+            background-color: var(--navy-deep);
+            color: #ffffff;
+            border-bottom: none;
+        }
+
+        .editorial-section.alt-bg {
+            background-color: var(--bg-light);
+        }
+
+        .pull-quote {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--navy-deep);
+            letter-spacing: -0.02em;
+            padding-left: 24px;
+            border-left: 3px solid var(--accent-blue);
+            margin: 40px 0;
+        }
+        .dark .pull-quote {
+            color: #ffffff;
+            border-left-color: var(--accent-light);
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--navy-deep);
+            text-decoration: none;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+        .btn-link:hover {
+            color: var(--accent-blue);
+            transform: translateX(4px);
+        }
+        .dark .btn-link {
+            color: var(--accent-light);
+        }
+
+        /* 1. HERO */
+        .about-hero {
+            padding: 120px 0 80px;
+            background-color: var(--navy-deep);
+            color: #ffffff;
+            position: relative;
+        }
+        .hero-title {
             font-size: 3.25rem;
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.02em;
-            max-width: 850px;
+            max-width: 900px;
             margin-bottom: 24px;
         }
-
-        .about-hero p.lead {
+        .hero-lead {
             font-size: 1.25rem;
             color: #cbd5e1;
-            max-width: 760px;
+            max-width: 780px;
             line-height: 1.65;
+            margin-bottom: 40px;
         }
-
-        .pillars-badge-bar {
-            margin-top: 40px;
+        .hero-positioning {
             display: flex;
             gap: 24px;
             flex-wrap: wrap;
             padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .pillar-tag {
-            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.85rem;
             font-weight: 700;
-            color: #38bdf8;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            text-transform: uppercase;
         }
 
-        .pillar-tag::before {
-            content: "•";
-            color: #7dd3fc;
+        /* Grid Utilities */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
         }
 
-        /* Narrative & Section Layouts */
-        .section-padding {
-            padding: 90px 0;
-        }
-
-        .bg-light {
-            background-color: #f8fafc;
-        }
-
-        .section-header {
-            max-width: 700px;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
+        /* 2. WHY EIGHTPLUS */
+        .narrative-title {
             font-size: 2.25rem;
             font-weight: 800;
-            color: #071b33;
+            color: var(--navy-deep);
+            line-height: 1.2;
             letter-spacing: -0.01em;
-            margin-bottom: 12px;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Why Eightplus Block */
-        .why-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-left: 4px solid #0284c7;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px -10px rgba(7, 27, 51, 0.04);
-        }
-
-        .why-card p {
-            font-size: 1.1rem;
-            color: #334155;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* How We Work Grid (4 Steps) */
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .work-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 32px 24px;
-            position: relative;
-        }
-
-        .work-step-num {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #0284c7;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .work-card h3 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: #071b33;
-            margin-bottom: 12px;
-        }
-
-        .work-card p {
-            font-size: 0.95rem;
-            color: #475569;
-            line-height: 1.6;
-        }
-
-        /* People Section */
-        .people-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin-bottom: 48px;
-        }
-
-        .person-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .person-title-group h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #071b33;
-            margin-bottom: 4px;
-        }
-
-        .person-role {
-            font-size: 0.925rem;
-            font-weight: 700;
-            color: #0284c7;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .person-bio {
-            font-size: 0.975rem;
-            color: #334155;
-            line-height: 1.65;
             margin-bottom: 24px;
         }
 
-        .linkedin-link {
+        /* 3. WHOLLY ALIGNED */
+        .wholly-aligned-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(125, 211, 252, 0.2);
+            padding: 48px;
+            border-radius: 12px;
+        }
+
+        /* 4. CONTEXT OVER TEMPLATES */
+        .big-words {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-light);
+        }
+        .big-word-item {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: var(--navy-deep);
+            letter-spacing: 0.05em;
+        }
+
+        /* 5. OUR PEOPLE */
+        .person-profile {
+            padding-bottom: 48px;
+            margin-bottom: 48px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .person-profile:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .person-name {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 4px;
+        }
+        .person-role {
             font-size: 0.875rem;
             font-weight: 700;
-            color: #071b33;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .linkedin-link:hover {
-            color: #0284c7;
+        /* 6. THE NETWORK */
+        .network-graphic {
+            background-color: var(--navy-mid);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-
-        .network-banner {
-            background: #071b33;
+        .network-core {
+            display: inline-block;
+            background: var(--accent-blue);
             color: #ffffff;
-            border-radius: 16px;
-            padding: 48px;
+            font-weight: 800;
+            padding: 12px 24px;
+            border-radius: 30px;
+            margin-bottom: 32px;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+        .network-nodes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .network-node {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        /* 7. HOW WE WORK */
+        .process-line {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--navy-deep);
+            letter-spacing: 0.05em;
+        }
+        .process-arrow {
+            color: var(--accent-blue);
+        }
+
+        /* 8. WHAT WE BELIEVE */
+        .principles-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        .principle-item {
+            padding-top: 20px;
+            border-top: 2px solid var(--navy-deep);
+        }
+        .principle-num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .principle-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin-bottom: 8px;
+        }
+
+        /* 9. BUILT IN ZAMBIA */
+        .zambia-block {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
         }
 
-        .network-banner h3 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .network-banner p {
-            color: #cbd5e1;
-            line-height: 1.65;
-        }
-
-        /* What We Believe Grid */
-        .beliefs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .belief-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-        }
-
-        .belief-card p {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #071b33;
-            line-height: 1.45;;
-        }
-
-        /* Closing Statement */
-        .zambia-banner {
-            background: #f1f5f9;
-            border-radius: 16px;
-            padding: 48px;
+        /* 10. CLOSING CTA */
+        .closing-cta {
+            padding: 120px 0;
+            background-color: var(--navy-deep);
+            color: #ffffff;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
         }
-
-        .zambia-banner h3 {
-            font-size: 1.75rem;
+        .closing-cta h2 {
+            font-size: 3rem;
             font-weight: 800;
-            color: #071b33;
+            letter-spacing: -0.02em;
             margin-bottom: 16px;
         }
-
-        .zambia-banner p {
-            font-size: 1.1rem;
-            color: #475569;
-            line-height: 1.65;
-            max-width: 700px;
-            margin: 0 auto 28px;
+        .closing-cta p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto 36px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 16px 36px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
         }
 
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
-            .work-grid { grid-template-columns: repeat(2, 1fr); }
-            .beliefs-grid { grid-template-columns: repeat(2, 1fr); }
-            .people-grid, .network-banner { grid-template-columns: 1fr; }
-            .about-hero h1 { font-size: 2.5rem; }
-        }
-
-        @media (max-width: 600px) {
-            .work-grid, .beliefs-grid { grid-template-columns: 1fr; }
-            .about-hero h1 { font-size: 2rem; }
-            .section-padding { padding: 60px 0; }
+            .split-layout, .zambia-block { grid-template-columns: 1fr; gap: 32px; }
+            .principles-list { grid-template-columns: 1fr; gap: 24px; }
+            .hero-title { font-size: 2.5rem; }
+            .closing-cta h2 { font-size: 2.25rem; }
+            .big-words { flex-wrap: wrap; gap: 20px; }
+            .process-line { flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
 
-    <!-- GLOBAL NAVBAR PLACEHOLDER -->
+    <!-- NAVBAR INJECTION PLACEHOLDER -->
     <div id="navbar-placeholder"></div>
 
     <main>
-
         <!-- 1. HERO -->
         <section class="about-hero">
             <div class="container">
-                <span class="hero-tag">About Eightplus</span>
-                <h1>Strategic communication for organisations navigating complexity.</h1>
-                <p class="lead">Eightplus Media is an independent strategic communications consultancy based in Zambia. We help organisations communicate with greater clarity, coherence, and credibility — particularly where reputation, stakeholder relationships, sustainability, and public trust matter.</p>
-                <p class="lead" style="margin-top: 16px; font-size: 1.1rem; color: #94a3b8;">Our work sits between strategy and execution. We bring together strategic counsel, editorial thinking, creative production, and local understanding to help organisations navigate the moments that matter.</p>
-                
-                <div class="pillars-badge-bar">
-                    <span class="pillar-tag">Advisory-led</span>
-                    <span class="pillar-tag">Editorially precise</span>
-                    <span class="pillar-tag">Locally fluent</span>
+                <span class="eyebrow eyebrow-light">About Eightplus</span>
+                <h1 class="hero-title">Small by design. Connected by expertise.</h1>
+                <p class="hero-lead">
+                    Eightplus is an independent strategic communications consultancy built in Zambia for organisations working through change, complexity, growth and scrutiny. We keep our core deliberately small, bringing senior thinking close to the work while connecting clients to the right specialists when a brief calls for deeper expertise.
+                </p>
+                <div class="hero-positioning">
+                    <span>Advisory-Led</span> &bull;
+                    <span>Editorially Precise</span> &bull;
+                    <span>Locally Fluent</span>
                 </div>
             </div>
         </section>
 
         <!-- 2. WHY EIGHTPLUS -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <div class="section-header">
-                    <h2>WHY EIGHTPLUS</h2>
-                    <p>Communication is more than output.</p>
+        <section class="editorial-section">
+            <div class="container split-layout">
+                <div>
+                    <span class="eyebrow">Why We Built It</span>
+                    <h2 class="narrative-title">Communication should do more than fill channels.</h2>
                 </div>
-
-                <div class="why-card">
-                    <p>Organisations communicate constantly — through their leaders, employees, products, policies, customer interactions, media coverage, and the decisions they make.</p>
-                    <p>We believe effective communication starts before the message. It starts with understanding the context, the audience, the problem, and the outcome.</p>
-                    <p>That is why our work begins with alignment: bringing organisational intent, stakeholder expectations, and communication into closer relationship.</p>
+                <div>
+                    <p>Organisations are constantly communicating — through leaders, employees, customers, products, policies, decisions, media coverage and the experiences people have with them.</p>
+                    <p>Yet communication is often treated as an output problem: another campaign, another post, another press release, another presentation.</p>
+                    <p>Eightplus was built around a different view. The real work starts before the message.</p>
+                    <p>We want to understand what is happening, what the organisation is trying to achieve, who needs to move, what people already believe, and where the gaps are between intent and experience. From there, communication becomes more useful: not simply something an organisation produces, but something that helps people understand, trust and act.</p>
                     
-                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                        <div>
-                            <strong style="color: #071b33; display: block; font-size: 1.05rem;">The Wholly Aligned Framework™</strong>
-                            <span style="color: #64748b; font-size: 0.9rem;">The thinking behind our approach to corporate strategy and communications.</span>
-                        </div>
-                        <a href="index.html#framework" class="btn" style="background: #071b33; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem;">EXPLORE OUR APPROACH &rarr;</a>
+                    <div class="pull-quote">
+                        "The message is rarely the whole problem."
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. HOW WE WORK -->
-        <section class="section-padding">
+        <!-- 3. WHOLLY ALIGNED -->
+        <section class="editorial-section dark">
             <div class="container">
-                <div class="section-header">
-                    <h2>HOW WE WORK</h2>
-                    <p>Strategy should not end when the campaign launches.</p>
-                </div>
-
-                <div class="work-grid">
-                    <div class="work-card">
-                        <span class="work-step-num">01 / THINK</span>
-                        <h3>THINK</h3>
-                        <p>We investigate the context before jumping to execution. What is happening? Who matters? What are they saying? What does the evidence tell us?</p>
+                <div class="wholly-aligned-box split-layout">
+                    <div>
+                        <span class="eyebrow eyebrow-light">Our Approach</span>
+                        <h2 class="narrative-title" style="color: #ffffff;">Wholly Aligned.</h2>
+                        <a href="index.html#framework" class="btn-link" style="margin-top: 24px;">Explore Our Approach &rarr;</a>
                     </div>
-
-                    <div class="work-card">
-                        <span class="work-step-num">02 / ALIGN</span>
-                        <h3>ALIGN</h3>
-                        <p>We connect objectives, audiences, messages, and actions so that communication is working towards something meaningful.</p>
-                    </div>
-
-                    <div class="work-card">
-                        <span class="work-step-num">03 / CREATE</span>
-                        <h3>CREATE</h3>
-                        <p>We turn strategy into clear narratives, content, campaigns, experiences, and tools that people can actually engage with.</p>
-                    </div>
-
-                    <div class="work-card">
-                        <span class="work-step-num">04 / LEARN</span>
-                        <h3>LEARN</h3>
-                        <p>We look at what happened, what changed, and what the evidence tells us to do next.</p>
+                    <div>
+                        <p style="color: #cbd5e1;">Good communication does not sit separately from the organisation producing it. It connects leadership intent, business priorities, organisational reality, stakeholder expectations and the way people actually experience the organisation.</p>
+                        <p style="color: #cbd5e1;">Our Wholly Aligned Framework™ brings those dimensions into closer relationship — because when strategy, action and communication pull in different directions, people notice.</p>
+                        <p style="color: #cbd5e1;">Alignment is not about making everything sound the same. It is about making sure the organisation knows what it is trying to achieve, understands what needs to change, and communicates accordingly.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. OUR PEOPLE & NETWORK -->
-        <section class="section-padding bg-light">
+        <!-- 4. CONTEXT OVER TEMPLATES -->
+        <section class="editorial-section alt-bg">
+            <div class="container split-layout">
+                <div>
+                    <span class="eyebrow">What Makes The Work Different</span>
+                    <h2 class="narrative-title">Context over templates.</h2>
+                </div>
+                <div>
+                    <p>No two organisations arrive with the same problem. The sector matters. The market matters. The history matters. The audience matters. The politics, culture, timing and lived experience around an organisation matter too.</p>
+                    <p>So we don't start with a template and look for somewhere to put the organisation. We start with the situation.</p>
+                    <p>That means research, listening, questioning, evidence and judgement before deciding what communication should look like.</p>
+                    
+                    <div class="big-words">
+                        <span class="big-word-item">LISTEN.</span>
+                        <span class="big-word-item">UNDERSTAND.</span>
+                        <span class="big-word-item">RESPOND.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. OUR PEOPLE -->
+        <section class="editorial-section">
             <div class="container">
-                <div class="section-header">
-                    <h2>OUR PEOPLE</h2>
-                    <p>Small by design. Connected by expertise.</p>
+                <div style="max-width: 700px; margin-bottom: 60px;">
+                    <span class="eyebrow">Our People</span>
+                    <h2 class="narrative-title">A small core. A wider room.</h2>
+                    <p>Eightplus keeps its permanent core deliberately lean. We believe clients benefit from senior thinking staying close to the work — and from having access to people with the right expertise when the brief demands it.</p>
                 </div>
 
-                <div class="people-grid">
+                <div class="people-container">
                     <!-- Ndulwa Mupela -->
-                    <div class="person-card">
+                    <div class="person-profile split-layout">
                         <div>
-                            <div class="person-title-group">
-                                <h3>NDULWA MUPELA</h3>
-                                <span class="person-role">Founder &amp; Strategic Communications Lead</span>
-                            </div>
-                            <p class="person-bio">
-                                Ndulwa began her communications career as a writer and has spent the past decade working across writing and editing, agency environments, freelance consulting, and strategic communications leadership.<br><br>
-                                Her work spans strategic communications, stakeholder engagement, sustainability and impact reporting, internal communications, public-facing campaigns, and executive communications.<br><br>
-                                She founded Eightplus to build a communications practice that treats communication as a leadership and organisational function, rather than simply an output.<br><br>
-                                Her particular interest lies in the space where strategy, people, reputation, and impact intersect — helping organisations understand not only what they need to say, but what needs to be understood, aligned, and acted upon.
-                            </p>
+                            <h3 class="person-name">NDULWA MUPELA</h3>
+                            <span class="person-role">Founder &amp; Strategic Communications Lead</span>
+                            <a href="https://linkedin.com/in/ndulwamupela" target="_blank" rel="noopener" class="btn-link">Connect on LinkedIn &rarr;</a>
                         </div>
                         <div>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="linkedin-link">Connect on LinkedIn &rarr;</a>
+                            <p>Ndulwa's career began in writing and editing before moving through agency work, freelance consulting and strategic communications leadership.</p>
+                            <p>Her work has included corporate and executive communications, stakeholder engagement, sustainability and impact reporting, internal communications, public-facing campaigns, media engagement and reputation work across a range of sectors.</p>
+                            <p>Over time, one thing became increasingly clear: many communication problems are not really communication problems. They are questions of alignment, understanding, trust, organisational behaviour, stakeholder expectations or simply knowing what needs to move.</p>
+                            <p>She founded Eightplus to create a practice that could work at that level — bringing strategic thinking, editorial discipline and local context together without building an unnecessarily large agency around it.</p>
                         </div>
                     </div>
 
-                    <!-- Esnala Banda Placeholder -->
-                    <div class="person-card">
+                    <!-- Esnala Banda (Marked Content Placeholder) -->
+                    <div class="person-profile split-layout">
                         <div>
-                            <div class="person-title-group">
-                                <h3>ESNALA BANDA</h3>
-                                <span class="person-role">Chief Yappist / Operations &amp; Engagement</span>
-                            </div>
-                            <p class="person-bio">
-                                Esnala leads engagement and operational coordination at Eightplus, bridging client strategy with practical delivery across campaigns, stakeholder outreach, and project logistics.<br><br>
-                                Her work focuses on ensuring messaging remains authentic, accessible, and grounded while keeping execution seamless across multiple channels.
-                            </p>
+                            <h3 class="person-name">ESNALA BANDA</h3>
+                            <span class="person-role">Operations &amp; Client Engagement</span>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn-link">Connect on LinkedIn &rarr;</a>
                         </div>
                         <div>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="linkedin-link">Connect on LinkedIn &rarr;</a>
+                            <p><em>[CONTENT PLACEHOLDER: Bio updating soon]</em></p>
+                            <p>Esnala leads operational delivery and client engagement at Eightplus, bridging strategic planning with seamless execution across campaigns, media relationships, and stakeholder projects.</p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- NETWORK MODEL CARD -->
-                <div class="network-banner">
-                    <div>
-                        <span class="hero-tag" style="color: #38bdf8;">The Eightplus Network</span>
-                        <h3>OUR NETWORK</h3>
-                        <p style="font-weight: 700; color: #ffffff; margin-bottom: 8px;">Expertise doesn't always need a permanent desk.</p>
-                        <p>Eightplus works with a growing network of specialists and practitioners across communications, research, creative production, technology, industry, and other fields.</p>
-                    </div>
-                    <div>
-                        <p style="margin-bottom: 16px;">When a brief calls for expertise beyond our core team, we bring the right people into the room.</p>
-                        <p><strong style="color: #ffffff;">The result is a flexible model built around the work</strong> — not a fixed list of capabilities we don't actually use.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 5. WHAT WE BELIEVE -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-header">
-                    <h2>WHAT WE BELIEVE</h2>
-                    <p>Operating principles that shape every brief.</p>
-                </div>
-
-                <div class="beliefs-grid">
-                    <div class="belief-card">
-                        <p>Clarity is a competitive advantage.</p>
-                    </div>
-                    <div class="belief-card">
-                        <p>Trust is built through consistency.</p>
-                    </div>
-                    <div class="belief-card">
-                        <p>Communication should inform decisions, not merely explain them.</p>
-                    </div>
-                    <div class="belief-card">
-                        <p>Local context matters.</p>
-                    </div>
-                    <div class="belief-card">
-                        <p>Evidence should shape strategy.</p>
-                    </div>
-                    <div class="belief-card">
-                        <p>Good ideas are only useful when they can be put to work.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. BUILT IN ZAMBIA & CLOSING CTA -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <div class="zambia-banner">
-                    <h3>BUILT IN ZAMBIA. LOOKING OUTWARD.</h3>
-                    <p>Eightplus is rooted in Zambia, with an interest in the organisations, industries, and ideas shaping Africa and its place in the wider world. We believe local fluency and global perspective aren't opposites — they make better communication possible.</p>
+        <!-- 6. THE NETWORK -->
+        <section class="editorial-section dark">
+            <div class="container split-layout">
+                <div>
+                    <span class="eyebrow eyebrow-light">The Eightplus Network</span>
+                    <h2 class="narrative-title" style="color: #ffffff;">Expertise doesn't always need a permanent desk.</h2>
+                    <p style="color: #cbd5e1; margin-top: 24px;">Eightplus works with a growing network of specialists and practitioners across communications, research, creative production, technology, industry and other fields.</p>
+                    <p style="color: #cbd5e1;">When a brief calls for expertise beyond our core team, we bring the right people into the room. The result is a flexible model built around the work — not a fixed list of capabilities we don't actually use.</p>
+                    <div class="pull-quote" style="font-size: 1.5rem; margin-top: 32px;">
+                        We don't need to be the biggest team in the room. We need the right people in it.
+                    </div>
+                </div>
+                <div class="network-graphic">
+                    <div class="network-core">EIGHTPLUS CORE</div>
+                    <div class="network-nodes">
+                        <span class="network-node">Editorial</span>
+                        <span class="network-node">Research</span>
+                        <span class="network-node">Creative Production</span>
+                        <span class="network-node">Digital Strategy</span>
+                        <span class="network-node">Media Relations</span>
+                        <span class="network-node">Industry Expertise</span>
+                        <span class="network-node">Events &amp; Experiential</span>
+                        <span class="network-node">Technology</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. HOW WE WORK -->
+        <section class="editorial-section">
+            <div class="container split-layout">
+                <div>
+                    <span class="eyebrow">How We Work</span>
+                    <h2 class="narrative-title">Senior thinking stays close to the work.</h2>
+                </div>
+                <div>
+                    <p>We don't separate strategy from execution and hand a brief down a production line. The people shaping the thinking stay connected to how the work is developed, made and delivered.</p>
+                    <p>We ask questions early. We challenge assumptions. We use evidence where it is available and judgement where it isn't. And we bring in specialist expertise when the work needs it.</p>
+                    <p>The result should be work that is not only strategically sound, but usable in the real world.</p>
                     
-                    <div style="margin-top: 32px;">
-                        <h4 style="font-size: 1.25rem; font-weight: 800; color: #071b33; margin-bottom: 12px;">LET'S TALK</h4>
-                        <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 20px;">If you're navigating complexity, change, growth, scrutiny, or simply trying to communicate more effectively, we'd like to hear what you're working on.</p>
-                        <a href="contact.html?type=work-with-us" class="btn" style="background: #0284c7; color: #ffffff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">START A CONVERSATION &rarr;</a>
+                    <div class="process-line">
+                        <span>THINK</span> <span class="process-arrow">&rarr;</span>
+                        <span>ALIGN</span> <span class="process-arrow">&rarr;</span>
+                        <span>MAKE</span> <span class="process-arrow">&rarr;</span>
+                        <span>LEARN</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- 8. WHAT WE BELIEVE -->
+        <section class="editorial-section alt-bg">
+            <div class="container">
+                <div style="max-width: 700px; margin-bottom: 60px;">
+                    <span class="eyebrow">What We Believe</span>
+                    <h2 class="narrative-title">A few things we won't compromise on.</h2>
+                </div>
+
+                <div class="principles-list">
+                    <div class="principle-item">
+                        <span class="principle-num">01</span>
+                        <h3 class="principle-title">CLARITY</h3>
+                        <p>Clarity is not simplification. It is knowing what matters, what doesn't, and what people actually need to understand.</p>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-num">02</span>
+                        <h3 class="principle-title">CONTEXT</h3>
+                        <p>Context changes the answer. What works in one organisation, market or moment may be completely wrong in another.</p>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-num">03</span>
+                        <h3 class="principle-title">EVIDENCE</h3>
+                        <p>Evidence should shape strategy. We want to know what people are doing, saying and experiencing — not just what we hope is true.</p>
+                    </div>
+                    <div class="principle-item">
+                        <span class="principle-num">04</span>
+                        <h3 class="principle-title">USEFULNESS</h3>
+                        <p>Good ideas have to survive contact with reality. Beautiful strategy that cannot be implemented is not much of a strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. BUILT IN ZAMBIA -->
+        <section class="editorial-section">
+            <div class="container zambia-block">
+                <div>
+                    <span class="eyebrow">Where We're Rooted</span>
+                    <h2 class="narrative-title">Built in Zambia. Looking outward.</h2>
+                    <p>Eightplus is rooted in Zambia — in its businesses, institutions, industries, people and particular ways of working.</p>
+                    <p>That local grounding is not a limitation. It is part of the value. We understand that communication travels differently across markets, cultures and audiences. Our job is to bring local fluency to the work while keeping an eye on the wider region and the world beyond it.</p>
+                </div>
+                <div>
+                    <div class="pull-quote" style="font-size: 2.25rem;">
+                        "Local knowledge is not a footnote. It changes the work."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CLOSING CTA -->
+        <section class="closing-cta">
+            <div class="container">
+                <h2>What needs to move?</h2>
+                <p>Tell us what you're trying to clarify, change, launch or navigate.</p>
+                <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
+            </div>
+        </section>
     </main>
 
     <!-- SCRIPTS -->
