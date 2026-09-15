@@ -3,1130 +3,777 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eightplus Media | Strategic Communications Consultancy</title>
-    <meta
-        name="description"
-        content="Eightplus Media is an advisory-led communications consultancy helping organisations communicate clearly, build trust and navigate complexity."
-    >
-    <link rel="stylesheet" href="style.css">
+    <title>Eightplus Media | Strategic Communications & Advisory</title>
+    <meta name="description" content="Strategic communications advisory grounded in systems thinking, reputation management, and executive positioning. Advisory lead. Flexible scale. Total accountability.">
+    <link rel="stylesheet" href="./style.css">
+    
     <style>
-        /* =========================================================
-           EIGHTPLUS HOMEPAGE
-           ========================================================= */
-        
-        /* ---------- HERO ---------- */
-        .ep-hero {
-            position: relative;
-            width: 100%;
-            height: min(82vh, 820px);
-            min-height: 600px;
-            overflow: hidden;
-            background: #071b33;
-            color: #ffffff;
+        :root {
+            --navy-deep: #071b33;
+            --navy-mid: #0f2847;
+            --slate-body: #334155;
+            --accent-blue: #0284c7;
+            --accent-light: #7dd3fc;
+            --bg-light: #f8fafc;
         }
-        .ep-hero-slides {
-            position: absolute;
-            inset: 0;
-        }
-        .ep-hero-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.9s ease, visibility 0.9s ease;
-            background-size: cover;
-            background-position: center;
-        }
-        .ep-hero-slide.is-active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .ep-hero-slide::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                90deg,
-                rgba(5, 27, 52, 0.96) 0%,
-                rgba(7, 31, 59, 0.88) 32%,
-                rgba(8, 39, 72, 0.58) 58%,
-                rgba(8, 39, 72, 0.16) 82%,
-                rgba(8, 39, 72, 0.02) 100%
-            );
-        }
-        .ep-hero-content {
-            position: relative;
-            z-index: 2;
-            width: min(1180px, calc(100% - 48px));
-            height: 100%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-        }
-        .ep-hero-copy {
-            max-width: 700px;
-            padding-top: 40px;
-        }
-        .ep-hero-kicker {
-            display: inline-block;
-            margin-bottom: 18px;
-            color: #7dd3fc;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
+
+        body {
+            color: var(--slate-body);
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.4;
-            text-transform: uppercase;
-        }
-        .ep-hero h1 {
-            margin: 0 0 22px;
-            color: #ffffff;
-            font-size: clamp(2.7rem, 5vw, 4.7rem);
-            font-weight: 700;
-            line-height: 1.04;
-            letter-spacing: -0.045em;
-            max-width: 720px;
-        }
-        .ep-hero-text {
-            max-width: 590px;
-            margin: 0 0 32px;
-            color: rgba(255, 255, 255, 0.86);
-            font-size: clamp(1rem, 1.6vw, 1.18rem);
-            line-height: 1.65;
-        }
-        .ep-hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .ep-hero-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 48px;
-            padding: 12px 24px;
-            border: 1px solid transparent;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 700;
-            transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-        }
-        .ep-hero-button:hover {
-            transform: translateY(-2px);
-        }
-        .ep-hero-button-primary {
-            background: #ffffff;
-            color: #08213d;
-        }
-        .ep-hero-button-primary:hover {
-            background: #eaf4fb;
-        }
-        .ep-hero-button-secondary {
-            background: transparent;
-            border-color: rgba(255, 255, 255, 0.45);
-            color: #ffffff;
-        }
-        .ep-hero-button-secondary:hover {
-            border-color: #ffffff;
-            background: rgba(255, 255, 255, 0.08);
-        }
-        .ep-hero-controls {
-            position: absolute;
-            z-index: 5;
-            bottom: 34px;
-            left: max(24px, calc((100% - 1180px) / 2));
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .ep-hero-dot {
-            width: 9px;
-            height: 9px;
-            padding: 0;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.42);
-            cursor: pointer;
-            transition: width 0.25s ease, border-radius 0.25s ease, background-color 0.25s ease;
-        }
-        .ep-hero-dot.is-active {
-            width: 28px;
-            border-radius: 8px;
-            background: #7dd3fc;
+            margin: 0;
         }
 
-        /* ---------- POSITIONING STATEMENT ---------- */
-        .ep-positioning {
-            padding: 100px 24px;
-            background: #ffffff;
-        }
-        .ep-positioning-inner {
-            max-width: 1080px;
+        .container {
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .ep-eyebrow {
-            display: block;
-            margin-bottom: 20px;
-            color: var(--color-primary, #2563eb);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+
+        /* GENERAL SECTION HEADERS */
+        .section-padding { padding: 50px 0; }
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 4px;
         }
-        .ep-positioning h2 {
-            max-width: 980px;
-            margin: 0;
-            color: var(--color-heading, #0f172a);
-            font-size: clamp(2rem, 4vw, 3.25rem);
-            font-weight: 600;
-            line-height: 1.15;
-            letter-spacing: -0.035em;
-        }
-        .ep-positioning h2 span {
-            color: var(--color-muted, #64748b);
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+            color: var(--navy-deep);
+            letter-spacing: -0.01em;
         }
 
-        /* ---------- WHAT WE DO (UPDATED FULL-IMAGE SLIDER) ---------- */
-        .ep-capabilities-slider-section {
+        /* 1. HERO SLIDESHOW CONTAINER (STAYS INTACT) */
+        .hero-slideshow-container {
             position: relative;
-            padding: 100px 0;
-            background: #ffffff;
-            overflow: hidden;
-        }
-        .ep-capabilities-header {
-            max-width: 1120px;
-            margin: 0 auto 48px;
-            padding: 0 24px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 24px;
-        }
-        .ep-capabilities-header-text h2 {
-            margin: 0 0 12px;
-            color: var(--color-heading, #0f172a);
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-        }
-        .ep-capabilities-header-text p {
-            margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 1.02rem;
-            line-height: 1.7;
-            max-width: 600px;
-        }
-        .ep-slider-arrows {
-            display: flex;
-            gap: 12px;
-        }
-        .ep-slider-arrow {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 1px solid var(--color-border, #cbd5e1);
-            background: #ffffff;
-            color: var(--color-heading, #0f172a);
+            width: 100%;
+            min-height: 80vh;
+            background-color: var(--navy-deep);
+            color: #ffffff;
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-size: 1.2rem;
-        }
-        .ep-slider-arrow:hover {
-            background: var(--color-heading, #0f172a);
-            color: #ffffff;
-            border-color: var(--color-heading, #0f172a);
-        }
-        
-        .ep-carousel-track-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            padding: 10px 0 30px;
-        }
-        .ep-carousel-track-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-        .ep-carousel-track {
-            display: flex;
-            gap: 24px;
-            padding-left: max(24px, calc((100vw - 1120px) / 2));
-            padding-right: max(24px, calc((100vw - 1120px) / 2));
-            width: max-content;
+            overflow: hidden;
         }
 
-        /* Updated Card Design */
-        .ep-cap-slide {
+        /* 2. SPECIALIST DISCIPLINES (4 CARDS + SERVICES CTA) */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .home-card {
             position: relative;
-            width: 380px;
-            height: 440px;
-            flex-shrink: 0;
-            border-radius: 16px;
+            height: 250px;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
         }
-        .ep-cap-slide:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 32px -10px rgba(7, 27, 51, 0.22);
-        }
-        .ep-cap-media {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        .ep-cap-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .ep-cap-slide:hover .ep-cap-media img {
-            transform: scale(1.04);
-        }
-        .ep-cap-media::after {
+        .home-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                180deg, 
-                rgba(7, 27, 51, 0.7) 0%, 
-                rgba(7, 27, 51, 0.15) 40%, 
-                rgba(7, 27, 51, 0.85) 100%
-            );
-            pointer-events: none;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+            z-index: 1;
         }
-        .ep-cap-title-top {
+        .home-card::after {
+            content: '';
             position: absolute;
-            top: 24px;
-            left: 24px;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7, 27, 51, 0.25) 0%, rgba(7, 27, 51, 0.85) 65%, rgba(7, 27, 51, 0.98) 100%);
             z-index: 2;
+        }
+        .home-card:hover { transform: translateY(-3px); }
+        .home-card:hover::before { transform: scale(1.05); }
+
+        .card-disc-1::before { background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'); }
+        .card-disc-2::before { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'); }
+        .card-disc-3::before { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'); }
+        .card-disc-4::before { background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80'); }
+
+        .card-top { position: relative; z-index: 3; }
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 800;
             color: #ffffff;
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1.25;
-            letter-spacing: -0.02em;
-            max-width: 80%;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            margin: 0;
         }
-        .ep-cap-btn-bottom {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-            z-index: 2;
+
+        .card-bottom {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .explore-btn {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.2s ease;
+        }
+        .home-card:hover .explore-btn {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        .card-revealed-info {
+            display: none;
+            width: 100%;
+            margin-bottom: 12px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            animation: fadeIn 0.25s ease;
+        }
+        .card-subtitle {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 4px;
+        }
+        .card-body-text {
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            line-height: 1.35;
+        }
+
+        .home-card.is-expanded {
+            height: auto;
+            min-height: 250px;
+        }
+        .home-card.is-expanded .card-revealed-info { display: block; }
+
+        .services-cta-bar {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .services-link-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 18px;
-            background: rgba(255, 255, 255, 0.92);
-            color: #071b33;
             font-size: 0.85rem;
-            font-weight: 600;
-            border-radius: 30px;
-            text-decoration: none;
-            backdrop-filter: blur(8px);
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-        }
-        .ep-cap-btn-bottom:hover {
-            background: #071b33;
-            color: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        /* ---------- HOW WE WORK ---------- */
-        .ep-model {
-            padding: 96px 24px;
-            background: var(--color-bg, #f8fafc);
-            border-top: 1px solid var(--color-border, #e2e8f0);
-            border-bottom: 1px solid var(--color-border, #e2e8f0);
-        }
-        .ep-model-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-        .ep-model-heading h2 {
-            margin: 0 0 16px;
-            color: var(--color-heading, #0f172a);
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-        }
-        .ep-model-narrative {
-            padding-left: 40px;
-            border-left: 2px solid var(--color-primary, #2563eb);
-        }
-        .ep-model-lead {
-            margin: 0 0 20px;
-            color: var(--color-heading, #0f172a);
-            font-size: 1.35rem;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-        .ep-model-body {
-            margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        
-        /* ---------- SELECTED WORK ---------- */
-        .ep-work {
-            padding: 100px 24px;
-            background: var(--color-bg, #f8fafc);
-            border-top: 1px solid var(--color-border, #e2e8f0);
-        }
-        .ep-work-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-        .ep-work-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-        }
-        .ep-work-card {
-            overflow: hidden;
-            background: #ffffff;
-            border: 1px solid var(--color-border, #e2e8f0);
-            border-radius: 6px;
-        }
-        .ep-work-image {
-            height: 300px;
-            overflow: hidden;
-            background: #dbe5ee;
-        }
-        .ep-work-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        .ep-work-card:hover .ep-work-image img {
-            transform: scale(1.035);
-        }
-        .ep-work-body {
-            padding: 30px;
-        }
-        .ep-work-client {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--color-secondary, #0d9488);
-            font-size: 0.75rem;
             font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .ep-work-body h3 {
-            margin: 0 0 12px;
-            color: var(--color-heading, #0f172a);
-            font-size: 1.35rem;
-            line-height: 1.3;
-        }
-        .ep-work-body p {
-            margin: 0 0 20px;
-            color: var(--color-muted, #64748b);
-            font-size: 0.95rem;
-            line-height: 1.65;
-        }
-        .ep-work-link {
-            color: var(--color-primary, #2563eb);
-            font-size: 0.9rem;
-            font-weight: 700;
+            color: var(--accent-blue);
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.2s ease;
         }
-        .ep-work-link:hover {
-            text-decoration: underline;
-        }
+        .services-link-btn:hover { color: var(--navy-deep); }
 
-        /* ---------- DIFFERENTIATOR ---------- */
-        .ep-difference {
-            padding: 100px 24px;
-            background: #ffffff;
+        /* 3. THE EIGHTPLUS MODEL */
+        .model-section {
+            background-color: var(--bg-light);
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
         }
-        .ep-difference-inner {
-            max-width: 1120px;
-            margin: 0 auto;
+        .model-header {
+            max-width: 750px;
+            margin-bottom: 30px;
         }
-        .ep-difference-heading {
-            max-width: 760px;
-            margin-bottom: 48px;
+        .model-headline {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin: 6px 0 0 0;
+            letter-spacing: -0.01em;
         }
-        .ep-difference-heading h2 {
-            margin: 0 0 14px;
-            color: var(--color-heading, #0f172a);
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-        }
-        .ep-difference-heading p {
-            margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        .ep-difference-grid {
+        .grid-3-model {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 20px;
         }
-        .ep-difference-item {
-            padding-top: 24px;
-            border-top: 2px solid var(--color-primary, #2563eb);
+        .model-card {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
-        .ep-difference-item h3 {
-            margin: 0 0 10px;
-            color: var(--color-heading, #0f172a);
+        .model-card-num {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .model-card h3 {
             font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin: 0 0 8px 0;
         }
-        .ep-difference-item p {
+        .model-card p {
+            font-size: 0.85rem;
+            color: var(--slate-body);
+            line-height: 1.45;
             margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 0.94rem;
-            line-height: 1.65;
         }
 
-        /* ---------- SECTORS WE SERVE (UPDATED LAYOUT & INTERACTIVE LINKS) ---------- */
-        .ep-sectors {
-            padding: 100px 24px;
-            background: var(--color-bg, #f8fafc);
-            border-top: 1px solid var(--color-border, #e2e8f0);
-            border-bottom: 1px solid var(--color-border, #e2e8f0);
-        }
-        .ep-sectors-inner {
-            max-width: 1120px;
-            margin: 0 auto;
-        }
-        .ep-sectors-heading {
-            margin-bottom: 36px;
-        }
-        .ep-sectors-heading h2 {
-            margin: 0 0 8px;
-            color: var(--color-heading, #0f172a);
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            line-height: 1.25;
-        }
-        .ep-sectors-heading p {
-            margin: 0;
-            color: var(--color-muted, #64748b);
-            font-size: 1rem;
-        }
-        .ep-sectors-grid {
+        /* 4. SELECTED WORK (CASE STUDY MINI SLIDESHOW CARDS) */
+        .grid-2-work {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 20px;
         }
-        .ep-sector-card {
+        .work-card {
+            position: relative;
+            min-height: 380px;
+            border-radius: 6px;
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 22px 28px;
-            background: #ffffff;
-            border: 1px solid var(--color-border, #e2e8f0);
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--color-heading, #0f172a);
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-        }
-        .ep-sector-card span {
-            transition: color 0.25s ease;
-        }
-        .ep-sector-arrow {
-            color: var(--color-muted, #64748b);
-            font-size: 1.15rem;
-            transition: transform 0.25s ease, color 0.25s ease;
-        }
-        .ep-sector-card:hover {
-            background: #071b33;
-            border-color: #071b33;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px -8px rgba(7, 27, 51, 0.18);
-        }
-        .ep-sector-card:hover span {
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
             color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
-        .ep-sector-card:hover .ep-sector-arrow {
-            color: #7dd3fc;
-            transform: translateX(6px);
+        .work-slideshow-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .work-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease;
+        }
+        .work-slide.active { opacity: 1; }
+        .work-card:hover .work-slide.active { transform: scale(1.03); }
+
+        .work-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7, 27, 51, 0.15) 0%, rgba(7, 27, 51, 0.78) 55%, rgba(7, 27, 51, 0.96) 100%);
+            z-index: 2;
         }
 
-        /* ---------- CTA ---------- */
-        .ep-final-cta {
-            padding: 110px 24px;
-            background: #071b33;
+        .work-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+        .work-client-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .work-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+        }
+        .work-revealed-details {
+            display: none;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.25s ease;
+        }
+        .work-summary-text {
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .work-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .slide-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: background 0.3s ease;
+        }
+        .slide-dot.active { background: var(--accent-light); }
+
+        .work-card.is-expanded .work-revealed-details { display: block; }
+
+        /* 5. SECTOR EXPERIENCE STRIP */
+        .grid-4-sectors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .sector-card {
+            position: relative;
+            height: 140px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .sector-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            transition: transform 0.4s ease;
+        }
+        .sector-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7,27,51,0.2) 0%, rgba(7,27,51,0.88) 100%);
+            z-index: 2;
+        }
+        .sector-card:hover::before { transform: scale(1.05); }
+
+        .sec-1::before { background-image: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80'); }
+        .sec-2::before { background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80'); }
+        .sec-3::before { background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80'); }
+        .sec-4::before { background-image: url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&w=600&q=80'); }
+
+        .sector-content {
+            position: relative;
+            z-index: 3;
+        }
+        .sector-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin: 0 0 2px 0;
+            color: #ffffff;
+        }
+        .sector-desc {
+            font-size: 0.72rem;
+            color: var(--accent-light);
+            margin: 0;
+        }
+
+        /* 6. BRIDGE & CLOSING BANNER */
+        .bridge-section {
+            background-color: var(--bg-light);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .bridge-box {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .bridge-box h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--navy-deep);
+            margin: 0 0 8px 0;
+        }
+        .bridge-box p {
+            font-size: 0.9rem;
+            color: var(--slate-body);
+            margin: 0 0 16px 0;
+        }
+
+        .closing-banner {
+            padding: 55px 0;
+            background: linear-gradient(135deg, rgba(7, 27, 51, 0.95) 0%, rgba(15, 40, 71, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: #ffffff;
             text-align: center;
         }
-        .ep-final-cta-inner {
-            max-width: 720px;
-            margin: 0 auto;
+        .closing-banner h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
         }
-        .ep-final-cta .ep-eyebrow {
-            color: #7dd3fc;
+        .brand-pillars {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
-        .ep-final-cta h2 {
-            margin: 0 0 18px;
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-blue);
             color: #ffffff;
-            font-size: clamp(2.1rem, 4vw, 3.2rem);
-            line-height: 1.1;
-            letter-spacing: -0.035em;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s ease;
         }
-        .ep-final-cta p {
-            max-width: 620px;
-            margin: 0 auto 30px;
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 1.05rem;
-            line-height: 1.7;
+        .btn-primary:hover { background-color: #0369a1; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 900px) {
-            .ep-model-inner {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .ep-model-narrative {
-                padding-left: 20px;
-            }
-            .ep-cap-slide {
-                width: 320px;
-                height: 400px;
-            }
-            .ep-difference-grid {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-            .ep-sectors-grid {
-                grid-template-columns: 1fr;
-            }
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 1100px) {
+            .grid-4, .grid-4-sectors { grid-template-columns: repeat(2, 1fr); }
+            .grid-3-model, .grid-2-work { grid-template-columns: 1fr; }
         }
-        @media (max-width: 700px) {
-            .ep-hero {
-                height: 82vh;
-                min-height: 560px;
-            }
-            .ep-hero-content {
-                width: min(100% - 40px, 1180px);
-            }
-            .ep-hero-copy {
-                padding-top: 20px;
-            }
-            .ep-hero-slide {
-                background-position: 60% center;
-            }
-            .ep-hero h1 {
-                font-size: clamp(2.35rem, 11vw, 3.25rem);
-            }
-            .ep-hero-actions {
-                align-items: stretch;
-                flex-direction: column;
-                width: fit-content;
-            }
-            .ep-hero-button {
-                width: 100%;
-            }
-            .ep-hero-controls {
-                left: 20px;
-                bottom: 24px;
-            }
-            .ep-positioning,
-            .ep-model,
-            .ep-capabilities-slider-section,
-            .ep-work,
-            .ep-difference,
-            .ep-sectors {
-                padding-top: 72px;
-                padding-bottom: 72px;
-            }
-            .ep-capabilities-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .ep-cap-slide {
-                width: 285px;
-                height: 380px;
-            }
-            .ep-work-grid {
-                grid-template-columns: 1fr;
-            }
-            .ep-work-image {
-                height: 240px;
-            }
-            .ep-final-cta {
-                padding: 80px 24px;
-            }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .ep-hero-slide,
-            .ep-hero-button,
-            .ep-work-image img,
-            .ep-cap-slide {
-                transition: none;
-            }
+        @media (max-width: 768px) {
+            .section-padding { padding: 35px 0; }
+            .section-title { font-size: 1.5rem; }
+            .grid-4, .grid-4-sectors { grid-template-columns: 1fr; }
+            .home-card, .home-card.is-expanded { height: auto; min-height: 200px; }
+            .work-card { min-height: 320px; }
+            .brand-pillars { flex-direction: column; gap: 4px; }
+            .services-cta-bar { text-align: left; margin-top: 15px; }
         }
     </style>
 </head>
 <body>
-<!-- NAVIGATION PLACEHOLDER -->
-<nav class="navbar" aria-label="Main Navigation">
-    <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <img src="./blue-black.png" alt="Eightplus Media Logo" class="logo-img" style="height: 40px; width: auto;">
-        </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="academy.html">Academy</a></li>
-            <li><a href="takeover.html">Takeover</a></li>
-            <li><a href="newsroom.html">Newsroom</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-</nav>
 
-<!-- HERO SECTION (FUNCTIONAL SLIDER) -->
-<header class="ep-hero" aria-label="Eightplus Media introduction">
-    <div class="ep-hero-slides">
-        <!-- Slide 1 -->
-        <div
-            class="ep-hero-slide is-active"
-            style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85');"
-            role="group"
-            aria-label="Strategic communications"
-        >
-            <div class="ep-hero-content">
-                <div class="ep-hero-copy">
-                    <span class="ep-hero-kicker">Strategic Communications</span>
-                    <h1>Communication that makes organisations understood, trusted and chosen.</h1>
-                    <p class="ep-hero-text">Strategic communications for organisations navigating complex markets, expectations and change.</p>
-                    <div class="ep-hero-actions">
-                        <a href="services.html" class="ep-hero-button ep-hero-button-primary">Explore capabilities</a>
-                        <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">Start a conversation</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 2 -->
-        <div
-            class="ep-hero-slide"
-            style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=2000&q=85');"
-            role="group"
-            aria-label="Executive communications"
-        >
-            <div class="ep-hero-content">
-                <div class="ep-hero-copy">
-                    <span class="ep-hero-kicker">Executive Communications</span>
-                    <h1>Give leadership a voice people can trust.</h1>
-                    <p class="ep-hero-text">Executive positioning, thought leadership and communications support for leaders shaping what comes next.</p>
-                    <div class="ep-hero-actions">
-                        <a href="services.html" class="ep-hero-button ep-hero-button-primary">Explore capabilities</a>
-                        <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">Work with us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 3 -->
-        <div
-            class="ep-hero-slide"
-            style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=85');"
-            role="group"
-            aria-label="Reputation and stakeholder communications"
-        >
-            <div class="ep-hero-content">
-                <div class="ep-hero-copy">
-                    <span class="ep-hero-kicker">Reputation &amp; Stakeholders</span>
-                    <h1>When the stakes are high, communication matters.</h1>
-                    <p class="ep-hero-text">Building clarity, confidence and trust with the people who matter to your organisation.</p>
-                    <div class="ep-hero-actions">
-                        <a href="services.html" class="ep-hero-button ep-hero-button-primary">See how we work</a>
-                        <a href="contact.html" class="ep-hero-button ep-hero-button-secondary">Start a conversation</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Slider Controls -->
-    <div class="ep-hero-controls" aria-label="Hero slides">
-        <button class="ep-hero-dot is-active" type="button" aria-label="Show slide 1" aria-current="true" data-slide="0"></button>
-        <button class="ep-hero-dot" type="button" aria-label="Show slide 2" aria-current="false" data-slide="1"></button>
-        <button class="ep-hero-dot" type="button" aria-label="Show slide 3" aria-current="false" data-slide="2"></button>
-    </div>
-</header>
+    <div id="navbar-placeholder"></div>
 
-<main>
-    <!-- POSITIONING SECTION -->
-    <section class="ep-positioning">
-        <div class="ep-positioning-inner">
-            <span class="ep-eyebrow">Eightplus Media</span>
-            <h2>
-                In a world of constant scrutiny and rapid change, communication needs to be strategic, clear and purposeful.
-                <span>Because being understood, trusted and chosen gives you the ultimate advantage.</span>
-            </h2>
-        </div>
-    </section>
-
-    <!-- WHAT WE DO (FULL-WIDTH INTERACTIVE SLIDER) -->
-    <section class="ep-capabilities-slider-section">
-        <div class="ep-capabilities-header">
-            <div class="ep-capabilities-header-text">
-                <span class="ep-eyebrow">What We Do</span>
-                <h2>Capabilities built for trust, authority, and transformation.</h2>
-                <p>Discover how our advisory services help leadership teams and organisations navigate high-stakes moments.</p>
-            </div>
-            <div class="ep-slider-arrows">
-                <button class="ep-slider-arrow" id="capPrevBtn" aria-label="Previous capabilities slide">&#x2190;</button>
-                <button class="ep-slider-arrow" id="capNextBtn" aria-label="Next capabilities slide">&#x2192;</button>
-            </div>
-        </div>
-        
-        <!-- Horizontal Track -->
-        <div class="ep-carousel-track-wrapper" id="capTrackWrapper">
-            <div class="ep-carousel-track">
-                
-                <!-- Slide 1 -->
-                <article class="ep-cap-slide">
-                    <div class="ep-cap-media">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="PR & Strategy">
-                        <h3 class="ep-cap-title-top">PR &amp; Strategy</h3>
-                        <a href="services.html#pr-strategy" class="ep-cap-btn-bottom">
-                            Explore capability &rarr;
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Slide 2 -->
-                <article class="ep-cap-slide">
-                    <div class="ep-cap-media">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Executive Positioning">
-                        <h3 class="ep-cap-title-top">Executive Positioning</h3>
-                        <a href="services.html#executive-positioning" class="ep-cap-btn-bottom">
-                            Explore capability &rarr;
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Slide 3 -->
-                <article class="ep-cap-slide">
-                    <div class="ep-cap-media">
-                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Corporate Publications">
-                        <h3 class="ep-cap-title-top">Corporate Publications</h3>
-                        <a href="services.html#corporate-publications" class="ep-cap-btn-bottom">
-                            Explore capability &rarr;
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Slide 4 -->
-                <article class="ep-cap-slide">
-                    <div class="ep-cap-media">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Crisis Management">
-                        <h3 class="ep-cap-title-top">Crisis Management</h3>
-                        <a href="services.html#crisis-management" class="ep-cap-btn-bottom">
-                            Explore capability &rarr;
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Slide 5 -->
-                <article class="ep-cap-slide">
-                    <div class="ep-cap-media">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Media Strategy">
-                        <h3 class="ep-cap-title-top">Digital Media Strategy</h3>
-                        <a href="services.html#digital-strategy" class="ep-cap-btn-bottom">
-                            Explore capability &rarr;
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Slide 6 -->
-                <article class="ep-cap-slide">
-                    <div class="ep-cap-media">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Capacity Building">
-                        <h3 class="ep-cap-title-top">Capacity Building</h3>
-                        <a href="services.html#capacity-building" class="ep-cap-btn-bottom">
-                            Explore capability &rarr;
-                        </a>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW WE WORK (EDITORIAL NARRATIVE) -->
-    <section class="ep-model">
-        <div class="ep-model-inner">
-            <div class="ep-model-heading">
-                <span class="ep-eyebrow">The Eightplus Model</span>
-                <h2>Advisory lead. Flexible scale. Total accountability.</h2>
-            </div>
-            <div class="ep-model-narrative">
-                <p class="ep-model-lead">
-                    We operate as an advisory-led consultancy designed to replace rigid agency bloat with senior strategic focus.
+    <main>
+        <!-- 1. HERO SLIDESHOW SECTION (STAYS INTACT) -->
+        <section class="hero-slideshow-container" id="hero-slideshow">
+            <!-- Existing Hero Slideshow Code Injected Here -->
+            <div class="container">
+                <span class="eyebrow" style="color: var(--accent-light);">Strategic Communications &amp; Advisory</span>
+                <h1 style="font-size: 3rem; font-weight: 800; margin: 10px 0; line-height: 1.1;">COMMUNICATIONS THAT MOVE THE NEEDLE.</h1>
+                <p style="font-size: 1.1rem; color: #e2e8f0; max-width: 650px; margin-bottom: 24px;">
+                    Positioning institutions, shaping corporate narratives, and guiding executive leadership through complex environments.
                 </p>
-                <p class="ep-model-body">
-                    Every engagement is led directly by experienced strategic directors who set the direction, architecture, and narrative. Rather than maintaining heavy overhead, we integrate trusted, elite specialists—from digital managers to investigative journalists—tailored specifically to the client’s mission requirements.
-                </p>
+                <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
             </div>
-        </div>
-    </section>
-    
-    <!-- SELECTED WORK SECTION -->
-    <section class="ep-work">
-        <div class="ep-work-inner">
-            <div class="ep-section-heading">
-                <span class="ep-eyebrow">Selected Impact</span>
-                <h2>Delivering clear results for ambitious organisations.</h2>
-            </div>
-            <div class="ep-work-grid">
-                <div class="ep-work-card">
-                    <div class="ep-work-image">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80" alt="Executive Masterclass Session">
+        </section>
+
+        <!-- 2. SPECIALIST DISCIPLINES GRID -->
+        <section class="section-padding">
+            <div class="container">
+                <span class="eyebrow">Core Capabilities</span>
+                <h2 class="section-title">SPECIALIST DISCIPLINES</h2>
+
+                <div class="grid-4">
+                    
+                    <div class="home-card card-disc-1">
+                        <div class="card-top"><h3 class="card-title">CORPORATE COMMUNICATIONS</h3></div>
+                        <div class="card-bottom">
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">Narrative &amp; Positioning</div>
+                                <div class="card-body-text">Aligning corporate strategy with external messaging to build market authority.</div>
+                            </div>
+                            <button class="explore-btn" type="button">Explore +</button>
+                        </div>
                     </div>
-                    <div class="ep-work-body">
-                        <span class="ep-work-client">Financial Insights &amp; ACI Zambia</span>
-                        <h3>Executive Communications Masterclass</h3>
-                        <p>Delivered specialized strategic communications training for financial sector professionals and corporate leaders.</p>
-                        <a href="work.html" class="ep-work-link">Read Case Study &rarr;</a>
+
+                    <div class="home-card card-disc-2">
+                        <div class="card-top"><h3 class="card-title">REPUTATION &amp; STAKEHOLDERS</h3></div>
+                        <div class="card-bottom">
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">Institutional Trust</div>
+                                <div class="card-body-text">Mapping key stakeholder groups, regulators, and media channels for maximum resilience.</div>
+                            </div>
+                            <button class="explore-btn" type="button">Explore +</button>
+                        </div>
+                    </div>
+
+                    <div class="home-card card-disc-3">
+                        <div class="card-top"><h3 class="card-title">CRISIS &amp; ISSUES MANAGEMENT</h3></div>
+                        <div class="card-bottom">
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">Risk Mitigation</div>
+                                <div class="card-body-text">Real-time crisis protocol, response execution, and protective messaging frameworks.</div>
+                            </div>
+                            <button class="explore-btn" type="button">Explore +</button>
+                        </div>
+                    </div>
+
+                    <div class="home-card card-disc-4">
+                        <div class="card-top"><h3 class="card-title">EXECUTIVE POSITIONING</h3></div>
+                        <div class="card-bottom">
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">Thought Leadership</div>
+                                <div class="card-body-text">Elevating C-suite and board visibility across industry forums and strategic media.</div>
+                            </div>
+                            <button class="explore-btn" type="button">Explore +</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="services-cta-bar">
+                    <a href="services.html" class="services-link-btn">
+                        Explore More Capabilities &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. THE EIGHTPLUS MODEL -->
+        <section class="section-padding model-section">
+            <div class="container">
+                <div class="model-header">
+                    <span class="eyebrow">How We Work</span>
+                    <h2 class="section-title">THE EIGHTPLUS MODEL</h2>
+                    <div class="model-headline">Advisory lead. Flexible scale. Total accountability.</div>
+                </div>
+
+                <div class="grid-3-model">
+                    <div class="model-card">
+                        <span class="model-card-num">01 / DIRECT ADVISORY</span>
+                        <h3>Senior-Led Engagement</h3>
+                        <p>No account handoffs or layered agency bloat. Clients work directly with strategic leads who understand institutional priorities.</p>
+                    </div>
+
+                    <div class="model-card">
+                        <span class="model-card-num">02 / FLEXIBLE SCALE</span>
+                        <h3>Agile Ecosystems</h3>
+                        <p>We assemble tailored teams of specialist designers, researchers, and media strategists scaled specifically to your mandate.</p>
+                    </div>
+
+                    <div class="model-card">
+                        <span class="model-card-num">03 / TOTAL ACCOUNTABILITY</span>
+                        <h3>Outcome Driven</h3>
+                        <p>From initial brief to final execution, we take ownership of timelines, alignment, and strategic impact across every delivery.</p>
                     </div>
                 </div>
-                <div class="ep-work-card">
-                    <div class="ep-work-image">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80" alt="Brand Strategy and Digital Media">
+            </div>
+        </section>
+
+        <!-- 4. SELECTED WORK (MINI SLIDESHOW CARDS) -->
+        <section class="section-padding">
+            <div class="container">
+                <span class="eyebrow">Proven Execution</span>
+                <h2 class="section-title">SELECTED WORK</h2>
+
+                <div class="grid-2-work">
+                    
+                    <!-- WORK CARD 1: FIZ / ACI ZAMBIA -->
+                    <div class="work-card" id="work-card-1">
+                        <div class="work-slideshow-bg">
+                            <div class="work-slide active" style="background-image: url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80');"></div>
+                            <div class="work-slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80');"></div>
+                            <div class="work-slide" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80');"></div>
+                        </div>
+
+                        <div class="work-content">
+                            <span class="work-client-tag">Financial Insights Zambia &bull; ACI Zambia</span>
+                            <h3 class="work-title">Executive Communications Masterclass</h3>
+                            
+                            <div class="work-revealed-details">
+                                <div class="work-summary-text">
+                                    Designed and delivered a specialized strategic communications masterclass tailored for treasury and finance professionals, focusing on executive influence and market storytelling.
+                                </div>
+                            </div>
+
+                            <div class="work-footer">
+                                <div class="slide-dots">
+                                    <span class="slide-dot active"></span>
+                                    <span class="slide-dot"></span>
+                                    <span class="slide-dot"></span>
+                                </div>
+                                <button class="explore-btn" type="button">View Project +</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ep-work-body">
-                        <span class="ep-work-client">PAYZ Strategic Campaign</span>
-                        <h3>Brand Rebrand &amp; Stakeholder Growth</h3>
-                        <p>Executed a high-impact digital takeover and rebrand campaign driving increased membership sign-ups and stakeholder invitations.</p>
-                        <a href="work.html" class="ep-work-link">Read Case Study &rarr;</a>
+
+                    <!-- WORK CARD 2: PAYZ -->
+                    <div class="work-card" id="work-card-2">
+                        <div class="work-slideshow-bg">
+                            <div class="work-slide active" style="background-image: url('https://images.unsplash.com/photo-1556742049-0a67dd388047?auto=format&fit=crop&w=800&q=80');"></div>
+                            <div class="work-slide" style="background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80');"></div>
+                            <div class="work-slide" style="background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80');"></div>
+                        </div>
+
+                        <div class="work-content">
+                            <span class="work-client-tag">Payments Association of Zambia (PAYZ)</span>
+                            <h3 class="work-title">Industry Positioning &amp; PR Lead</h3>
+                            
+                            <div class="work-revealed-details">
+                                <div class="work-summary-text">
+                                    Served as PR Strategy Lead, driving digital financial transformation narratives, media engagements, and thought leadership positioning across National Payment System ecosystems.
+                                </div>
+                            </div>
+
+                            <div class="work-footer">
+                                <div class="slide-dots">
+                                    <span class="slide-dot active"></span>
+                                    <span class="slide-dot"></span>
+                                    <span class="slide-dot"></span>
+                                </div>
+                                <button class="explore-btn" type="button">View Project +</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECTOR EXPERIENCE STRIP -->
+        <section class="section-padding" style="background-color: var(--bg-light); border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <div class="container">
+                <span class="eyebrow">Industry Experience</span>
+                <h2 class="section-title">SECTOR COVERAGE</h2>
+
+                <div class="grid-4-sectors">
+                    <div class="sector-card sec-1">
+                        <div class="sector-content">
+                            <h4 class="sector-title">Financial Services</h4>
+                            <p class="sector-desc">Banking, FinTech &amp; Payments</p>
+                        </div>
+                    </div>
+                    <div class="sector-card sec-2">
+                        <div class="sector-content">
+                            <h4 class="sector-title">Mining &amp; Resources</h4>
+                            <p class="sector-desc">Extractives &amp; Industrial Operations</p>
+                        </div>
+                    </div>
+                    <div class="sector-card sec-3">
+                        <div class="sector-content">
+                            <h4 class="sector-title">Energy &amp; Infrastructure</h4>
+                            <p class="sector-desc">Utilities &amp; Strategic Capital</p>
+                        </div>
+                    </div>
+                    <div class="sector-card sec-4">
+                        <div class="sector-content">
+                            <h4 class="sector-title">Public &amp; Development</h4>
+                            <p class="sector-desc">Associations &amp; Multilaterals</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- DIFFERENTIATOR SECTION -->
-    <section class="ep-difference">
-        <div class="ep-difference-inner">
-            <div class="ep-difference-heading">
-                <span class="ep-eyebrow">The Difference</span>
-                <h2>Advisory-first thinking. Built for clarity.</h2>
-                <p>We move beyond traditional agency models to deliver senior-level focus, strategic direction, and nimble execution.</p>
-            </div>
-            <div class="ep-difference-grid">
-                <div class="ep-difference-item">
-                    <h3>Strategy Over Volume</h3>
-                    <p>We prioritize clear, high-impact strategies over vanity metrics and unnecessary output.</p>
-                </div>
-                <div class="ep-difference-item">
-                    <h3>Senior Engagement</h3>
-                    <p>You work directly with strategic leads who understand business realities and executive priorities.</p>
-                </div>
-                <div class="ep-difference-item">
-                    <h3>Flexible Scale</h3>
-                    <p>Our agile agency model brings in elite specialized talent precisely when and where it's needed.</p>
+        <!-- 6. BRIDGE & CLOSING BANNER -->
+        <section class="bridge-section">
+            <div class="container">
+                <div class="bridge-box">
+                    <h3>NOT SURE WHAT NEEDS TO MOVE?</h3>
+                    <p>Tell us what you're solving—we'll help structure the solution and identify key strategic priorities.</p>
+                    <a href="contact.html" class="btn-primary">Brief Us &rarr;</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECTORS SECTION -->
-    <section class="ep-sectors">
-        <div class="ep-sectors-inner">
-            <div class="ep-sectors-heading">
-                <span class="ep-eyebrow">Industries</span>
-                <h2>Sectors We Serve</h2>
-                <p>Tailored strategic communications designed for core growth sectors.</p>
+        <section class="closing-banner">
+            <div class="container">
+                <h2>READY TO MOVE YOUR STRATEGY FORWARD?</h2>
+                <div class="brand-pillars">
+                    <span>UNDERSTOOD</span> &bull;
+                    <span>TRUSTED</span> &bull;
+                    <span>CHOSEN</span>
+                </div>
+                <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
             </div>
-            
-            <div class="ep-sectors-grid">
-                <a href="services.html#mining-extractives" class="ep-sector-card">
-                    <span>Mining &amp; Extractives</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#energy-infrastructure" class="ep-sector-card">
-                    <span>Energy &amp; Infrastructure</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#financial-services" class="ep-sector-card">
-                    <span>Financial Services</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#fintech-technology" class="ep-sector-card">
-                    <span>Fintech &amp; Technology</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#fmcg-consumer" class="ep-sector-card">
-                    <span>FMCG &amp; Consumer</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#agriculture-food" class="ep-sector-card">
-                    <span>Agriculture &amp; Food</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#public-development" class="ep-sector-card">
-                    <span>Public &amp; Development</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#health-social-impact" class="ep-sector-card">
-                    <span>Health &amp; Social Impact</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#tourism-travel-hospitality" class="ep-sector-card">
-                    <span>Tourism, Travel &amp; Hospitality</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-                <a href="services.html#education-institutions" class="ep-sector-card">
-                    <span>Education &amp; Institutions</span>
-                    <span class="ep-sector-arrow">&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- FINAL CTA SECTION -->
-    <section class="ep-final-cta">
-        <div class="ep-final-cta-inner">
-            <span class="ep-eyebrow">Get In Touch</span>
-            <h2>Ready to bring clarity to your organization's voice?</h2>
-            <p>Let's discuss how strategic communications can support your business objectives and protect your reputation.</p>
-            <div class="ep-hero-actions" style="justify-content: center;">
-                <a href="contact.html" class="ep-hero-button ep-hero-button-primary">Start a conversation</a>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- FOOTER PLACEHOLDER -->
-<div id="footer-placeholder"></div>
-
-<!-- JAVASCRIPT CONTROLLERS -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        /* ----------------------------------------------------
-           1. HERO SLIDER CONTROLLER
-           ---------------------------------------------------- */
-        const slides = document.querySelectorAll('.ep-hero-slide');
-        const dots = document.querySelectorAll('.ep-hero-dot');
-        let currentIndex = 0;
-        const slideInterval = 6000;
-        let timer;
-        
-        function goToSlide(index) {
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.add('is-active');
-                } else {
-                    slide.classList.remove('is-active');
-                }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // General Disciplines Expand/Collapse Logic
+            const homeCards = document.querySelectorAll('.home-card');
+            homeCards.forEach(card => {
+                const btn = card.querySelector('.explore-btn');
+                card.addEventListener('click', () => {
+                    const isExpanded = card.classList.contains('is-expanded');
+                    homeCards.forEach(c => {
+                        c.classList.remove('is-expanded');
+                        const cardBtn = c.querySelector('.explore-btn');
+                        if (cardBtn) cardBtn.textContent = 'Explore +';
+                    });
+                    if (!isExpanded) {
+                        card.classList.add('is-expanded');
+                        if (btn) btn.textContent = 'Close -';
+                    }
+                });
             });
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.add('is-active');
-                    dot.setAttribute('aria-current', 'true');
-                } else {
-                    dot.classList.remove('is-active');
-                    dot.setAttribute('aria-current', 'false');
-                }
+
+            // Work Cards Expand/Collapse Logic
+            const workCards = document.querySelectorAll('.work-card');
+            workCards.forEach(card => {
+                const btn = card.querySelector('.explore-btn');
+                card.addEventListener('click', () => {
+                    const isExpanded = card.classList.contains('is-expanded');
+                    workCards.forEach(w => {
+                        w.classList.remove('is-expanded');
+                        const cardBtn = w.querySelector('.explore-btn');
+                        if (cardBtn) cardBtn.textContent = 'View Project +';
+                    });
+                    if (!isExpanded) {
+                        card.classList.add('is-expanded');
+                        if (btn) btn.textContent = 'Close -';
+                    }
+                });
             });
-            currentIndex = index;
-        }
-        
-        function nextSlide() {
-            const next = (currentIndex + 1) % slides.length;
-            goToSlide(next);
-        }
-        
-        function startTimer() {
-            timer = setInterval(nextSlide, slideInterval);
-        }
-        
-        function resetTimer() {
-            clearInterval(timer);
-            startTimer();
-        }
-        
-        dots.forEach((dot) => {
-            dot.addEventListener('click', function() {
-                const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
-                goToSlide(slideIndex);
-                resetTimer();
-            });
+
+            // Mini Background Slideshow Controller for Work Cards
+            function initWorkSlideshow(cardId) {
+                const card = document.getElementById(cardId);
+                if (!card) return;
+                const slides = card.querySelectorAll('.work-slide');
+                const dots = card.querySelectorAll('.slide-dot');
+                let currentSlide = 0;
+
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+                    
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    slides[currentSlide].classList.add('active');
+                    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+                }, 3500);
+            }
+
+            initWorkSlideshow('work-card-1');
+            initWorkSlideshow('work-card-2');
         });
-        
-        startTimer();
-
-        /* ----------------------------------------------------
-           2. CAPABILITIES HORIZONTAL SLIDER CONTROLLER
-           ---------------------------------------------------- */
-        const trackWrapper = document.getElementById('capTrackWrapper');
-        const prevBtn = document.getElementById('capPrevBtn');
-        const nextBtn = document.getElementById('capNextBtn');
-        
-        if (trackWrapper && prevBtn && nextBtn) {
-            let capAutoScrollInterval = null;
-            const scrollAmount = 404; // 380px width + 24px gap
-            const autoScrollDelay = 4000;
-
-            const slideNext = () => {
-                const maxScroll = trackWrapper.scrollWidth - trackWrapper.clientWidth;
-                if (trackWrapper.scrollLeft >= maxScroll - 10) {
-                    trackWrapper.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    trackWrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                }
-            };
-
-            const slidePrev = () => {
-                if (trackWrapper.scrollLeft <= 10) {
-                    trackWrapper.scrollTo({ left: trackWrapper.scrollWidth, behavior: 'smooth' });
-                } else {
-                    trackWrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                }
-            };
-
-            const startCapAutoScroll = () => {
-                stopCapAutoScroll();
-                capAutoScrollInterval = setInterval(slideNext, autoScrollDelay);
-            };
-
-            const stopCapAutoScroll = () => {
-                if (capAutoScrollInterval) clearInterval(capAutoScrollInterval);
-            };
-
-            prevBtn.addEventListener('click', function() {
-                slidePrev();
-                startCapAutoScroll();
-            });
-            
-            nextBtn.addEventListener('click', function() {
-                slideNext();
-                startCapAutoScroll();
-            });
-
-            trackWrapper.addEventListener('mouseenter', stopCapAutoScroll);
-            trackWrapper.addEventListener('mouseleave', startCapAutoScroll);
-
-            startCapAutoScroll();
-        }
-    });
-</script>
+    </script>
+    <script src="./navbar.js" defer></script>
 </body>
 </html>
