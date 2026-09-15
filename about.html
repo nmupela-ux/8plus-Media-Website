@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Eightplus Media</title>
-    <meta name="description" content="Strategic communications advisory grounded in systems thinking, reputation, and measurable impact.">
+    <meta name="description" content="Strategic communications advisory grounded in systems thinking, reputation, and measurable impact. Built in Zambia, looking outward.">
     <link rel="stylesheet" href="./style.css">
     
     <style>
@@ -55,10 +55,12 @@
             letter-spacing: -0.02em;
         }
         .hero-description {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            font-weight: 500;
             color: #e2e8f0;
-            max-width: 650px;
+            max-width: 680px;
             margin: 0;
+            line-height: 1.5;
         }
 
         /* GENERAL SECTION HEADERS */
@@ -154,7 +156,8 @@
             border: 1px solid rgba(255, 255, 255, 0.25);
             transition: all 0.2s ease;
         }
-        .about-card:hover .explore-btn {
+        .about-card:hover .explore-btn,
+        .leader-card:hover .explore-btn {
             background: var(--accent-blue);
             border-color: var(--accent-blue);
             color: #ffffff;
@@ -186,67 +189,116 @@
         }
         .about-card.is-expanded .card-revealed-info { display: block; }
 
-        /* 3. LEADERSHIP FEATURE */
+        /* 3. LEADERSHIP CARDS (2-COLUMN INTERACTIVE) */
         .leadership-section {
             background-color: var(--bg-light);
             border-top: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
         }
-        .leadership-grid {
+        .grid-2-leaders {
             display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 30px;
-            align-items: center;
-        }
-        .leader-img-box {
-            position: relative;
-            height: 320px;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        }
-        .leader-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .leader-info h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--navy-deep);
-            margin: 0 0 4px 0;
-        }
-        .leader-role {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
-            display: block;
-        }
-        .leader-bullets {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-        .leader-bullets li {
-            position: relative;
-            padding-left: 20px;
-            font-size: 0.9rem;
-            color: var(--slate-body);
-            margin-bottom: 8px;
-        }
-        .leader-bullets li::before {
-            content: '■';
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-size: 0.6rem;
-            top: 2px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
-        /* 4. OPERATING PILLARS GRID (4 CARDS) */
+        .leader-card {
+            position: relative;
+            min-height: 380px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center top;
+            transition: transform 0.5s ease;
+            z-index: 1;
+        }
+        .leader-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7, 27, 51, 0.1) 0%, rgba(7, 27, 51, 0.75) 55%, rgba(7, 27, 51, 0.96) 100%);
+            z-index: 2;
+        }
+        .leader-card:hover::before { transform: scale(1.03); }
+
+        .leader-1-img::before { background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'); }
+        .leader-2-img::before { background-image: url('https://images.unsplash.com/photo-1580894732413-a75151b1424b?auto=format&fit=crop&w=800&q=80'); }
+
+        .leader-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+        .leader-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.01em;
+        }
+        .leader-role-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 0;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .leader-revealed-bio {
+            display: none;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.25s ease;
+        }
+        .leader-bio-text {
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            line-height: 1.45;
+            margin-bottom: 16px;
+        }
+        
+        .leader-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .linkedin-link {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: rgba(2, 132, 199, 0.85);
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .linkedin-link:hover { background: var(--accent-blue); }
+
+        .leader-card.is-expanded .leader-revealed-bio { display: block; }
+
+        /* 4. OPERATING PILLARS GRID (OPTION 2) */
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -302,8 +354,7 @@
         /* RESPONSIVE STYLES */
         @media (max-width: 1100px) {
             .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .leadership-grid { grid-template-columns: 1fr; gap: 20px; }
-            .leader-img-box { height: 260px; }
+            .grid-2-leaders { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .page-hero { padding: 50px 0 30px; }
@@ -311,6 +362,7 @@
             .section-padding { padding: 35px 0; }
             .grid-3, .grid-4 { grid-template-columns: 1fr; }
             .about-card, .about-card.is-expanded { height: auto; min-height: 200px; }
+            .leader-card { min-height: 320px; }
             .brand-pillars { flex-direction: column; gap: 4px; }
         }
     </style>
@@ -320,13 +372,13 @@
     <div id="navbar-placeholder"></div>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO SECTION -->
         <section class="page-hero">
             <div class="container">
-                <span class="hero-tagline">About Eightplus Media</span>
+                <span class="hero-tagline">Built in Zambia, Looking Outward</span>
                 <h1 class="page-title">BUILT FOR WHAT MATTERS.</h1>
                 <p class="hero-description">
-                    We bring strategic clarity, systems thinking, and execution to high-stakes corporate communication.
+                    The real work starts before the message—listen, understand, respond. We bring strategic clarity, systems thinking, and execution to high-stakes corporate communication.
                 </p>
             </div>
         </section>
@@ -376,77 +428,107 @@
             </div>
         </section>
 
-        <!-- LEADERSHIP PROFILE -->
+        <!-- LEADERSHIP SECTION (2 DUAL CARDS) -->
         <section class="section-padding leadership-section">
             <div class="container">
-                <div class="leadership-grid">
-                    <div class="leader-img-box">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Leadership at Eightplus Media">
-                    </div>
-                    <div class="leader-info">
-                        <span class="eyebrow">Strategic Leadership</span>
-                        <h3>FOUNDER &amp; ADVISORY LEAD</h3>
-                        <span class="leader-role">Strategic Communications Specialist</span>
-                        
-                        <ul class="leader-bullets">
-                            <li>Advising financial institutions, corporate leaders, and industry associations across Southern Africa.</li>
-                            <li>Specialized in executive positioning, crisis protocol, stakeholder intelligence, and integrated corporate narrative.</li>
-                            <li>Grounded in systems thinking to translate complex institutional priorities into commanding market position.</li>
-                        </ul>
+                <span class="eyebrow">Executive Leadership</span>
+                <h2 class="section-title">THE ADVISORY LEADERSHIP</h2>
 
-                        <a href="contact.html" class="btn-primary">Connect with Strategy Lead &rarr;</a>
+                <div class="grid-2-leaders">
+                    
+                    <!-- NDULWA RACHEL MUPELA -->
+                    <div class="leader-card leader-1-img">
+                        <div class="leader-content">
+                            <h3 class="leader-name">NDULWA RACHEL MUPELA</h3>
+                            <p class="leader-role-title">Strategic Lead</p>
+                            
+                            <div class="leader-revealed-bio">
+                                <div class="leader-bio-text">
+                                    Specializes in executive positioning, crisis protocol, stakeholder intelligence, and integrated corporate narratives. Advises institutional leadership and financial entities across Southern Africa.
+                                </div>
+                            </div>
+
+                            <div class="leader-footer">
+                                <button class="explore-btn" type="button">Explore Bio +</button>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="linkedin-link" onclick="event.stopPropagation();">
+                                    Connect on LinkedIn &rarr;
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- ESNALA -->
+                    <div class="leader-card leader-2-img">
+                        <div class="leader-content">
+                            <h3 class="leader-name">ESNALA</h3>
+                            <p class="leader-role-title">Operations Lead</p>
+                            
+                            <div class="leader-revealed-bio">
+                                <div class="leader-bio-text">
+                                    Directs operational execution, engagement workflows, and client service delivery across core accounts. Ensures flawless project execution and operational alignment across all advisory mandates.
+                                </div>
+                            </div>
+
+                            <div class="leader-footer">
+                                <button class="explore-btn" type="button">Explore Bio +</button>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="linkedin-link" onclick="event.stopPropagation();">
+                                    Connect on LinkedIn &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- OPERATING PILLARS GRID -->
+        <!-- OPERATING PILLARS GRID (OPTION 2) -->
         <section class="section-padding">
             <div class="container">
-                <span class="eyebrow">Core Standards</span>
+                <span class="eyebrow">Advisory Standards</span>
                 <h2 class="section-title">OPERATING PILLARS</h2>
 
                 <div class="grid-4">
                     
                     <div class="about-card card-pil-1">
-                        <div class="card-top"><h3 class="card-title">RIGOR OVER NOISE</h3></div>
+                        <div class="card-top"><h3 class="card-title">CONTEXT BEFORE COMMUNICATION</h3></div>
                         <div class="card-bottom">
                             <div class="card-revealed-info">
-                                <div class="card-subtitle">Precision messaging.</div>
-                                <div class="card-body-text">We prioritize clarity and strategic alignment over volume and performative activity.</div>
+                                <div class="card-subtitle">Landscape Analysis.</div>
+                                <div class="card-body-text">Understanding regulatory, market, and stakeholder realities before crafting institutional narrative.</div>
                             </div>
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
                     <div class="about-card card-pil-2">
-                        <div class="card-top"><h3 class="card-title">ALIGNMENT FIRST</h3></div>
+                        <div class="card-top"><h3 class="card-title">MESSAGE UNITY</h3></div>
                         <div class="card-bottom">
                             <div class="card-revealed-info">
-                                <div class="card-subtitle">Cohesive leadership.</div>
-                                <div class="card-body-text">External communication is only as effective as internal alignment across executive leadership.</div>
+                                <div class="card-subtitle">Single-Voice Alignment.</div>
+                                <div class="card-body-text">Aligning board, executive leadership, and outward media posture under one unified strategy.</div>
                             </div>
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
                     <div class="about-card card-pil-3">
-                        <div class="card-top"><h3 class="card-title">REPUTATION CAPITAL</h3></div>
+                        <div class="card-top"><h3 class="card-title">PROTECTIVE REPUTATION</h3></div>
                         <div class="card-bottom">
                             <div class="card-revealed-info">
-                                <div class="card-subtitle">Long-term value.</div>
-                                <div class="card-body-text">Trust is earned through consistency, transparency, and deliberate corporate positioning.</div>
+                                <div class="card-subtitle">Crisis Stewardship.</div>
+                                <div class="card-body-text">Active stewardship focused on safeguarding organizational trust and long-term resilience.</div>
                             </div>
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
                     <div class="about-card card-pil-4">
-                        <div class="card-top"><h3 class="card-title">EXECUTION AS PROOF</h3></div>
+                        <div class="card-top"><h3 class="card-title">MEASURABLE POSITIONING</h3></div>
                         <div class="card-bottom">
                             <div class="card-revealed-info">
-                                <div class="card-subtitle">Deliver results.</div>
-                                <div class="card-body-text">Strategy holds value only when coupled with flawless high-level execution and reporting.</div>
+                                <div class="card-subtitle">Outcome-Driven.</div>
+                                <div class="card-body-text">Focusing on communications milestones that directly advance commercial and strategic targets.</div>
                             </div>
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
@@ -472,12 +554,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.about-card');
-            cards.forEach(card => {
+            // General Card Expansion Logic (Approach & Pillars)
+            const aboutCards = document.querySelectorAll('.about-card');
+            aboutCards.forEach(card => {
                 const btn = card.querySelector('.explore-btn');
-                card.addEventListener('click', (e) => {
+                card.addEventListener('click', () => {
                     const isExpanded = card.classList.contains('is-expanded');
-                    cards.forEach(c => {
+                    aboutCards.forEach(c => {
                         c.classList.remove('is-expanded');
                         const cardBtn = c.querySelector('.explore-btn');
                         if (cardBtn) cardBtn.textContent = 'Explore +';
@@ -485,6 +568,24 @@
                     if (!isExpanded) {
                         card.classList.add('is-expanded');
                         if (btn) btn.textContent = 'Close -';
+                    }
+                });
+            });
+
+            // Leadership Card Expansion Logic
+            const leaderCards = document.querySelectorAll('.leader-card');
+            leaderCards.forEach(card => {
+                const btn = card.querySelector('.explore-btn');
+                card.addEventListener('click', () => {
+                    const isExpanded = card.classList.contains('is-expanded');
+                    leaderCards.forEach(c => {
+                        c.classList.remove('is-expanded');
+                        const cardBtn = c.querySelector('.explore-btn');
+                        if (cardBtn) cardBtn.textContent = 'Explore Bio +';
+                    });
+                    if (!isExpanded) {
+                        card.classList.add('is-expanded');
+                        if (btn) btn.textContent = 'Close Bio -';
                     }
                 });
             });
