@@ -58,14 +58,14 @@
         }
 
         .pull-quote {
-            font-size: 2rem;
+            font-size: 1.85rem;
             font-weight: 700;
             line-height: 1.3;
             color: var(--navy-deep);
             letter-spacing: -0.02em;
-            padding-left: 24px;
+            padding-left: 20px;
             border-left: 3px solid var(--accent-blue);
-            margin: 40px 0;
+            margin: 32px 0;
         }
         .dark .pull-quote {
             color: #ffffff;
@@ -92,6 +92,44 @@
             color: var(--accent-light);
         }
 
+        /* Image Containers & Editorial Styles */
+        .editorial-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 12px 32px -8px rgba(7, 27, 51, 0.12);
+        }
+        .editorial-img-dark {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.4);
+        }
+        .hero-img-wrap {
+            height: 100%;
+            min-height: 380px;
+        }
+        .hero-img-wrap img {
+            height: 100%;
+            max-height: 480px;
+        }
+
+        /* Profile Headshots */
+        .headshot-wrap {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px -6px rgba(7, 27, 51, 0.1);
+            background-color: var(--border-light);
+        }
+        .headshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* 1. HERO */
         .about-hero {
             padding: 120px 0 80px;
@@ -100,23 +138,21 @@
             position: relative;
         }
         .hero-title {
-            font-size: 3.25rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.02em;
-            max-width: 900px;
             margin-bottom: 24px;
         }
         .hero-lead {
-            font-size: 1.25rem;
+            font-size: 1.18rem;
             color: #cbd5e1;
-            max-width: 780px;
             line-height: 1.65;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
         .hero-positioning {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
             padding-top: 24px;
             border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -130,8 +166,11 @@
         /* Grid Utilities */
         .split-layout {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1.25fr;
             gap: 60px;
+            align-items: center;
+        }
+        .split-layout.align-start {
             align-items: start;
         }
 
@@ -147,8 +186,8 @@
 
         /* 3. WHOLLY ALIGNED */
         .wholly-aligned-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(125, 211, 252, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(125, 211, 252, 0.15);
             padding: 48px;
             border-radius: 12px;
         }
@@ -156,13 +195,13 @@
         /* 4. CONTEXT OVER TEMPLATES */
         .big-words {
             display: flex;
-            gap: 40px;
-            margin-top: 40px;
-            padding-top: 32px;
+            gap: 32px;
+            margin-top: 32px;
+            padding-top: 24px;
             border-top: 1px solid var(--border-light);
         }
         .big-word-item {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--navy-deep);
             letter-spacing: 0.05em;
@@ -316,10 +355,12 @@
         @media (max-width: 992px) {
             .split-layout, .zambia-block { grid-template-columns: 1fr; gap: 32px; }
             .principles-list { grid-template-columns: 1fr; gap: 24px; }
-            .hero-title { font-size: 2.5rem; }
+            .hero-title { font-size: 2.25rem; }
             .closing-cta h2 { font-size: 2.25rem; }
-            .big-words { flex-wrap: wrap; gap: 20px; }
+            .big-words { flex-wrap: wrap; gap: 16px; }
             .process-line { flex-wrap: wrap; }
+            .hero-img-wrap { min-height: auto; }
+            .headshot-wrap { max-width: 100%; aspect-ratio: 3 / 2; }
         }
     </style>
 </head>
@@ -331,36 +372,41 @@
     <main>
         <!-- 1. HERO -->
         <section class="about-hero">
-            <div class="container">
-                <span class="eyebrow eyebrow-light">About Eightplus</span>
-                <h1 class="hero-title">Small by design. Connected by expertise.</h1>
-                <p class="hero-lead">
-                    Eightplus is an independent strategic communications consultancy built in Zambia for organisations working through change, complexity, growth and scrutiny. We keep our core deliberately small, bringing senior thinking close to the work while connecting clients to the right specialists when a brief calls for deeper expertise.
-                </p>
-                <div class="hero-positioning">
-                    <span>Advisory-Led</span> &bull;
-                    <span>Editorially Precise</span> &bull;
-                    <span>Locally Fluent</span>
+            <div class="container split-layout">
+                <div>
+                    <span class="eyebrow eyebrow-light">About Eightplus</span>
+                    <h1 class="hero-title">Small by design. Connected by expertise.</h1>
+                    <p class="hero-lead">
+                        Eightplus is an independent strategic communications consultancy built in Zambia for organisations working through change, complexity, growth and scrutiny. We keep our core deliberately small, bringing senior thinking close to the work while connecting clients to the right specialists when a brief calls for deeper expertise.
+                    </p>
+                    <div class="hero-positioning">
+                        <span>Advisory-Led</span> &bull;
+                        <span>Editorially Precise</span> &bull;
+                        <span>Locally Fluent</span>
+                    </div>
+                </div>
+                <div class="hero-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Eightplus Media - Built in Zambia" class="editorial-img editorial-img-dark">
                 </div>
             </div>
         </section>
 
         <!-- 2. WHY EIGHTPLUS -->
         <section class="editorial-section">
-            <div class="container split-layout">
+            <div class="container split-layout align-start">
                 <div>
                     <span class="eyebrow">Why We Built It</span>
                     <h2 class="narrative-title">Communication should do more than fill channels.</h2>
+                    <div class="pull-quote">
+                        "The message is rarely the whole problem."
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Editorial precision and strategy" class="editorial-img" style="margin-top: 24px;">
                 </div>
                 <div>
                     <p>Organisations are constantly communicating — through leaders, employees, customers, products, policies, decisions, media coverage and the experiences people have with them.</p>
                     <p>Yet communication is often treated as an output problem: another campaign, another post, another press release, another presentation.</p>
                     <p>Eightplus was built around a different view. The real work starts before the message.</p>
                     <p>We want to understand what is happening, what the organisation is trying to achieve, who needs to move, what people already believe, and where the gaps are between intent and experience. From there, communication becomes more useful: not simply something an organisation produces, but something that helps people understand, trust and act.</p>
-                    
-                    <div class="pull-quote">
-                        "The message is rarely the whole problem."
-                    </div>
                 </div>
             </div>
         </section>
@@ -372,12 +418,11 @@
                     <div>
                         <span class="eyebrow eyebrow-light">Our Approach</span>
                         <h2 class="narrative-title" style="color: #ffffff;">Wholly Aligned.</h2>
-                        <a href="index.html#framework" class="btn-link" style="margin-top: 24px;">Explore Our Approach &rarr;</a>
+                        <p style="color: #cbd5e1; margin-bottom: 24px;">Good communication does not sit separately from the organisation producing it. It connects leadership intent, business priorities, organisational reality, stakeholder expectations and the way people actually experience the organisation.</p>
+                        <a href="index.html#framework" class="btn-link">Explore Our Approach &rarr;</a>
                     </div>
                     <div>
-                        <p style="color: #cbd5e1;">Good communication does not sit separately from the organisation producing it. It connects leadership intent, business priorities, organisational reality, stakeholder expectations and the way people actually experience the organisation.</p>
-                        <p style="color: #cbd5e1;">Our Wholly Aligned Framework™ brings those dimensions into closer relationship — because when strategy, action and communication pull in different directions, people notice.</p>
-                        <p style="color: #cbd5e1;">Alignment is not about making everything sound the same. It is about making sure the organisation knows what it is trying to achieve, understands what needs to change, and communicates accordingly.</p>
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Wholly Aligned Framework" class="editorial-img editorial-img-dark">
                     </div>
                 </div>
             </div>
@@ -387,13 +432,13 @@
         <section class="editorial-section alt-bg">
             <div class="container split-layout">
                 <div>
-                    <span class="eyebrow">What Makes The Work Different</span>
-                    <h2 class="narrative-title">Context over templates.</h2>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Listening and understanding context" class="editorial-img">
                 </div>
                 <div>
+                    <span class="eyebrow">What Makes The Work Different</span>
+                    <h2 class="narrative-title">Context over templates.</h2>
                     <p>No two organisations arrive with the same problem. The sector matters. The market matters. The history matters. The audience matters. The politics, culture, timing and lived experience around an organisation matter too.</p>
-                    <p>So we don't start with a template and look for somewhere to put the organisation. We start with the situation.</p>
-                    <p>That means research, listening, questioning, evidence and judgement before deciding what communication should look like.</p>
+                    <p>So we don't start with a template and look for somewhere to put the organisation. We start with the situation. That means research, listening, questioning, evidence and judgement before deciding what communication should look like.</p>
                     
                     <div class="big-words">
                         <span class="big-word-item">LISTEN.</span>
@@ -415,8 +460,12 @@
 
                 <div class="people-container">
                     <!-- Ndulwa Mupela -->
-                    <div class="person-profile split-layout">
+                    <div class="person-profile split-layout align-start">
                         <div>
+                            <!-- HEADSHOT PLACEHOLDER: NDULWA -->
+                            <div class="headshot-wrap">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Ndulwa Mupela" class="headshot-img">
+                            </div>
                             <h3 class="person-name">NDULWA MUPELA</h3>
                             <span class="person-role">Founder &amp; Strategic Communications Lead</span>
                             <a href="https://linkedin.com/in/ndulwamupela" target="_blank" rel="noopener" class="btn-link">Connect on LinkedIn &rarr;</a>
@@ -429,9 +478,13 @@
                         </div>
                     </div>
 
-                    <!-- Esnala Banda (Marked Content Placeholder) -->
-                    <div class="person-profile split-layout">
+                    <!-- Esnala Banda -->
+                    <div class="person-profile split-layout align-start">
                         <div>
+                            <!-- HEADSHOT PLACEHOLDER: ESNALA -->
+                            <div class="headshot-wrap">
+                                <img src="https://images.unsplash.com/photo-1580894732413-a7235a967f81?auto=format&fit=crop&w=600&q=80" alt="Esnala Banda" class="headshot-img">
+                            </div>
                             <h3 class="person-name">ESNALA BANDA</h3>
                             <span class="person-role">Operations &amp; Client Engagement</span>
                             <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn-link">Connect on LinkedIn &rarr;</a>
@@ -536,11 +589,12 @@
                     <h2 class="narrative-title">Built in Zambia. Looking outward.</h2>
                     <p>Eightplus is rooted in Zambia — in its businesses, institutions, industries, people and particular ways of working.</p>
                     <p>That local grounding is not a limitation. It is part of the value. We understand that communication travels differently across markets, cultures and audiences. Our job is to bring local fluency to the work while keeping an eye on the wider region and the world beyond it.</p>
-                </div>
-                <div>
-                    <div class="pull-quote" style="font-size: 2.25rem;">
+                    <div class="pull-quote" style="font-size: 1.75rem; margin-top: 24px;">
                         "Local knowledge is not a footnote. It changes the work."
                     </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80" alt="Rooted in Zambia, looking outward" class="editorial-img">
                 </div>
             </div>
         </section>
