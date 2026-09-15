@@ -50,16 +50,110 @@
             letter-spacing: -0.01em;
         }
 
-        /* 1. HERO SLIDESHOW CONTAINER (STAYS INTACT) */
+        /* 1. HERO SLIDESHOW COMPONENT */
         .hero-slideshow-container {
             position: relative;
             width: 100%;
-            min-height: 80vh;
+            height: 85vh;
+            min-height: 550px;
             background-color: var(--navy-deep);
             color: #ffffff;
             display: flex;
             align-items: center;
             overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.05);
+            transition: transform 6s ease;
+        }
+
+        .hero-slide.active .hero-bg-img {
+            transform: scale(1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(7, 27, 51, 0.92) 0%, rgba(7, 27, 51, 0.75) 55%, rgba(7, 27, 51, 0.88) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 720px;
+        }
+
+        .hero-tagline {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-light);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 14px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin: 0 0 28px 0;
+            line-height: 1.5;
+        }
+
+        .hero-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-dot.active {
+            background: var(--accent-light);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.2);
         }
 
         /* 2. SPECIALIST DISCIPLINES (4 CARDS + SERVICES CTA) */
@@ -169,11 +263,11 @@
         }
         .home-card.is-expanded .card-revealed-info { display: block; }
 
-        .services-cta-bar {
+        .section-cta-bar {
             margin-top: 20px;
             text-align: right;
         }
-        .services-link-btn {
+        .section-link-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -185,7 +279,7 @@
             letter-spacing: 0.08em;
             transition: color 0.2s ease;
         }
-        .services-link-btn:hover { color: var(--navy-deep); }
+        .section-link-btn:hover { color: var(--navy-deep); }
 
         /* 3. THE EIGHTPLUS MODEL */
         .model-section {
@@ -393,31 +487,9 @@
             margin: 0;
         }
 
-        /* 6. BRIDGE & CLOSING BANNER */
-        .bridge-section {
-            background-color: var(--bg-light);
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #e2e8f0;
-        }
-        .bridge-box {
-            max-width: 650px;
-            margin: 0 auto;
-        }
-        .bridge-box h3 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--navy-deep);
-            margin: 0 0 8px 0;
-        }
-        .bridge-box p {
-            font-size: 0.9rem;
-            color: var(--slate-body);
-            margin: 0 0 16px 0;
-        }
-
+        /* 6. CLOSING BANNER */
         .closing-banner {
-            padding: 55px 0;
+            padding: 60px 0;
             background: linear-gradient(135deg, rgba(7, 27, 51, 0.95) 0%, rgba(15, 40, 71, 0.95) 100%),
                         url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: #ffffff;
@@ -436,7 +508,7 @@
             font-weight: 800;
             letter-spacing: 0.1em;
             color: var(--accent-light);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-transform: uppercase;
         }
         .btn-primary {
@@ -463,13 +535,15 @@
             .grid-3-model, .grid-2-work { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
+            .hero-slideshow-container { height: 75vh; min-height: 480px; }
+            .hero-title { font-size: 2.1rem; }
             .section-padding { padding: 35px 0; }
             .section-title { font-size: 1.5rem; }
             .grid-4, .grid-4-sectors { grid-template-columns: 1fr; }
             .home-card, .home-card.is-expanded { height: auto; min-height: 200px; }
             .work-card { min-height: 320px; }
             .brand-pillars { flex-direction: column; gap: 4px; }
-            .services-cta-bar { text-align: left; margin-top: 15px; }
+            .section-cta-bar { text-align: left; margin-top: 15px; }
         }
     </style>
 </head>
@@ -478,17 +552,64 @@
     <div id="navbar-placeholder"></div>
 
     <main>
-        <!-- 1. HERO SLIDESHOW SECTION (STAYS INTACT) -->
+        <!-- 1. FULL EXPANDED HERO SLIDESHOW -->
         <section class="hero-slideshow-container" id="hero-slideshow">
-            <!-- Existing Hero Slideshow Code Injected Here -->
-            <div class="container">
-                <span class="eyebrow" style="color: var(--accent-light);">Strategic Communications &amp; Advisory</span>
-                <h1 style="font-size: 3rem; font-weight: 800; margin: 10px 0; line-height: 1.1;">COMMUNICATIONS THAT MOVE THE NEEDLE.</h1>
-                <p style="font-size: 1.1rem; color: #e2e8f0; max-width: 650px; margin-bottom: 24px;">
-                    Positioning institutions, shaping corporate narratives, and guiding executive leadership through complex environments.
-                </p>
-                <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
+            
+            <!-- SLIDE 1 -->
+            <div class="hero-slide active">
+                <div class="hero-bg-img" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="hero-overlay"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-tagline">Strategic Communications &amp; Advisory</span>
+                        <h1 class="hero-title">COMMUNICATIONS THAT MOVE THE NEEDLE.</h1>
+                        <p class="hero-description">
+                            Positioning institutions, shaping corporate narratives, and guiding executive leadership through complex environments.
+                        </p>
+                        <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- SLIDE 2 -->
+            <div class="hero-slide">
+                <div class="hero-bg-img" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="hero-overlay"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-tagline">Systems-Level Thinking</span>
+                        <h1 class="hero-title">ALIGNING STRATEGY WITH PERCEPTION.</h1>
+                        <p class="hero-description">
+                            The real work starts before the message. We map market realities, stakeholder dynamics, and regulatory landscapes first.
+                        </p>
+                        <a href="about.html" class="btn-primary">Our Approach &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="hero-slide">
+                <div class="hero-bg-img" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="hero-overlay"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-tagline">Built in Zambia, Looking Outward</span>
+                        <h1 class="hero-title">PROTECTING INSTITUTIONAL TRUST.</h1>
+                        <p class="hero-description">
+                            Advisory lead, flexible scale, and total accountability for corporate leaders and growth partners.
+                        </p>
+                        <a href="services.html" class="btn-primary">Explore Services &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDESHOW DOTS -->
+            <div class="hero-controls">
+                <span class="hero-dot active" onclick="setHeroSlide(0)"></span>
+                <span class="hero-dot" onclick="setHeroSlide(1)"></span>
+                <span class="hero-dot" onclick="setHeroSlide(2)"></span>
+            </div>
+
         </section>
 
         <!-- 2. SPECIALIST DISCIPLINES GRID -->
@@ -545,8 +666,8 @@
 
                 </div>
 
-                <div class="services-cta-bar">
-                    <a href="services.html" class="services-link-btn">
+                <div class="section-cta-bar">
+                    <a href="services.html" class="section-link-btn">
                         Explore More Capabilities &rarr;
                     </a>
                 </div>
@@ -686,20 +807,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- 6. BRIDGE & CLOSING BANNER -->
-        <section class="bridge-section">
-            <div class="container">
-                <div class="bridge-box">
-                    <h3>NOT SURE WHAT NEEDS TO MOVE?</h3>
-                    <p>Tell us what you're solving—we'll help structure the solution and identify key strategic priorities.</p>
-                    <a href="contact.html" class="btn-primary">Brief Us &rarr;</a>
+                <div class="section-cta-bar">
+                    <a href="services.html#sectors" class="section-link-btn">
+                        Explore More Sectors &rarr;
+                    </a>
                 </div>
             </div>
         </section>
 
+        <!-- 6. CLOSING BANNER -->
         <section class="closing-banner">
             <div class="container">
                 <h2>READY TO MOVE YOUR STRATEGY FORWARD?</h2>
@@ -715,6 +832,38 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Hero Slideshow Controller
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            const heroDots = document.querySelectorAll('.hero-dot');
+            let currentHeroIndex = 0;
+            let heroTimer;
+
+            function showHeroSlide(index) {
+                heroSlides.forEach(slide => slide.classList.remove('active'));
+                heroDots.forEach(dot => dot.classList.remove('active'));
+                
+                currentHeroIndex = index;
+                if (currentHeroIndex >= heroSlides.length) currentHeroIndex = 0;
+                if (currentHeroIndex < 0) currentHeroIndex = heroSlides.length - 1;
+
+                heroSlides[currentHeroIndex].classList.add('active');
+                if (heroDots[currentHeroIndex]) heroDots[currentHeroIndex].classList.add('active');
+            }
+
+            function startHeroTimer() {
+                heroTimer = setInterval(() => {
+                    showHeroSlide(currentHeroIndex + 1);
+                }, 5000);
+            }
+
+            window.setHeroSlide = function(index) {
+                clearInterval(heroTimer);
+                showHeroSlide(index);
+                startHeroTimer();
+            };
+
+            startHeroTimer();
+
             // General Disciplines Expand/Collapse Logic
             const homeCards = document.querySelectorAll('.home-card');
             homeCards.forEach(card => {
