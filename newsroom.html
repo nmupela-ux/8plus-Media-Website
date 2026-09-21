@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Newsroom | Eightplus Media</title>
-    <meta name="description" content="What's happening. What matters. What we're watching. Curated communications intelligence and Eightplus perspectives.">
+    <meta name="description" content="Official press releases, thought leadership perspectives, and curated industry news intelligence from Eightplus Media.">
     <link rel="stylesheet" href="./style.css">
-
+    
     <!-- NEWSROOM CUSTOM STYLES -->
     <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --dark-navy: #071b33;
+            --slate-bg: #f8fafc;
+            --card-border: #e2e8f0;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --tag-release: #071b33;
+            --tag-perspective: #0284c7;
+            --tag-news: #475569;
+        }
+
+        /* 1. HERO SECTION */
         .newsroom-hero {
-            padding: 90px 0 50px;
-            background: #071b33;
+            padding: 100px 0 50px;
+            background: var(--dark-navy);
             color: #ffffff;
+            position: relative;
         }
 
         .hero-tag {
@@ -26,83 +41,126 @@
         }
 
         .newsroom-title {
-            font-size: 2.75rem;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 800;
             letter-spacing: -0.02em;
             margin-bottom: 12px;
         }
 
         .newsroom-sub {
-            font-size: 1.2rem;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
             color: #cbd5e1;
             margin-bottom: 0;
+            max-width: 720px;
         }
 
-        /* Category Filter Nav */
+        /* 2. DUAL DYNAMIC FILTER BAR */
         .filter-nav-wrap {
             background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--card-border);
             position: sticky;
             top: 0;
             z-index: 100;
             padding: 16px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
-        .filter-nav {
+        .filter-container {
             display: flex;
+            flex-direction: column;
             gap: 12px;
+        }
+
+        .type-nav, .topic-nav {
+            display: flex;
+            gap: 10px;
             overflow-x: auto;
             white-space: nowrap;
             padding-bottom: 4px;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
 
-        .filter-nav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .type-nav::-webkit-scrollbar, .topic-nav::-webkit-scrollbar { display: none; }
 
-        .filter-btn {
-            background: transparent;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
+        .type-btn {
+            background: #f1f5f9;
+            border: 1px solid transparent;
+            border-radius: 8px;
             padding: 8px 18px;
-            font-size: 0.825rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: #475569;
+            color: var(--text-dark);
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
+        }
+
+        .type-btn:hover { background: #e2e8f0; }
+
+        .type-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .topic-btn {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.775rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        .filter-btn:hover {
-            border-color: #0284c7;
-            color: #0284c7;
+        .topic-btn.active, .topic-btn:hover {
+            border-color: var(--dark-navy);
+            color: var(--dark-navy);
+            background: rgba(7, 27, 51, 0.04);
         }
 
-        .filter-btn.active {
-            background: #071b33;
+        /* CONTENT ARCHETYPE BADGES */
+        .type-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.725rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
             color: #ffffff;
-            border-color: #071b33;
         }
 
-        /* Featured Story Card */
+        .badge-release { background-color: var(--tag-release); }
+        .badge-perspective { background-color: var(--tag-perspective); }
+        .badge-news { background-color: var(--tag-news); }
+
+        /* 3. FEATURED STORY SECTION */
         .featured-section {
             padding: 60px 0 40px;
         }
 
         .featured-card {
             background: #ffffff;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--card-border);
             border-radius: 16px;
             overflow: hidden;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-4px);
         }
 
         .featured-image {
             background-size: cover;
             background-position: center;
-            min-height: 340px;
+            min-height: 360px;
         }
 
         .featured-content {
@@ -116,25 +174,16 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             font-size: 0.825rem;
         }
 
-        .card-category {
-            font-weight: 800;
-            color: #0284c7;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .card-source {
-            color: #64748b;
-        }
+        .meta-date { color: var(--text-muted); }
 
         .featured-title {
-            font-size: 1.85rem;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
             font-weight: 800;
-            color: #0f172a;
+            color: var(--text-dark);
             line-height: 1.25;
             margin-bottom: 16px;
         }
@@ -146,20 +195,7 @@
             margin-bottom: 24px;
         }
 
-        .read-link {
-            font-weight: 700;
-            color: #0284c7;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .read-link:hover {
-            color: #0369a1;
-            text-decoration: underline;
-        }
-
-        /* Article Grid */
+        /* 4. ARTICLE GRID SECTION */
         .grid-section {
             padding: 40px 0 80px;
         }
@@ -172,12 +208,12 @@
 
         .news-card {
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .news-card:hover {
@@ -203,24 +239,65 @@
         .card-title {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #0f172a;
+            color: var(--text-dark);
             line-height: 1.35;
             margin-bottom: 12px;
         }
 
         .card-excerpt {
             font-size: 0.925rem;
-            color: #64748b;
+            color: var(--text-muted);
             line-height: 1.55;
             margin-bottom: 20px;
             flex-grow: 1;
         }
 
-        /* Podcast Coming Soon Banner */
+        .read-link {
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.925rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .read-link:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        /* 5. MEDIA & PRESS CONTACT STRIP */
+        .press-contact-strip {
+            background: var(--slate-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px 40px;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .press-info h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .press-info p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* 6. PODCAST BANNER */
         .podcast-banner {
             background: linear-gradient(135deg, #071b33 0%, #0f172a 100%);
             border-radius: 20px;
-            padding: 56px;
+            padding: 48px 56px;
             color: #ffffff;
             display: flex;
             justify-content: space-between;
@@ -230,7 +307,7 @@
         }
 
         .podcast-text h2 {
-            font-size: 2rem;
+            font-size: 1.85rem;
             font-weight: 800;
             margin-bottom: 8px;
             color: #ffffff;
@@ -238,7 +315,7 @@
 
         .podcast-text p {
             color: #cbd5e1;
-            font-size: 1.05rem;
+            font-size: 1rem;
             margin: 0;
         }
 
@@ -255,24 +332,17 @@
             white-space: nowrap;
         }
 
-        .no-articles {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 0;
-            color: #64748b;
-        }
-
-        /* Responsive Breakpoints */
+        /* RESPONSIVE BREAKPOINTS */
         @media (max-width: 992px) {
             .featured-card { grid-template-columns: 1fr; }
             .news-grid { grid-template-columns: repeat(2, 1fr); }
-            .podcast-banner { flex-direction: column; align-items: flex-start; }
+            .press-contact-strip, .podcast-banner { flex-direction: column; align-items: flex-start; }
         }
 
         @media (max-width: 600px) {
             .news-grid { grid-template-columns: 1fr; }
-            .newsroom-title { font-size: 2.1rem; }
             .podcast-banner { padding: 32px; }
+            .press-contact-strip { padding: 24px; }
         }
     </style>
 </head>
@@ -281,29 +351,36 @@
     <!-- NAVBAR INJECTION PLACEHOLDER -->
     <div id="navbar-placeholder"></div>
 
-    <!-- MAIN CONTENT -->
     <main>
-
         <!-- 1. HERO -->
         <section class="newsroom-hero">
             <div class="container">
                 <span class="hero-tag">Eightplus Intelligence &amp; Editorial</span>
                 <h1 class="newsroom-title">The Eightplus Newsroom</h1>
-                <p class="newsroom-sub">What's happening. What matters. What we're watching.</p>
+                <p class="newsroom-sub">Official press releases, strategic insights, and curated communications intelligence.</p>
             </div>
         </section>
 
-        <!-- 2. STICKY CATEGORY FILTER BAR -->
+        <!-- 2. STICKY DUAL-NAV FILTER BAR -->
         <div class="filter-nav-wrap">
             <div class="container">
-                <div class="filter-nav">
-                    <button class="filter-btn active" data-category="ALL">All</button>
-                    <button class="filter-btn" data-category="EIGHTPLUS">Eightplus</button>
-                    <button class="filter-btn" data-category="COMMUNICATIONS">Communications</button>
-                    <button class="filter-btn" data-category="BUSINESS">Business</button>
-                    <button class="filter-btn" data-category="MINING">Mining</button>
-                    <button class="filter-btn" data-category="TECHNOLOGY">Technology</button>
-                    <button class="filter-btn" data-category="CULTURE">Culture</button>
+                <div class="filter-container">
+                    <!-- Format Archetype Tabs -->
+                    <div class="type-nav">
+                        <button class="type-btn active" data-type="ALL">All Updates</button>
+                        <button class="type-btn" data-type="RELEASE">Press Releases</button>
+                        <button class="type-btn" data-type="PERSPECTIVE">Perspectives &amp; Blog</button>
+                        <button class="type-btn" data-type="NEWS">Industry News</button>
+                    </div>
+                    <!-- Topic Tag Filters -->
+                    <div class="topic-nav">
+                        <button class="topic-btn active" data-topic="ALL">All Topics</button>
+                        <button class="topic-btn" data-topic="COMMUNICATIONS">Communications</button>
+                        <button class="topic-btn" data-topic="BUSINESS">Business</button>
+                        <button class="topic-btn" data-topic="MINING">Mining</button>
+                        <button class="topic-btn" data-topic="TECHNOLOGY">Technology</button>
+                        <button class="topic-btn" data-topic="CULTURE">Culture</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -311,20 +388,83 @@
         <!-- 3. FEATURED STORY -->
         <section class="featured-section">
             <div class="container" id="featured-story-container">
-                <!-- Dynamically rendered via newsroom.js -->
+                <!-- Sample Static Fallback / Rendered dynamically via newsroom.js -->
+                <article class="featured-card">
+                    <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200');"></div>
+                    <div class="featured-content">
+                        <div class="card-meta">
+                            <span class="type-badge badge-perspective">Perspective</span>
+                            <span class="meta-date">&bull; Sep 2026</span>
+                        </div>
+                        <h2 class="featured-title">From Communications to Command Centre: The Shift in Corporate Reputation</h2>
+                        <p class="featured-excerpt">Why corporate communications is moving away from reactive PR toward strategic, C-suite advisory and proactive narrative management.</p>
+                        <a href="#" class="read-link">Read Full Perspective &rarr;</a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- 4. ARTICLES GRID -->
+        <!-- 4. MEDIA CONTACT & PRESS KIT BANNER -->
+        <div class="container">
+            <div class="press-contact-strip">
+                <div class="press-info">
+                    <h3>Media &amp; Press Inquiries</h3>
+                    <p>Are you a journalist seeking commentary, executive statements, or press kits?</p>
+                </div>
+                <a href="mailto:media@eightplusmedia.com" class="read-link" style="font-size: 1rem;">Contact Media Relations &rarr;</a>
+            </div>
+        </div>
+
+        <!-- 5. ARTICLES GRID -->
         <section class="grid-section">
             <div class="container">
                 <div class="news-grid" id="articles-grid">
-                    <!-- Dynamically rendered via newsroom.js -->
+                    <!-- Card 1: Press Release -->
+                    <article class="news-card">
+                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600');"></div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="type-badge badge-release">Press Release</span>
+                                <span class="meta-date">&bull; Aug 2026</span>
+                            </div>
+                            <h3 class="card-title">Eightplus Concludes Successful Industry Takeover Session</h3>
+                            <p class="card-excerpt">Official statement on the strategic communications masterclass delivered for university students and emerging professionals.</p>
+                            <a href="#" class="read-link">Read Release &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Blog Perspective -->
+                    <article class="news-card">
+                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600');"></div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="type-badge badge-perspective">Perspective</span>
+                                <span class="meta-date">&bull; Jul 2026</span>
+                            </div>
+                            <h3 class="card-title">Navigating Crisis Management in the Digital Era</h3>
+                            <p class="card-excerpt">Key takeaways for finance and corporate leaders on managing rapid information cycles during high-stakes situations.</p>
+                            <a href="#" class="read-link">Read Blog &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Industry News -->
+                    <article class="news-card">
+                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600');"></div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="type-badge badge-news">Industry News</span>
+                                <span class="meta-date">&bull; Jun 2026</span>
+                            </div>
+                            <h3 class="card-title">Emerging Comms Trends Across Southern Africa</h3>
+                            <p class="card-excerpt">A breakdown of how AI tools and digital platforms are influencing regional public relations and media strategy.</p>
+                            <a href="#" class="read-link">Read Industry News &rarr;</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- 5. PODCAST COMING SOON STRIP -->
+        <!-- 6. PODCAST BANNER -->
         <section>
             <div class="container">
                 <div class="podcast-banner">
@@ -338,7 +478,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- SCRIPTS -->
