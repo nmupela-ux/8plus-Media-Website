@@ -6,53 +6,74 @@
     <title>The Academy | Eightplus Media</title>
     <meta name="description" content="Practical thinking for people who make communication matter. Executive learning, team workshops, and strategic frameworks.">
     <link rel="stylesheet" href="./style.css">
-
-    <!-- ACADEMY ENHANCED STYLES -->
+    
+    <!-- ENHANCED ACADEMY STYLES -->
     <style>
-        /* Section Layout & Headers */
-        .page-hero {
-            padding: 90px 0 70px;
-            background-color: #071b33;
-            color: #ffffff;
-            position: relative;
-            overflow: hidden;
+        /* Base Reset & Variables */
+        :root {
+            --brand-navy: #071b33;
+            --brand-dark: #0f172a;
+            --brand-accent: #0284c7;
+            --brand-light-blue: #7dd3fc;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
         }
 
-        .page-hero::after {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(125,211,252,0.1) 0%, rgba(7,27,51,0) 70%);
-            pointer-events: none;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 1. Page Hero */
+        .page-hero {
+            padding: 120px 0 90px;
+            background: linear-gradient(rgba(7, 27, 51, 0.85), rgba(15, 23, 42, 0.92)), 
+                        url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+            color: #ffffff;
+            position: relative;
         }
 
         .hero-tagline {
             display: inline-block;
-            font-size: 0.875rem;
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #7dd3fc;
-            margin-bottom: 12px;
+            letter-spacing: 0.12em;
+            color: var(--brand-light-blue);
+            margin-bottom: 16px;
         }
 
         .page-title {
-            font-size: 2.75rem;
+            font-size: 3rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            line-height: 1.15;
+            margin-bottom: 24px;
             letter-spacing: -0.02em;
+            max-width: 900px;
         }
 
         .hero-description {
             font-size: 1.15rem;
-            line-height: 1.65;
+            line-height: 1.7;
             color: #cbd5e1;
-            max-width: 820px;
-            margin-bottom: 32px;
+            max-width: 840px;
+            margin-bottom: 36px;
         }
 
         .hero-cta-group {
@@ -61,57 +82,63 @@
             flex-wrap: wrap;
         }
 
-        /* Generic Section Headers */
+        /* 2. Generic Section Layouts */
         .academy-section {
-            padding: 80px 0;
+            padding: 90px 0;
         }
 
         .section-alt {
-            background-color: #f8fafc;
+            background-color: var(--bg-light);
         }
 
         .section-tag {
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #0284c7;
+            color: var(--brand-accent);
             margin-bottom: 8px;
             display: block;
         }
 
         .section-title {
-            font-size: 2.1rem;
+            font-size: 2.25rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            color: #0f172a;
+            margin-bottom: 16px;
+            color: var(--brand-dark);
             letter-spacing: -0.01em;
         }
 
         .section-lead {
             font-size: 1.1rem;
-            color: #475569;
+            color: var(--text-muted);
             max-width: 760px;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
             line-height: 1.6;
         }
 
-        /* Belief Statement Banner */
+        .text-center {
+            text-align: center;
+        }
+
+        /* 3. Core Belief Statement Card */
         .belief-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
             color: #ffffff;
             border-radius: 16px;
-            padding: 48px;
-            margin-top: -40px;
+            padding: 56px;
+            margin-top: -50px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .belief-card h2 {
-            font-size: 1.75rem;
-            color: #7dd3fc;
-            margin-bottom: 16px;
+            font-size: 1.85rem;
+            color: var(--brand-light-blue);
+            margin-bottom: 18px;
         }
 
         .belief-card p {
@@ -120,7 +147,7 @@
             line-height: 1.7;
         }
 
-        /* Grids & Cards */
+        /* 4. Grids & Cards */
         .grid {
             display: grid;
             gap: 32px;
@@ -132,10 +159,9 @@
 
         .card {
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 32px;
-            position: relative;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -143,12 +169,24 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.1);
             border-color: #cbd5e1;
         }
 
-        /* Badges & Status */
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
         .badge {
             display: inline-block;
             padding: 4px 12px;
@@ -174,35 +212,36 @@
         .card-title {
             font-size: 1.35rem;
             font-weight: 700;
-            color: #0f172a;
+            color: var(--brand-dark);
             margin-bottom: 8px;
         }
 
         .card-subtitle {
             font-size: 0.95rem;
             font-weight: 600;
-            color: #0284c7;
+            color: var(--brand-accent);
             margin-bottom: 16px;
             line-height: 1.4;
         }
 
         .card-body {
             font-size: 0.95rem;
-            color: #475569;
-            line-height: 1.6;
+            color: var(--text-muted);
+            line-height: 1.625;
             margin-bottom: 24px;
         }
 
-        /* Lab Workshop Specifics */
+        /* 5. Lab Cards (Workshops) */
         .lab-card {
-            border-top: 4px solid #0284c7;
+            border-top: 5px solid var(--brand-accent);
             background: #ffffff;
+            padding: 32px;
         }
 
         .outcome-box {
-            background: #f8fafc;
-            border-left: 3px solid #0284c7;
-            padding: 12px 16px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--brand-accent);
+            padding: 16px;
             border-radius: 0 8px 8px 0;
             font-size: 0.875rem;
             color: #334155;
@@ -210,161 +249,167 @@
         }
 
         .outcome-box strong {
-            color: #0f172a;
+            color: var(--brand-dark);
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
-        /* Free Resource Box & Inline Download */
+        /* 6. Free Resource Box */
         .resource-box {
-            background: linear-gradient(135deg, #071b33 0%, #0f172a 100%);
-            border-radius: 16px;
-            padding: 48px;
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-dark) 100%);
+            border-radius: 20px;
+            padding: 56px;
             color: #ffffff;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
             align-items: center;
+            box-shadow: 0 25px 50px -12px rgba(7, 27, 51, 0.25);
         }
 
         .resource-content h3 {
-            font-size: 1.85rem;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
             color: #ffffff;
+            line-height: 1.25;
         }
 
         .resource-content p {
             color: #cbd5e1;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            margin-bottom: 24px;
         }
 
         .resource-form {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 24px;
-            border-radius: 12px;
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 32px;
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
         }
 
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            font-size: 0.825rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             color: #cbd5e1;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .form-input {
             width: 100%;
-            padding: 12px 16px;
-            border-radius: 6px;
+            padding: 14px 16px;
+            border-radius: 8px;
             border: 1px solid #334155;
             background: #0f172a;
             color: #ffffff;
             font-size: 0.95rem;
-            box-sizing: border-box;
+            transition: border-color 0.2s ease;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #7dd3fc;
+            border-color: var(--brand-light-blue);
         }
 
-        /* Industry Takeover Spotlight */
+        /* 7. Industry Takeover Spotlight */
         .takeover-banner {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 40px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 32px;
+            gap: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
         }
 
         .takeover-text h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f172a;
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--brand-dark);
             margin-bottom: 12px;
         }
 
         .takeover-text p {
-            color: #475569;
-            line-height: 1.6;
+            color: var(--text-muted);
+            line-height: 1.65;
             margin: 0;
-            max-width: 700px;
+            max-width: 720px;
         }
 
-        /* Methodology Four Pillars */
+        /* 8. Methodology Four Pillars */
         .approach-card {
-            text-align: left;
             background: #ffffff;
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
         }
 
         .approach-number {
             font-size: 0.875rem;
             font-weight: 800;
-            color: #0284c7;
+            color: var(--brand-accent);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             display: block;
         }
 
         .approach-card h4 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 8px;
+            color: var(--brand-dark);
+            margin-bottom: 10px;
         }
 
         .approach-card p {
-            font-size: 0.9rem;
-            color: #64748b;
-            line-height: 1.5;
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            line-height: 1.6;
             margin: 0;
         }
 
-        /* Final Impact Closing Callout */
+        /* 9. Closing Callout Banner */
         .closing-banner {
-            padding: 80px 0;
-            background: #071b33;
+            padding: 100px 0;
+            background: linear-gradient(rgba(7, 27, 51, 0.92), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
             color: #ffffff;
             text-align: center;
         }
 
         .closing-banner h2 {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 16px;
             letter-spacing: -0.01em;
         }
 
         .closing-banner p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #cbd5e1;
-            margin-bottom: 32px;
+            margin-bottom: 36px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Buttons */
+        /* Button Styling */
         .btn {
             display: inline-block;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.25s ease;
@@ -373,36 +418,65 @@
             text-align: center;
         }
 
-        .btn-primary { background-color: #0284c7; color: #ffffff; }
-        .btn-primary:hover { background-color: #0369a1; }
+        .btn-primary { 
+            background-color: var(--brand-accent); 
+            color: #ffffff; 
+        }
 
-        .btn-secondary { background-color: rgba(255,255,255,0.1); color: #ffffff; border: 1px solid rgba(255,255,255,0.2); }
-        .btn-secondary:hover { background-color: rgba(255,255,255,0.2); }
+        .btn-primary:hover { 
+            background-color: #0369a1; 
+            transform: translateY(-2px);
+        }
 
-        .btn-outline { background-color: transparent; border: 1px solid #cbd5e1; color: #0f172a; }
-        .btn-outline:hover { border-color: #0284c7; color: #0284c7; }
+        .btn-secondary { 
+            background-color: rgba(255, 255, 255, 0.1); 
+            color: #ffffff; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-secondary:hover { 
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+
+        .btn-outline { 
+            background-color: transparent; 
+            border: 1px solid var(--border-color); 
+            color: var(--brand-dark); 
+        }
+
+        .btn-outline:hover { 
+            border-color: var(--brand-accent); 
+            color: var(--brand-accent); 
+            background-color: #f0f9ff;
+        }
 
         .btn-full { width: 100%; }
 
         /* Responsive Breakpoints */
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .grid-4 { grid-template-columns: repeat(2, 1fr); }
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
-            .resource-box { grid-template-columns: 1fr; gap: 24px; }
+            .resource-box { grid-template-columns: 1fr; gap: 32px; padding: 40px; }
             .takeover-banner { flex-direction: column; align-items: flex-start; }
         }
 
         @media (max-width: 768px) {
+            .page-hero { padding: 80px 0 60px; }
+            .page-title { font-size: 2.15rem; }
+            .section-title { font-size: 1.85rem; }
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-            .page-title { font-size: 2rem; }
-            .belief-card { padding: 28px; }
-            .resource-box { padding: 28px; }
+            .belief-card { padding: 32px 24px; margin-top: -30px; }
+            .takeover-banner { padding: 32px 24px; }
+            .closing-banner h2 { font-size: 1.85rem; }
+            .hero-cta-group { flex-direction: column; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR INJECTION PLACEHOLDER -->
+    <!-- NAVBAR PLACEHOLDER -->
     <div id="navbar-placeholder"></div>
 
     <!-- MAIN CONTENT -->
@@ -427,77 +501,89 @@
         <section style="padding: 0 0 60px 0;">
             <div class="container">
                 <div class="belief-card">
-                    <span class="section-tag" style="color: #7dd3fc;">Our Philosophy</span>
+                    <span class="section-tag" style="color: var(--brand-light-blue);">Our Philosophy</span>
                     <h2>Communication is more than output.</h2>
                     <p>
                         The strongest communicators do more than produce messages. They understand the people they are speaking to. They investigate before they recommend. They know how to bring a room of people towards a decision. They understand that every customer interaction is a communication experience. And they use evidence to determine whether their work is actually making a difference.
                     </p>
-                    <p style="margin-top: 16px; margin-bottom: 0; font-weight: 600; color: #ffffff;">
+                    <p style="margin-top: 16px; font-weight: 600; color: #ffffff;">
                         Our learning is designed for communications professionals, leaders, teams, and emerging practitioners who want to move beyond activity and build communication that is strategic, useful, and measurable.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 3. LEARNING STREAMS (4 CARDS) -->
+        <!-- 3. LEARNING STREAMS (4 CARDS WITH IMAGE HEADERS) -->
         <section id="learning-streams" class="academy-section">
             <div class="container">
                 <span class="section-tag">Masterclasses &amp; Streams</span>
                 <h2 class="section-title">Executive Learning Programmes</h2>
                 <p class="section-lead">Rigorous, applied learning streams focused on building strategic advantage and leadership alignment.</p>
-
+                
                 <div class="grid grid-2">
                     
                     <!-- Card 1 -->
                     <div class="card">
-                        <div>
-                            <span class="badge badge-soon">Coming Soon</span>
-                            <h3 class="card-title">Executive Communications</h3>
-                            <p class="card-subtitle">Communication as a Leadership Function</p>
-                            <p class="card-body">
-                                Communication does not begin when a decision has already been made. This masterclass explores how leaders can use communication to shape understanding, build alignment, navigate complexity, and strengthen trust — before, during, and after critical decisions.
-                            </p>
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800" alt="Executive Communications" class="card-img">
+                        <div class="card-content">
+                            <div>
+                                <span class="badge badge-soon">Coming Soon</span>
+                                <h3 class="card-title">Executive Communications</h3>
+                                <p class="card-subtitle">Communication as a Leadership Function</p>
+                                <p class="card-body">
+                                    Communication does not begin when a decision has already been made. This masterclass explores how leaders can use communication to shape understanding, build alignment, navigate complexity, and strengthen trust — before, during, and after critical decisions.
+                                </p>
+                            </div>
+                            <a href="contact.html?interest=executive-comms" class="btn btn-outline" style="margin-top: auto;">Learn More</a>
                         </div>
-                        <a href="contact.html?interest=executive-comms" class="btn btn-outline">Learn More</a>
                     </div>
 
                     <!-- Card 2 -->
                     <div class="card">
-                        <div>
-                            <span class="badge badge-active">Available for Teams</span>
-                            <h3 class="card-title">Customer Care Communications</h3>
-                            <p class="card-subtitle">Every Customer Interaction Communicates Something</p>
-                            <p class="card-body">
-                                Customer care is communication. The words used, how a complaint is handled, and what happens when a customer is passed between departments shape how an organisation is experienced. This practical experience explores the psychology, language, and listening principles behind clearer, empathetic interactions.
-                            </p>
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Customer Care Communications" class="card-img">
+                        <div class="card-content">
+                            <div>
+                                <span class="badge badge-active">Available for Teams</span>
+                                <h3 class="card-title">Customer Care Communications</h3>
+                                <p class="card-subtitle">Every Customer Interaction Communicates Something</p>
+                                <p class="card-body">
+                                    Customer care is communication. The words used, how a complaint is handled, and what happens when a customer is passed between departments shape how an organisation is experienced. This practical experience explores the psychology, language, and listening principles behind clearer, empathetic interactions.
+                                </p>
+                            </div>
+                            <a href="contact.html?interest=customer-care" class="btn btn-primary" style="margin-top: auto;">Enquire for Teams</a>
                         </div>
-                        <a href="contact.html?interest=customer-care" class="btn btn-primary">Enquire for Teams</a>
                     </div>
 
                     <!-- Card 3 -->
                     <div class="card">
-                        <div>
-                            <span class="badge badge-soon">Coming Soon</span>
-                            <h3 class="card-title">Persuasive Communication</h3>
-                            <p class="card-subtitle">Words Change What People Understand, Feel and Do</p>
-                            <p class="card-body">
-                                Persuasion is not manipulation. It is the disciplined understanding of people, context, meaning, and motivation. Explore how persuasive texts and messages are constructed, how audiences interpret information, and how language and psychology influence response.
-                            </p>
+                        <img src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?auto=format&fit=crop&q=80&w=800" alt="Persuasive Communication" class="card-img">
+                        <div class="card-content">
+                            <div>
+                                <span class="badge badge-soon">Coming Soon</span>
+                                <h3 class="card-title">Persuasive Communication</h3>
+                                <p class="card-subtitle">Words Change What People Understand, Feel and Do</p>
+                                <p class="card-body">
+                                    Persuasion is not manipulation. It is the disciplined understanding of people, context, meaning, and motivation. Explore how persuasive texts and messages are constructed, how audiences interpret information, and how language and psychology influence response.
+                                </p>
+                            </div>
+                            <a href="contact.html?interest=persuasive-comms" class="btn btn-outline" style="margin-top: auto;">Join the Learning List</a>
                         </div>
-                        <a href="contact.html?interest=persuasive-comms" class="btn btn-outline">Join the Learning List</a>
                     </div>
 
                     <!-- Card 4 -->
                     <div class="card">
-                        <div>
-                            <span class="badge badge-soon">Coming Soon</span>
-                            <h3 class="card-title">Evidence-Led Communications</h3>
-                            <p class="card-subtitle">From Activity Reporting to Intelligence</p>
-                            <p class="card-body">
-                                Reach is not the same as impact. Communications professionals increasingly need to interpret audience behaviour, identify patterns, measure change, and turn evidence into better decisions — moving from "what we did" to "what we learned and what changed."
-                            </p>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Evidence-Led Communications" class="card-img">
+                        <div class="card-content">
+                            <div>
+                                <span class="badge badge-soon">Coming Soon</span>
+                                <h3 class="card-title">Evidence-Led Communications</h3>
+                                <p class="card-subtitle">From Activity Reporting to Intelligence</p>
+                                <p class="card-body">
+                                    Reach is not the same as impact. Communications professionals increasingly need to interpret audience behaviour, identify patterns, measure change, and turn evidence into better decisions — moving from "what we did" to "what we learned and what changed."
+                                </p>
+                            </div>
+                            <a href="contact.html?interest=evidence-led" class="btn btn-outline" style="margin-top: auto;">Join the Learning List</a>
                         </div>
-                        <a href="contact.html?interest=evidence-led" class="btn btn-outline">Join the Learning List</a>
                     </div>
 
                 </div>
@@ -512,7 +598,7 @@
                 <p class="section-lead">
                     Not every organisational problem needs another presentation. Sometimes you need the right people in a room, a well-designed process, and someone who can help the conversation move from "we should..." to "here is what we're going to do."
                 </p>
-
+                
                 <div class="grid grid-3">
                     
                     <div class="card lab-card">
@@ -566,16 +652,15 @@
             <div class="container">
                 <div class="resource-box">
                     <div class="resource-content">
-                        <span class="section-tag" style="color: #7dd3fc;">Free Executive Resource</span>
+                        <span class="section-tag" style="color: var(--brand-light-blue);">Free Executive Resource</span>
                         <h3>Thinking You Can Take With You</h3>
                         <p>
                             Selected articles, frameworks, and practical resources for people working across communications, marketing, and public affairs. No gatekeeping. No unnecessary jargon. Just useful thinking for people doing the work.
                         </p>
-                        <p style="font-size: 0.9rem; color: #94a3b8;">
-                            &check; Instant PDF Access &nbsp;|&nbsp; &check; Practitioner Checklist &nbsp;|&nbsp; &check; No Spam
+                        <p style="font-size: 0.9rem; color: #94a3b8; font-weight: 600;">
+                            ✓ Instant PDF Access &nbsp;|&nbsp; ✓ Practitioner Checklist &nbsp;|&nbsp; ✓ No Spam
                         </p>
                     </div>
-
                     <div class="resource-form">
                         <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you! Your framework download link has been sent to your email.');">
                             <div class="form-group">
@@ -618,26 +703,22 @@
                     <span class="section-tag">How We Teach &amp; Train</span>
                     <h2 class="section-title">Our Learning Methodology</h2>
                 </div>
-
                 <div class="grid grid-4">
                     <div class="approach-card">
                         <span class="approach-number">01. Research</span>
                         <h4>Research</h4>
                         <p>Understand the people, context, and information environment before deciding what to say.</p>
                     </div>
-
                     <div class="approach-card">
                         <span class="approach-number">02. Strategy</span>
                         <h4>Strategy</h4>
                         <p>Connect communication to decisions, objectives, and real outcomes — not simply activity.</p>
                     </div>
-
                     <div class="approach-card">
                         <span class="approach-number">03. Practice</span>
                         <h4>Practice</h4>
                         <p>Turn ideas into communication that works in complex organisational environments.</p>
                     </div>
-
                     <div class="approach-card">
                         <span class="approach-number">04. Measurement</span>
                         <h4>Measurement</h4>
