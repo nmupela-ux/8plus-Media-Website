@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>About | Eightplus Media</title>
     <meta name="description" content="Strategic communications advisory grounded in systems thinking, reputation, and measurable impact. Built in Zambia, looking outward.">
+
     <link rel="stylesheet" href="./style.css">
-    
+
     <style>
         :root {
             --navy-deep: #071b33;
@@ -15,94 +17,140 @@
             --accent-blue: #0284c7;
             --accent-light: #7dd3fc;
             --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             color: var(--slate-body);
             background-color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.4;
+            line-height: 1.5;
             margin: 0;
+            overflow-x: hidden;
+        }
+
+        button,
+        a {
+            font-family: inherit;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: min(90%, 1200px);
             margin: 0 auto;
         }
 
-        /* 1. HERO SECTION */
+        /* =========================
+           HERO
+        ========================= */
+
         .page-hero {
-            padding: 70px 0 45px;
-            background: linear-gradient(135deg, rgba(7, 27, 51, 0.94) 0%, rgba(15, 40, 71, 0.88) 100%), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 78px 0 52px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(7, 27, 51, 0.94) 0%,
+                    rgba(15, 40, 71, 0.88) 100%
+                ),
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')
+                center/cover no-repeat;
             color: #ffffff;
         }
+
         .hero-tagline {
             font-size: 0.75rem;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             color: var(--accent-light);
             display: block;
-            margin-bottom: 8px;
-        }
-        .page-title {
-            font-size: 2.75rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.02em;
-        }
-        .hero-description {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #e2e8f0;
-            max-width: 680px;
-            margin: 0;
-            line-height: 1.5;
+            margin-bottom: 10px;
         }
 
-        /* GENERAL SECTION HEADERS */
-        .section-padding { padding: 45px 0; }
+        .page-title {
+            font-size: clamp(2.25rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.08;
+            margin: 0 0 14px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-description {
+            font-size: 1.08rem;
+            font-weight: 400;
+            color: #e2e8f0;
+            max-width: 720px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        .section-padding {
+            padding: 72px 0;
+        }
+
         .eyebrow {
             font-size: 0.75rem;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             color: var(--accent-blue);
             display: block;
-            margin-bottom: 4px;
-        }
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin: 0 0 20px 0;
-            color: var(--navy-deep);
-            letter-spacing: -0.01em;
+            margin-bottom: 7px;
         }
 
-        /* 2. STRATEGIC APPROACH GRID (3 CARDS) */
+        .section-title {
+            font-size: clamp(1.7rem, 4vw, 2rem);
+            font-weight: 750;
+            margin: 0 0 26px;
+            color: var(--navy-deep);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        /* =========================
+           APPROACH / PILLAR CARDS
+        ========================= */
+
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .about-card {
             position: relative;
-            height: 250px;
-            border-radius: 6px;
+            min-height: 250px;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px;
+            padding: 22px;
             color: #ffffff;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
+
         .about-card::before {
             content: '';
             position: absolute;
@@ -112,31 +160,73 @@
             transition: transform 0.5s ease;
             z-index: 1;
         }
+
         .about-card::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(7, 27, 51, 0.25) 0%, rgba(7, 27, 51, 0.85) 65%, rgba(7, 27, 51, 0.98) 100%);
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(7, 27, 51, 0.2) 0%,
+                    rgba(7, 27, 51, 0.82) 65%,
+                    rgba(7, 27, 51, 0.98) 100%
+                );
             z-index: 2;
         }
-        .about-card:hover { transform: translateY(-3px); }
-        .about-card:hover::before { transform: scale(1.05); }
 
-        .card-app-1::before { background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'); }
-        .card-app-2::before { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'); }
-        .card-app-3::before { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'); }
-
-        .card-top { position: relative; z-index: 3; }
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin: 0;
+        .about-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(7, 27, 51, 0.12);
         }
 
+        .about-card:hover::before {
+            transform: scale(1.05);
+        }
+
+        .card-app-1::before {
+            background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-app-2::before {
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-app-3::before {
+            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-pil-1::before {
+            background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-pil-2::before {
+            background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-pil-3::before {
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-pil-4::before {
+            background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-top,
         .card-bottom {
             position: relative;
             z-index: 3;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 750;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.25;
+        }
+
+        .card-bottom {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -145,17 +235,19 @@
 
         .explore-btn {
             font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
+            font-weight: 700;
+            letter-spacing: 0.08em;
             color: var(--accent-light);
             text-transform: uppercase;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(4px);
-            padding: 6px 12px;
+            padding: 7px 12px;
             border-radius: 4px;
             border: 1px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
             transition: all 0.2s ease;
         }
+
         .about-card:hover .explore-btn,
         .leader-card:hover .explore-btn {
             background: var(--accent-blue);
@@ -168,43 +260,51 @@
             width: 100%;
             margin-bottom: 12px;
             padding-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 0.25s ease;
         }
+
         .card-subtitle {
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--accent-light);
             margin-bottom: 4px;
         }
+
         .card-body-text {
             font-size: 0.8rem;
             color: #e2e8f0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .about-card.is-expanded {
-            height: auto;
             min-height: 250px;
         }
-        .about-card.is-expanded .card-revealed-info { display: block; }
 
-        /* 3. LEADERSHIP CARDS (2-COLUMN INTERACTIVE) */
+        .about-card.is-expanded .card-revealed-info {
+            display: block;
+        }
+
+        /* =========================
+           LEADERSHIP
+        ========================= */
+
         .leadership-section {
             background-color: var(--bg-light);
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
-        .grid-2-leaders {
+
+        .grid-leaders {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
         }
 
         .leader-card {
             position: relative;
-            min-height: 380px;
-            border-radius: 6px;
+            min-height: 410px;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -212,9 +312,12 @@
             padding: 24px;
             color: #ffffff;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
+
         .leader-card::before {
             content: '';
             position: absolute;
@@ -224,39 +327,70 @@
             transition: transform 0.5s ease;
             z-index: 1;
         }
+
         .leader-card::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(7, 27, 51, 0.1) 0%, rgba(7, 27, 51, 0.75) 55%, rgba(7, 27, 51, 0.96) 100%);
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(7, 27, 51, 0.08) 0%,
+                    rgba(7, 27, 51, 0.72) 55%,
+                    rgba(7, 27, 51, 0.97) 100%
+                );
             z-index: 2;
         }
-        .leader-card:hover::before { transform: scale(1.03); }
 
-        .leader-1-img::before { background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'); }
-        .leader-2-img::before { background-image: url('https://images.unsplash.com/photo-1580894732413-a75151b1424b?auto=format&fit=crop&w=800&q=80'); }
+        .leader-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(7, 27, 51, 0.12);
+        }
+
+        .leader-card:hover::before {
+            transform: scale(1.03);
+        }
+
+        .leader-1-img::before {
+            background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80');
+        }
+
+        .leader-2-img::before {
+            background-image: url('https://images.unsplash.com/photo-1580894732413-a75151b1424b?auto=format&fit=crop&w=900&q=80');
+        }
+
+        /*
+         * Davey Mupela
+         * Replace this image URL with Davey's actual portrait
+         * when you have it.
+         */
+        .leader-3-img::before {
+            background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80');
+        }
 
         .leader-content {
             position: relative;
             z-index: 3;
             width: 100%;
         }
+
         .leader-name {
-            font-size: 1.6rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 750;
             color: #ffffff;
-            margin: 0 0 4px 0;
+            margin: 0 0 5px;
             letter-spacing: -0.01em;
+            line-height: 1.2;
         }
+
         .leader-role-title {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: var(--accent-light);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            text-transform: none;
+            letter-spacing: 0.04em;
             margin: 0;
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
+            opacity: 0.95;
         }
 
         .leader-revealed-bio {
@@ -266,73 +400,82 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 0.25s ease;
         }
+
         .leader-bio-text {
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             color: #e2e8f0;
-            line-height: 1.45;
+            line-height: 1.5;
             margin-bottom: 16px;
         }
-        
+
         .leader-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .linkedin-link {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: #ffffff;
             background: rgba(2, 132, 199, 0.85);
-            padding: 6px 12px;
+            padding: 7px 11px;
             border-radius: 4px;
             text-decoration: none;
             transition: background 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
+            white-space: nowrap;
         }
-        .linkedin-link:hover { background: var(--accent-blue); }
 
-        .leader-card.is-expanded .leader-revealed-bio { display: block; }
-
-        /* 4. OPERATING PILLARS GRID (OPTION 2) */
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+        .linkedin-link:hover {
+            background: var(--accent-blue);
         }
-        .card-pil-1::before { background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80'); }
-        .card-pil-2::before { background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80'); }
-        .card-pil-3::before { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80'); }
-        .card-pil-4::before { background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80'); }
 
-        /* 5. CLOSING BANNER */
+        .leader-card.is-expanded .leader-revealed-bio {
+            display: block;
+        }
+
+        /* =========================
+           CLOSING BANNER
+        ========================= */
+
         .closing-banner {
-            padding: 55px 0;
-            background: linear-gradient(135deg, rgba(7, 27, 51, 0.95) 0%, rgba(15, 40, 71, 0.95) 100%),
-                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 65px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(7, 27, 51, 0.95) 0%,
+                    rgba(15, 40, 71, 0.95) 100%
+                ),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')
+                center/cover no-repeat;
             color: #ffffff;
             text-align: center;
         }
+
         .closing-banner h2 {
-            font-size: 2rem;
+            font-size: clamp(1.7rem, 4vw, 2.1rem);
             font-weight: 800;
-            margin: 0 0 10px 0;
+            margin: 0 0 14px;
+            line-height: 1.2;
         }
+
         .brand-pillars {
             display: flex;
             justify-content: center;
             gap: 16px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
             color: var(--accent-light);
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            margin-bottom: 22px;
         }
+
         .btn-primary {
             display: inline-block;
             background-color: var(--accent-blue);
@@ -344,253 +487,722 @@
             text-decoration: none;
             transition: background 0.2s ease;
         }
-        .btn-primary:hover { background-color: #0369a1; }
+
+        .btn-primary:hover {
+            background-color: #0369a1;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* RESPONSIVE STYLES */
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 1100px) {
-            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-            .grid-2-leaders { grid-template-columns: 1fr; }
+            .grid-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .grid-leaders {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 768px) {
-            .page-hero { padding: 50px 0 30px; }
-            .page-title { font-size: 2.1rem; }
-            .section-padding { padding: 35px 0; }
-            .grid-3, .grid-4 { grid-template-columns: 1fr; }
-            .about-card, .about-card.is-expanded { height: auto; min-height: 200px; }
-            .leader-card { min-height: 320px; }
-            .brand-pillars { flex-direction: column; gap: 4px; }
+
+            .container {
+                width: 92%;
+            }
+
+            .page-hero {
+                padding: 58px 0 38px;
+            }
+
+            .page-title {
+                font-size: 2.15rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .section-padding {
+                padding: 55px 0;
+            }
+
+            .grid-3,
+            .grid-4,
+            .grid-leaders {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                min-height: 220px;
+            }
+
+            .leader-card {
+                min-height: 350px;
+            }
+
+            .leader-footer {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .leader-footer .explore-btn,
+            .linkedin-link {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .brand-pillars {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .btn-primary {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        /* =========================
+           SMALL PHONES
+        ========================= */
+
+        @media (max-width: 420px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .page-title {
+                font-size: 1.95rem;
+            }
+
+            .section-title {
+                font-size: 1.65rem;
+            }
+
+            .about-card {
+                padding: 20px;
+            }
+
+            .leader-card {
+                min-height: 330px;
+                padding: 20px;
+            }
+
+            .leader-name {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .about-card,
+            .leader-card,
+            .about-card::before,
+            .leader-card::before {
+                transition: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
+    <!-- NAVBAR -->
     <div id="navbar-placeholder"></div>
 
     <main>
-        <!-- HERO SECTION -->
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
         <section class="page-hero">
             <div class="container">
-                <span class="hero-tagline">Built in Zambia, Looking Outward</span>
-                <h1 class="page-title">BUILT FOR WHAT MATTERS.</h1>
+
+                <span class="hero-tagline">
+                    Built in Zambia, Looking Outward
+                </span>
+
+                <h1 class="page-title">
+                    Built for what matters.
+                </h1>
+
                 <p class="hero-description">
-                    The real work starts before the message—listen, understand, respond. We bring strategic clarity, systems thinking, and execution to high-stakes corporate communication.
+                    The real work starts before the message — listen, understand, respond. We bring strategic clarity, systems thinking, and execution to high-stakes corporate communication.
                 </p>
+
             </div>
         </section>
 
-        <!-- OUR APPROACH GRID -->
+
+        <!-- =========================
+             OUR APPROACH
+        ========================= -->
+
         <section class="section-padding">
+
             <div class="container">
-                <span class="eyebrow">Our Methodology</span>
-                <h2 class="section-title">HOW WE OPERATE</h2>
+
+                <span class="eyebrow">
+                    Our Methodology
+                </span>
+
+                <h2 class="section-title">
+                    How we operate
+                </h2>
 
                 <div class="grid-3">
-                    
+
+                    <!-- SYSTEMS THINKING -->
+
                     <div class="about-card card-app-1">
-                        <div class="card-top"><h3 class="card-title">SYSTEMS THINKING</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Beyond isolated PR tactics.</div>
-                                <div class="card-body-text">We view communications through an organizational lens, mapping stakeholders, regulatory dynamics, and public sentiment before taking action.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Systems thinking
+                            </h3>
                         </div>
+
+                        <div class="card-bottom">
+
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Beyond isolated PR tactics.
+                                </div>
+
+                                <div class="card-body-text">
+                                    We view communications through an organisational lens, mapping stakeholders, regulatory dynamics, and public sentiment before taking action.
+                                </div>
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
+                        </div>
+
                     </div>
+
+
+                    <!-- CONTEXT FIRST -->
 
                     <div class="about-card card-app-2">
-                        <div class="card-top"><h3 class="card-title">CONTEXT-FIRST</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Understand the terrain.</div>
-                                <div class="card-body-text">Every industry operates under distinct pressures. We shape messaging around regulatory context, market realities, and leadership goals.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Context-first
+                            </h3>
                         </div>
+
+                        <div class="card-bottom">
+
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Understand the terrain.
+                                </div>
+
+                                <div class="card-body-text">
+                                    Every industry operates under distinct pressures. We shape messaging around regulatory context, market realities, and leadership goals.
+                                </div>
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
+                        </div>
+
                     </div>
+
+
+                    <!-- MEASURABLE IMPACT -->
 
                     <div class="about-card card-app-3">
-                        <div class="card-top"><h3 class="card-title">MEASURABLE IMPACT</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Work that moves outcomes.</div>
-                                <div class="card-body-text">We focus on strategic progression—building narrative authority, protecting institutional trust, and driving clear decision-making.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Measurable impact
+                            </h3>
                         </div>
-                    </div>
 
-                </div>
-            </div>
-        </section>
+                        <div class="card-bottom">
 
-        <!-- LEADERSHIP SECTION (2 DUAL CARDS) -->
-        <section class="section-padding leadership-section">
-            <div class="container">
-                <span class="eyebrow">Executive Leadership</span>
-                <h2 class="section-title">THE ADVISORY LEADERSHIP</h2>
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Work that moves outcomes.
+                                </div>
 
-                <div class="grid-2-leaders">
-                    
-                    <!-- NDULWA RACHEL MUPELA -->
-                    <div class="leader-card leader-1-img">
-                        <div class="leader-content">
-                            <h3 class="leader-name">NDULWA RACHEL MUPELA</h3>
-                            <p class="leader-role-title">Strategic Lead</p>
-                            
-                            <div class="leader-revealed-bio">
-                                <div class="leader-bio-text">
-                                    Specializes in executive positioning, crisis protocol, stakeholder intelligence, and integrated corporate narratives. Advises institutional leadership and financial entities across Southern Africa.
+                                <div class="card-body-text">
+                                    We focus on strategic progression — building narrative authority, protecting institutional trust, and supporting clear decision-making.
                                 </div>
                             </div>
 
-                            <div class="leader-footer">
-                                <button class="explore-btn" type="button">Explore Bio +</button>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="linkedin-link" onclick="event.stopPropagation();">
-                                    Connect on LinkedIn &rarr;
-                                </a>
-                            </div>
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
                         </div>
+
                     </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LEADERSHIP
+        ========================= -->
+
+        <section class="section-padding leadership-section">
+
+            <div class="container">
+
+                <span class="eyebrow">
+                    Executive Leadership
+                </span>
+
+                <h2 class="section-title">
+                    The advisory leadership
+                </h2>
+
+                <div class="grid-leaders">
+
+                    <!-- NDULWA -->
+
+                    <div class="leader-card leader-1-img">
+
+                        <div class="leader-content">
+
+                            <h3 class="leader-name">
+                                Ndulwa Rachel Mupela
+                            </h3>
+
+                            <p class="leader-role-title">
+                                Strategic Lead
+                            </p>
+
+                            <div class="leader-revealed-bio">
+
+                                <div class="leader-bio-text">
+                                    Specialises in executive positioning, crisis protocol, stakeholder intelligence, and integrated corporate narratives. Advises institutional leadership and financial entities across Southern Africa.
+                                </div>
+
+                            </div>
+
+                            <div class="leader-footer">
+
+                                <button class="explore-btn" type="button">
+                                    Explore Bio +
+                                </button>
+
+                                <a
+                                    href="https://linkedin.com"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="linkedin-link"
+                                    onclick="event.stopPropagation();"
+                                >
+                                    Connect on LinkedIn →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
 
                     <!-- ESNALA -->
+
                     <div class="leader-card leader-2-img">
+
                         <div class="leader-content">
-                            <h3 class="leader-name">ESNALA</h3>
-                            <p class="leader-role-title">Operations Lead</p>
-                            
+
+                            <h3 class="leader-name">
+                                Esnala
+                            </h3>
+
+                            <p class="leader-role-title">
+                                Operations Lead
+                            </p>
+
                             <div class="leader-revealed-bio">
+
                                 <div class="leader-bio-text">
-                                    Directs operational execution, engagement workflows, and client service delivery across core accounts. Ensures flawless project execution and operational alignment across all advisory mandates.
+                                    Directs operational execution, engagement workflows, and client service delivery across core accounts. Ensures project execution and operational alignment across advisory mandates.
                                 </div>
+
                             </div>
 
                             <div class="leader-footer">
-                                <button class="explore-btn" type="button">Explore Bio +</button>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="linkedin-link" onclick="event.stopPropagation();">
-                                    Connect on LinkedIn &rarr;
+
+                                <button class="explore-btn" type="button">
+                                    Explore Bio +
+                                </button>
+
+                                <a
+                                    href="https://linkedin.com"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="linkedin-link"
+                                    onclick="event.stopPropagation();"
+                                >
+                                    Connect on LinkedIn →
                                 </a>
+
                             </div>
+
                         </div>
+
+                    </div>
+
+
+                    <!-- DAVEY -->
+
+                    <div class="leader-card leader-3-img">
+
+                        <div class="leader-content">
+
+                            <h3 class="leader-name">
+                                Davey Mupela
+                            </h3>
+
+                            <p class="leader-role-title">
+                                Partner
+                            </p>
+
+                            <div class="leader-revealed-bio">
+
+                                <div class="leader-bio-text">
+                                    Add Davey's professional profile and area of responsibility here.
+                                </div>
+
+                            </div>
+
+                            <div class="leader-footer">
+
+                                <button class="explore-btn" type="button">
+                                    Explore Bio +
+                                </button>
+
+                                <a
+                                    href="https://linkedin.com"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="linkedin-link"
+                                    onclick="event.stopPropagation();"
+                                >
+                                    Connect on LinkedIn →
+                                </a>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
+
             </div>
+
         </section>
 
-        <!-- OPERATING PILLARS GRID (OPTION 2) -->
+
+        <!-- =========================
+             OPERATING PILLARS
+        ========================= -->
+
         <section class="section-padding">
+
             <div class="container">
-                <span class="eyebrow">Advisory Standards</span>
-                <h2 class="section-title">OPERATING PILLARS</h2>
+
+                <span class="eyebrow">
+                    Advisory Standards
+                </span>
+
+                <h2 class="section-title">
+                    Operating pillars
+                </h2>
 
                 <div class="grid-4">
-                    
+
                     <div class="about-card card-pil-1">
-                        <div class="card-top"><h3 class="card-title">CONTEXT BEFORE COMMUNICATION</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Landscape Analysis.</div>
-                                <div class="card-body-text">Understanding regulatory, market, and stakeholder realities before crafting institutional narrative.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Context before communication
+                            </h3>
                         </div>
+
+                        <div class="card-bottom">
+
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Landscape analysis.
+                                </div>
+
+                                <div class="card-body-text">
+                                    Understanding regulatory, market, and stakeholder realities before crafting institutional narrative.
+                                </div>
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
+                        </div>
+
                     </div>
+
 
                     <div class="about-card card-pil-2">
-                        <div class="card-top"><h3 class="card-title">MESSAGE UNITY</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Single-Voice Alignment.</div>
-                                <div class="card-body-text">Aligning board, executive leadership, and outward media posture under one unified strategy.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Message unity
+                            </h3>
                         </div>
+
+                        <div class="card-bottom">
+
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Single-voice alignment.
+                                </div>
+
+                                <div class="card-body-text">
+                                    Aligning board, executive leadership, and outward media posture under one unified strategy.
+                                </div>
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
+                        </div>
+
                     </div>
+
 
                     <div class="about-card card-pil-3">
-                        <div class="card-top"><h3 class="card-title">PROTECTIVE REPUTATION</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Crisis Stewardship.</div>
-                                <div class="card-body-text">Active stewardship focused on safeguarding organizational trust and long-term resilience.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Protective reputation
+                            </h3>
                         </div>
+
+                        <div class="card-bottom">
+
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Crisis stewardship.
+                                </div>
+
+                                <div class="card-body-text">
+                                    Active stewardship focused on safeguarding organisational trust and long-term resilience.
+                                </div>
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
+                        </div>
+
                     </div>
+
 
                     <div class="about-card card-pil-4">
-                        <div class="card-top"><h3 class="card-title">MEASURABLE POSITIONING</h3></div>
-                        <div class="card-bottom">
-                            <div class="card-revealed-info">
-                                <div class="card-subtitle">Outcome-Driven.</div>
-                                <div class="card-body-text">Focusing on communications milestones that directly advance commercial and strategic targets.</div>
-                            </div>
-                            <button class="explore-btn" type="button">Explore +</button>
+
+                        <div class="card-top">
+                            <h3 class="card-title">
+                                Measurable positioning
+                            </h3>
                         </div>
+
+                        <div class="card-bottom">
+
+                            <div class="card-revealed-info">
+                                <div class="card-subtitle">
+                                    Outcome-driven.
+                                </div>
+
+                                <div class="card-body-text">
+                                    Focusing on communications milestones that directly advance commercial and strategic targets.
+                                </div>
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore +
+                            </button>
+
+                        </div>
+
                     </div>
 
                 </div>
+
             </div>
+
         </section>
 
-        <!-- CLOSING BANNER -->
+
+        <!-- =========================
+             CLOSING
+        ========================= -->
+
         <section class="closing-banner">
+
             <div class="container">
-                <h2>READY TO MOVE YOUR STRATEGY FORWARD?</h2>
+
+                <h2>
+                    Ready to move your strategy forward?
+                </h2>
+
                 <div class="brand-pillars">
-                    <span>UNDERSTOOD</span> &bull;
-                    <span>TRUSTED</span> &bull;
-                    <span>CHOSEN</span>
+                    <span>Understood</span>
+                    <span>•</span>
+                    <span>Trusted</span>
+                    <span>•</span>
+                    <span>Chosen</span>
                 </div>
-                <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
+
+                <a
+                    href="contact.html"
+                    class="btn-primary"
+                >
+                    Start a Conversation →
+                </a>
+
             </div>
+
         </section>
+
     </main>
+
+
+    <!-- CARD INTERACTIONS -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // General Card Expansion Logic (Approach & Pillars)
+
+            /* Approach + Operating Pillar Cards */
+
             const aboutCards = document.querySelectorAll('.about-card');
+
             aboutCards.forEach(card => {
+
                 const btn = card.querySelector('.explore-btn');
+
                 card.addEventListener('click', () => {
+
                     const isExpanded = card.classList.contains('is-expanded');
-                    aboutCards.forEach(c => {
-                        c.classList.remove('is-expanded');
-                        const cardBtn = c.querySelector('.explore-btn');
-                        if (cardBtn) cardBtn.textContent = 'Explore +';
+
+                    aboutCards.forEach(otherCard => {
+
+                        otherCard.classList.remove('is-expanded');
+
+                        const otherBtn = otherCard.querySelector('.explore-btn');
+
+                        if (otherBtn) {
+                            otherBtn.textContent = 'Explore +';
+                        }
+
                     });
+
                     if (!isExpanded) {
+
                         card.classList.add('is-expanded');
-                        if (btn) btn.textContent = 'Close -';
+
+                        if (btn) {
+                            btn.textContent = 'Close -';
+                        }
+
                     }
+
                 });
+
             });
 
-            // Leadership Card Expansion Logic
+
+            /* Leadership Cards */
+
             const leaderCards = document.querySelectorAll('.leader-card');
+
             leaderCards.forEach(card => {
+
                 const btn = card.querySelector('.explore-btn');
-                card.addEventListener('click', () => {
-                    const isExpanded = card.classList.contains('is-expanded');
-                    leaderCards.forEach(c => {
-                        c.classList.remove('is-expanded');
-                        const cardBtn = c.querySelector('.explore-btn');
-                        if (cardBtn) cardBtn.textContent = 'Explore Bio +';
-                    });
-                    if (!isExpanded) {
-                        card.classList.add('is-expanded');
-                        if (btn) btn.textContent = 'Close Bio -';
+
+                card.addEventListener('click', (event) => {
+
+                    if (event.target.closest('.linkedin-link')) {
+                        return;
                     }
+
+                    const isExpanded = card.classList.contains('is-expanded');
+
+                    leaderCards.forEach(otherCard => {
+
+                        otherCard.classList.remove('is-expanded');
+
+                        const otherBtn = otherCard.querySelector('.explore-btn');
+
+                        if (otherBtn) {
+                            otherBtn.textContent = 'Explore Bio +';
+                        }
+
+                    });
+
+                    if (!isExpanded) {
+
+                        card.classList.add('is-expanded');
+
+                        if (btn) {
+                            btn.textContent = 'Close Bio -';
+                        }
+
+                    }
+
                 });
+
             });
+
         });
     </script>
+
     <script src="./navbar.js" defer></script>
+
 </body>
 </html>
