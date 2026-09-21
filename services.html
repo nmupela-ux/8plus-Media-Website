@@ -17,12 +17,21 @@
             --bg-light: #f8fafc;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             color: var(--slate-body);
             background-color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.4;
+            line-height: 1.5;
             margin: 0;
+            overflow-x: hidden;
         }
 
         .container {
@@ -31,29 +40,32 @@
             margin: 0 auto;
         }
 
-        /* 1. HERO SECTION - TIGHT & DIRECT */
+        /* HERO */
         .page-hero {
             padding: 70px 0 45px;
-            background: linear-gradient(135deg, rgba(7, 27, 51, 0.94) 0%, rgba(15, 40, 71, 0.88) 100%), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background:
+                linear-gradient(135deg, rgba(7, 27, 51, 0.94) 0%, rgba(15, 40, 71, 0.88) 100%),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: #ffffff;
         }
+
         .hero-tagline {
             font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
             color: var(--accent-light);
             display: block;
             margin-bottom: 8px;
         }
+
         .page-title {
             font-size: 2.75rem;
             font-weight: 800;
             line-height: 1.1;
             margin: 0 0 10px 0;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
+
         .hero-description {
             font-size: 1.05rem;
             color: #e2e8f0;
@@ -61,26 +73,29 @@
             margin: 0;
         }
 
-        /* GENERAL SECTION HEADERS - COMPACT */
-        .services-section { padding: 45px 0; }
+        /* SECTION HEADERS */
+        .services-section {
+            padding: 45px 0;
+        }
+
         .eyebrow {
             font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
             color: var(--accent-blue);
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
+
         .section-title {
             font-size: 1.75rem;
             font-weight: 800;
             margin: 0 0 20px 0;
             color: var(--navy-deep);
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
 
-        /* 2. DISCIPLINES GRID - STREAMLINED CARDS */
+        /* DISCIPLINES GRID */
         .grid-disciplines {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -98,10 +113,10 @@
             padding: 20px;
             color: #ffffff;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .discipline-card::before {
             content: '';
             position: absolute;
@@ -116,12 +131,18 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(7, 27, 51, 0.2) 0%, rgba(7, 27, 51, 0.85) 65%, rgba(7, 27, 51, 0.98) 100%);
+            background: linear-gradient(
+                180deg,
+                rgba(7, 27, 51, 0.2) 0%,
+                rgba(7, 27, 51, 0.85) 65%,
+                rgba(7, 27, 51, 0.98) 100%
+            );
             z-index: 2;
         }
 
         .discipline-card:hover {
             transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
         }
 
         .discipline-card:hover::before {
@@ -129,16 +150,43 @@
         }
 
         /* Background Images */
-        .card-1::before { background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'); }
-        .card-2::before { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'); }
-        .card-3::before { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80'); }
-        .card-4::before { background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'); }
-        .card-5::before { background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80'); }
-        .card-6::before { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80'); }
-        .card-7::before { background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80'); }
-        .card-8::before { background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80'); }
+        .card-1::before {
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');
+        }
 
-        .card-top { position: relative; z-index: 3; }
+        .card-2::before {
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-3::before {
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-4::before {
+            background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-5::before {
+            background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-6::before {
+            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-7::before {
+            background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-8::before {
+            background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80');
+        }
+
+        .card-top {
+            position: relative;
+            z-index: 3;
+        }
+
         .card-title {
             font-size: 1.25rem;
             font-weight: 800;
@@ -157,16 +205,17 @@
         }
 
         .explore-btn {
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
+            font-family: inherit;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
             color: var(--accent-light);
-            text-transform: uppercase;
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(4px);
-            padding: 6px 12px;
+            padding: 7px 12px;
             border-radius: 4px;
             border: 1px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
             transition: all 0.2s ease;
         }
 
@@ -181,7 +230,7 @@
             width: 100%;
             margin-bottom: 12px;
             padding-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 0.25s ease;
         }
 
@@ -195,7 +244,7 @@
         .card-body-text {
             font-size: 0.8rem;
             color: #e2e8f0;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 10px;
         }
 
@@ -203,33 +252,47 @@
             display: inline-flex;
             align-items: center;
             font-size: 0.75rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #ffffff;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.01em;
         }
 
-        /* Expanded State */
+        .btn-card-link:hover {
+            color: var(--accent-light);
+        }
+
+        /* EXPANDED STATE */
         .discipline-card.is-expanded {
             grid-column: span 2;
             height: auto;
             min-height: 240px;
         }
-        .discipline-card.is-expanded .card-revealed-info { display: block; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
+        .discipline-card.is-expanded .card-revealed-info {
+            display: block;
         }
 
-        /* 3. CALLOUT BRIDGE */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CALLOUT BRIDGE */
         .unsure-bridge {
             background-color: var(--bg-light);
             padding: 35px 0;
             border-top: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
         }
+
         .unsure-box {
             display: flex;
             justify-content: space-between;
@@ -238,27 +301,35 @@
             border-left: 4px solid var(--navy-deep);
             padding: 24px 30px;
             border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            gap: 25px;
         }
+
         .unsure-box h3 {
             font-size: 1.2rem;
             font-weight: 800;
             color: var(--navy-deep);
             margin: 0 0 4px 0;
+            letter-spacing: -0.01em;
         }
+
         .unsure-box p {
             font-size: 0.9rem;
             color: var(--slate-body);
             margin: 0;
         }
 
-        /* 4. SECTORS GRID */
-        .sectors-section { padding: 45px 0; }
+        /* SECTORS */
+        .sectors-section {
+            padding: 45px 0;
+        }
+
         .sector-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
+
         .sector-item {
             position: relative;
             min-height: 80px;
@@ -269,6 +340,7 @@
             align-items: center;
             color: #ffffff;
         }
+
         .sector-item::before {
             content: '';
             position: absolute;
@@ -277,54 +349,101 @@
             background-position: center;
             z-index: 1;
         }
+
         .sector-item::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, rgba(7, 27, 51, 0.92) 0%, rgba(7, 27, 51, 0.78) 100%);
+            background: linear-gradient(
+                90deg,
+                rgba(7, 27, 51, 0.92) 0%,
+                rgba(7, 27, 51, 0.78) 100%
+            );
             z-index: 2;
         }
-        
-        .sec-1::before { background-image: url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=600&q=80'); }
-        .sec-2::before { background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80'); }
-        .sec-3::before { background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80'); }
-        .sec-4::before { background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80'); }
-        .sec-5::before { background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80'); }
-        .sec-6::before { background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80'); }
-        .sec-7::before { background-image: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80'); }
-        .sec-8::before { background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80'); }
-        .sec-9::before { background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80'); }
-        .sec-10::before { background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80'); }
 
-        .sector-content { position: relative; z-index: 3; }
+        .sec-1::before {
+            background-image: url('https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-2::before {
+            background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-3::before {
+            background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-4::before {
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-5::before {
+            background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-6::before {
+            background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-7::before {
+            background-image: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-8::before {
+            background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-9::before {
+            background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sec-10::before {
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80');
+        }
+
+        .sector-content {
+            position: relative;
+            z-index: 3;
+        }
+
         .sector-name {
             font-size: 0.95rem;
             font-weight: 800;
             color: #ffffff;
-            letter-spacing: 0.02em;
+            letter-spacing: -0.005em;
             margin-bottom: 2px;
         }
-        .sector-tagline { font-size: 0.8rem; color: #cbd5e1; }
 
-        /* 5. CLOSING BANNER */
+        .sector-tagline {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+
+        /* CLOSING BANNER */
         .closing-banner {
             padding: 55px 0;
-            background: linear-gradient(135deg, rgba(7, 27, 51, 0.95) 0%, rgba(15, 40, 71, 0.95) 100%),
-                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background:
+                linear-gradient(135deg, rgba(7, 27, 51, 0.95) 0%, rgba(15, 40, 71, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: #ffffff;
             text-align: center;
         }
+
         .closing-banner h2 {
             font-size: 2rem;
             font-weight: 800;
             margin: 0 0 10px 0;
+            letter-spacing: -0.02em;
         }
+
         .closing-lead {
             font-size: 0.95rem;
             max-width: 600px;
             margin: 0 auto 20px;
             color: #cbd5e1;
         }
+
         .btn-primary {
             display: inline-block;
             background-color: var(--accent-blue);
@@ -334,141 +453,338 @@
             font-weight: 700;
             font-size: 0.9rem;
             text-decoration: none;
-            transition: background 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
-        .btn-primary:hover { background-color: #0369a1; }
 
-        /* RESPONSIVE / MOBILE STYLES */
-        @media (max-width: 1100px) {
-            .grid-disciplines { grid-template-columns: repeat(2, 1fr); }
-            .discipline-card.is-expanded { grid-column: span 2; }
+        .btn-primary:hover {
+            background-color: #0369a1;
+            transform: translateY(-1px);
         }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .grid-disciplines {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .discipline-card.is-expanded {
+                grid-column: span 2;
+            }
+        }
+
         @media (max-width: 768px) {
-            .page-hero { padding: 50px 0 30px; }
-            .page-title { font-size: 2.1rem; }
-            .services-section, .sectors-section, .closing-banner { padding: 35px 0; }
-            .grid-disciplines, .sector-grid { grid-template-columns: 1fr; }
-            .discipline-card, .discipline-card.is-expanded { grid-column: span 1; height: auto; min-height: 200px; }
-            .unsure-box { flex-direction: column; align-items: flex-start; gap: 14px; padding: 20px; }
+            .container {
+                width: 92%;
+            }
+
+            .page-hero {
+                padding: 50px 0 32px;
+            }
+
+            .hero-tagline {
+                font-size: 0.7rem;
+            }
+
+            .page-title {
+                font-size: 2.1rem;
+            }
+
+            .hero-description {
+                font-size: 0.98rem;
+            }
+
+            .services-section,
+            .sectors-section {
+                padding: 35px 0;
+            }
+
+            .section-title {
+                font-size: 1.55rem;
+                margin-bottom: 18px;
+            }
+
+            .grid-disciplines,
+            .sector-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .discipline-card,
+            .discipline-card.is-expanded {
+                grid-column: span 1;
+                height: auto;
+                min-height: 205px;
+                padding: 18px;
+            }
+
+            .card-title {
+                font-size: 1.15rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.84rem;
+            }
+
+            .card-body-text {
+                font-size: 0.79rem;
+            }
+
+            .unsure-bridge {
+                padding: 28px 0;
+            }
+
+            .unsure-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            .unsure-box h3 {
+                font-size: 1.1rem;
+            }
+
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .sector-item {
+                min-height: 82px;
+                padding: 15px 18px;
+            }
+
+            .closing-banner {
+                padding: 42px 0;
+            }
+
+            .closing-banner h2 {
+                font-size: 1.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.85rem;
+            }
+
+            .discipline-card,
+            .discipline-card.is-expanded {
+                min-height: 190px;
+            }
+
+            .sector-name {
+                font-size: 0.9rem;
+            }
+
+            .sector-tagline {
+                font-size: 0.76rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                animation: none !important;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div id="navbar-placeholder"></div>
 
     <main>
+
         <!-- HERO -->
         <section class="page-hero">
             <div class="container">
-                <span class="hero-tagline">Capabilities &amp; Advisory</span>
-                <h1 class="page-title">WHAT NEEDS TO MOVE?</h1>
+                <span class="hero-tagline">Capabilities &amp; advisory</span>
+                <h1 class="page-title">What needs to move?</h1>
                 <p class="hero-description">
                     Combining strategic communication and execution around the problems that actually need solving.
                 </p>
             </div>
         </section>
 
-        <!-- WHAT WE DO GRID -->
+        <!-- WHAT WE DO -->
         <section class="services-section">
             <div class="container">
-                <span class="eyebrow">What We Do</span>
-                <h2 class="section-title">Specialist Disciplines</h2>
-                
+                <span class="eyebrow">What we do</span>
+                <h2 class="section-title">Specialist disciplines</h2>
+
                 <div class="grid-disciplines">
-                    
+
+                    <!-- CORPORATE -->
                     <div class="discipline-card card-1">
-                        <div class="card-top"><h3 class="card-title">CORPORATE</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Corporate</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Make the organisation make sense.</div>
-                                <div class="card-body-text">Corporate communications connecting priorities, leadership, and multi-channel reputation.</div>
-                                <a href="contact.html?service=corporate" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Corporate communications connecting priorities, leadership, and multi-channel reputation.
+                                </div>
+                                <a href="contact.html?service=corporate" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- REPUTATION -->
                     <div class="discipline-card card-2">
-                        <div class="card-top"><h3 class="card-title">REPUTATION</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Reputation</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Know the room before you enter it.</div>
-                                <div class="card-body-text">Stakeholder intelligence and mapping grounded in the environments shaping public trust.</div>
-                                <a href="contact.html?service=reputation" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Stakeholder intelligence and mapping grounded in the environments shaping public trust.
+                                </div>
+                                <a href="contact.html?service=reputation" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- CRISIS -->
                     <div class="discipline-card card-3">
-                        <div class="card-top"><h3 class="card-title">CRISIS</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Crisis</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Clarity under pressure.</div>
-                                <div class="card-body-text">Rapid response protocols and counsel when language and timing carry severe consequences.</div>
-                                <a href="contact.html?service=crisis" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Rapid response protocols and counsel when language and timing carry severe consequences.
+                                </div>
+                                <a href="contact.html?service=crisis" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- EXECUTIVE -->
                     <div class="discipline-card card-4">
-                        <div class="card-top"><h3 class="card-title">EXECUTIVE</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Executive</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Put leaders in the conversation.</div>
-                                <div class="card-body-text">Executive positioning, high-stakes media preparation, and spokesperson coaching.</div>
-                                <a href="contact.html?service=executive" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Executive positioning, high-stakes media preparation, and spokesperson coaching.
+                                </div>
+                                <a href="contact.html?service=executive" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- CONTENT -->
                     <div class="discipline-card card-5">
-                        <div class="card-top"><h3 class="card-title">CONTENT</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Content</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Make something worth reading.</div>
-                                <div class="card-body-text">Editorial strategy, annual integrated reports, and digital channels built with rigor.</div>
-                                <a href="contact.html?service=content" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Editorial strategy, annual integrated reports, and digital channels built with rigor.
+                                </div>
+                                <a href="contact.html?service=content" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- ESG & IMPACT -->
                     <div class="discipline-card card-6">
-                        <div class="card-top"><h3 class="card-title">ESG &amp; IMPACT</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">ESG &amp; impact</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Make impact credible.</div>
-                                <div class="card-body-text">ESG, sustainability reporting, and social development messaging grounded in evidence.</div>
-                                <a href="contact.html?service=esg-impact" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    ESG, sustainability reporting, and social development messaging grounded in evidence.
+                                </div>
+                                <a href="contact.html?service=esg-impact" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- EMPLOYEE -->
                     <div class="discipline-card card-7">
-                        <div class="card-top"><h3 class="card-title">EMPLOYEE</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Employee</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Your people are an audience too.</div>
-                                <div class="card-body-text">Internal communications and change management messaging to guide teams through transition.</div>
-                                <a href="contact.html?service=employee" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Internal communications and change management messaging to guide teams through transition.
+                                </div>
+                                <a href="contact.html?service=employee" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
 
+                    <!-- EXPERIENCE -->
                     <div class="discipline-card card-8">
-                        <div class="card-top"><h3 class="card-title">EXPERIENCE</h3></div>
+                        <div class="card-top">
+                            <h3 class="card-title">Experience</h3>
+                        </div>
+
                         <div class="card-bottom">
                             <div class="card-revealed-info">
                                 <div class="card-subtitle">Give people something to engage with.</div>
-                                <div class="card-body-text">Executive forums, stakeholder dialogues, roundtables, and high-impact convenings.</div>
-                                <a href="contact.html?service=experience" class="btn-card-link">Start a conversation &rarr;</a>
+                                <div class="card-body-text">
+                                    Executive forums, stakeholder dialogues, roundtables, and high-impact convenings.
+                                </div>
+                                <a href="contact.html?service=experience" class="btn-card-link">
+                                    Start a conversation &rarr;
+                                </a>
                             </div>
+
                             <button class="explore-btn" type="button">Explore +</button>
                         </div>
                     </div>
@@ -482,10 +798,15 @@
             <div class="container">
                 <div class="unsure-box">
                     <div>
-                        <h3>NOT SURE WHAT YOU NEED?</h3>
-                        <p>Tell us what is happening and what you're trying to move—we'll help structure the solution.</p>
+                        <h3>Not sure what you need?</h3>
+                        <p>
+                            Tell us what is happening and what you're trying to move—we'll help structure the solution.
+                        </p>
                     </div>
-                    <a href="contact.html" class="btn-primary">Tell Us What's Moving &rarr;</a>
+
+                    <a href="contact.html" class="btn-primary">
+                        Tell us what's moving &rarr;
+                    </a>
                 </div>
             </div>
         </section>
@@ -493,20 +814,81 @@
         <!-- SECTOR EXPERIENCE -->
         <section class="sectors-section">
             <div class="container">
-                <span class="eyebrow">Sector Experience</span>
-                <h2 class="section-title">WHERE CONTEXT MATTERS</h2>
+                <span class="eyebrow">Sector experience</span>
+                <h2 class="section-title">Where context matters</h2>
 
                 <div class="sector-grid">
-                    <div class="sector-item sec-1"><div class="sector-content"><div class="sector-name">MINING &amp; EXTRACTIVES</div><div class="sector-tagline">Licence to operate. Stakeholder trust.</div></div></div>
-                    <div class="sector-item sec-2"><div class="sector-content"><div class="sector-name">ENERGY &amp; INFRASTRUCTURE</div><div class="sector-tagline">Long-term projects. Regulatory complexity.</div></div></div>
-                    <div class="sector-item sec-3"><div class="sector-content"><div class="sector-name">FINANCIAL SERVICES</div><div class="sector-tagline">Trust, confidence and decisions under scrutiny.</div></div></div>
-                    <div class="sector-item sec-4"><div class="sector-content"><div class="sector-name">FINTECH &amp; TECHNOLOGY</div><div class="sector-tagline">Complex ideas. Fast-moving markets.</div></div></div>
-                    <div class="sector-item sec-5"><div class="sector-content"><div class="sector-name">FMCG &amp; CONSUMER</div><div class="sector-tagline">Attention, relevance and brand trust.</div></div></div>
-                    <div class="sector-item sec-6"><div class="sector-content"><div class="sector-name">AGRICULTURE &amp; FOOD</div><div class="sector-tagline">Markets, supply chains and sustainability.</div></div></div>
-                    <div class="sector-item sec-7"><div class="sector-content"><div class="sector-name">PUBLIC &amp; DEVELOPMENT</div><div class="sector-tagline">Institutions, communities and policy impact.</div></div></div>
-                    <div class="sector-item sec-8"><div class="sector-content"><div class="sector-name">HEALTH &amp; SOCIAL IMPACT</div><div class="sector-tagline">Credibility and clarity where people matter most.</div></div></div>
-                    <div class="sector-item sec-9"><div class="sector-content"><div class="sector-name">TOURISM, TRAVEL &amp; HOSPITALITY</div><div class="sector-tagline">Place, experience and brand story.</div></div></div>
-                    <div class="sector-item sec-10"><div class="sector-content"><div class="sector-name">EDUCATION &amp; INSTITUTIONS</div><div class="sector-tagline">Ideas, leadership and institutional reputation.</div></div></div>
+
+                    <div class="sector-item sec-1">
+                        <div class="sector-content">
+                            <div class="sector-name">Mining &amp; extractives</div>
+                            <div class="sector-tagline">Licence to operate. Stakeholder trust.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-2">
+                        <div class="sector-content">
+                            <div class="sector-name">Energy &amp; infrastructure</div>
+                            <div class="sector-tagline">Long-term projects. Regulatory complexity.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-3">
+                        <div class="sector-content">
+                            <div class="sector-name">Financial services</div>
+                            <div class="sector-tagline">Trust, confidence and decisions under scrutiny.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-4">
+                        <div class="sector-content">
+                            <div class="sector-name">Fintech &amp; technology</div>
+                            <div class="sector-tagline">Complex ideas. Fast-moving markets.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-5">
+                        <div class="sector-content">
+                            <div class="sector-name">FMCG &amp; consumer</div>
+                            <div class="sector-tagline">Attention, relevance and brand trust.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-6">
+                        <div class="sector-content">
+                            <div class="sector-name">Agriculture &amp; food</div>
+                            <div class="sector-tagline">Markets, supply chains and sustainability.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-7">
+                        <div class="sector-content">
+                            <div class="sector-name">Public &amp; development</div>
+                            <div class="sector-tagline">Institutions, communities and policy impact.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-8">
+                        <div class="sector-content">
+                            <div class="sector-name">Health &amp; social impact</div>
+                            <div class="sector-tagline">Credibility and clarity where people matter most.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-9">
+                        <div class="sector-content">
+                            <div class="sector-name">Tourism, travel &amp; hospitality</div>
+                            <div class="sector-tagline">Place, experience and brand story.</div>
+                        </div>
+                    </div>
+
+                    <div class="sector-item sec-10">
+                        <div class="sector-content">
+                            <div class="sector-name">Education &amp; institutions</div>
+                            <div class="sector-tagline">Ideas, leadership and institutional reputation.</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -514,36 +896,55 @@
         <!-- CLOSING BANNER -->
         <section class="closing-banner">
             <div class="container">
-                <h2>THE WORK SHOULD MOVE SOMETHING.</h2>
+                <h2>The work should move something.</h2>
+
                 <p class="closing-lead">
                     Strategy is only useful when it changes what happens next.
                 </p>
-                <a href="contact.html" class="btn-primary">Start a Conversation &rarr;</a>
+
+                <a href="contact.html" class="btn-primary">
+                    Start a conversation &rarr;
+                </a>
             </div>
         </section>
+
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.discipline-card');
+
             cards.forEach(card => {
                 const btn = card.querySelector('.explore-btn');
+
                 card.addEventListener('click', (e) => {
                     if (e.target.closest('.btn-card-link')) return;
+
                     const isExpanded = card.classList.contains('is-expanded');
+
                     cards.forEach(c => {
                         c.classList.remove('is-expanded');
+
                         const cardBtn = c.querySelector('.explore-btn');
-                        if (cardBtn) cardBtn.textContent = 'Explore +';
+
+                        if (cardBtn) {
+                            cardBtn.textContent = 'Explore +';
+                        }
                     });
+
                     if (!isExpanded) {
                         card.classList.add('is-expanded');
-                        if (btn) btn.textContent = 'Close -';
+
+                        if (btn) {
+                            btn.textContent = 'Close −';
+                        }
                     }
                 });
             });
         });
     </script>
+
     <script src="./navbar.js" defer></script>
+
 </body>
 </html>
