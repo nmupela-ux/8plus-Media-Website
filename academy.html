@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>The Academy | Eightplus Media</title>
-    <meta name="description" content="Practical thinking for people who make communication matter. Executive learning, team workshops, and strategic frameworks.">
+
+    <meta
+        name="description"
+        content="Practical thinking for people who make communication matter. Executive learning, team workshops, and strategic frameworks."
+    >
+
+    <meta name="theme-color" content="#071b33">
+
     <link rel="stylesheet" href="./style.css">
 
     <style>
@@ -30,7 +38,14 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
             color: var(--text-dark);
             background: #ffffff;
             line-height: 1.6;
@@ -46,6 +61,11 @@
             text-decoration: none;
         }
 
+        button,
+        input {
+            font: inherit;
+        }
+
         .container {
             width: 100%;
             max-width: 1200px;
@@ -53,41 +73,63 @@
             padding: 0 24px;
         }
 
+
         /* =========================
            HERO
         ========================= */
 
         .page-hero {
-            padding: 120px 0 90px;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+
+            padding: 110px 0 90px;
+
             background:
-                linear-gradient(rgba(7, 27, 51, 0.86), rgba(15, 23, 42, 0.93)),
-                url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1600')
-                center/cover no-repeat;
+                linear-gradient(
+                    90deg,
+                    rgba(7, 27, 51, 0.95) 0%,
+                    rgba(7, 27, 51, 0.86) 45%,
+                    rgba(15, 23, 42, 0.62) 100%
+                ),
+                url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=85&w=1800')
+                center / cover no-repeat;
+
             color: #ffffff;
         }
 
         .hero-tagline {
-            display: inline-block;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 20px;
+
             color: var(--brand-light-blue);
-            margin-bottom: 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+        }
+
+        .hero-tagline::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: var(--brand-light-blue);
         }
 
         .page-title {
-            font-size: clamp(2.35rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.12;
+            font-size: clamp(2.8rem, 6vw, 4.6rem);
+            font-weight: 500;
+            line-height: 1.03;
             margin-bottom: 24px;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.045em;
             max-width: 900px;
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 1.08rem;
+            line-height: 1.75;
             color: #cbd5e1;
             max-width: 760px;
             margin-bottom: 36px;
@@ -95,9 +137,10 @@
 
         .hero-cta-group {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
         }
+
 
         /* =========================
            SECTIONS
@@ -112,34 +155,35 @@
         }
 
         .section-tag {
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.07em;
             color: var(--brand-accent);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .section-title {
-            font-size: clamp(1.9rem, 4vw, 2.35rem);
-            font-weight: 800;
-            margin-bottom: 14px;
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            font-weight: 500;
+            margin-bottom: 15px;
             color: var(--brand-dark);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.035em;
+            line-height: 1.1;
         }
 
         .section-lead {
-            font-size: 1.05rem;
+            font-size: 1.03rem;
             color: var(--text-muted);
             max-width: 700px;
             margin-bottom: 44px;
-            line-height: 1.65;
+            line-height: 1.7;
         }
 
         .text-center {
             text-align: center;
         }
+
 
         /* =========================
            PHILOSOPHY
@@ -151,29 +195,36 @@
 
         .belief-card {
             background:
-                linear-gradient(rgba(15, 23, 42, 0.91), rgba(15, 23, 42, 0.96)),
-                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200')
-                center/cover no-repeat;
+                linear-gradient(
+                    rgba(15, 23, 42, 0.91),
+                    rgba(15, 23, 42, 0.96)
+                ),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=85&w=1200')
+                center / cover no-repeat;
+
             color: #ffffff;
             border-radius: 18px;
             padding: 56px;
+
             position: relative;
             z-index: 2;
+
             box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.18);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .belief-card h2 {
-            font-size: clamp(1.65rem, 3vw, 2rem);
+            font-size: clamp(1.7rem, 3vw, 2.1rem);
             color: var(--brand-light-blue);
             margin-bottom: 18px;
             line-height: 1.25;
+            font-weight: 600;
         }
 
         .belief-card p {
             color: #e2e8f0;
             font-size: 1rem;
-            line-height: 1.7;
+            line-height: 1.75;
             max-width: 900px;
         }
 
@@ -184,6 +235,7 @@
             color: #ffffff !important;
             font-weight: 600;
         }
+
 
         /* =========================
            GRIDS & CARDS
@@ -211,11 +263,14 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             overflow: hidden;
+
             display: flex;
             flex-direction: column;
+
             transition:
                 transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s ease;
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
         }
 
         .card:hover {
@@ -241,10 +296,11 @@
             display: inline-block;
             padding: 4px 11px;
             border-radius: 20px;
+
             font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+
             margin-bottom: 14px;
             width: fit-content;
         }
@@ -261,7 +317,7 @@
 
         .card-title {
             font-size: 1.3rem;
-            font-weight: 700;
+            font-weight: 650;
             color: var(--brand-dark);
             margin-bottom: 8px;
             line-height: 1.3;
@@ -278,9 +334,10 @@
         .card-body {
             font-size: 0.93rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.65;
             margin-bottom: 22px;
         }
+
 
         /* =========================
            LABS
@@ -318,8 +375,10 @@
             border-left: 3px solid var(--brand-accent);
             padding: 14px 16px;
             border-radius: 0 8px 8px 0;
+
             font-size: 0.85rem;
             color: #334155;
+
             margin-top: auto;
         }
 
@@ -328,34 +387,89 @@
             margin-right: 4px;
         }
 
+
         /* =========================
-           RESOURCE
+           FREE RESOURCE
         ========================= */
 
         .resource-box {
-            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-dark) 100%);
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--brand-navy) 0%,
+                    var(--brand-dark) 100%
+                );
+
             border-radius: 20px;
-            padding: 56px;
+            overflow: hidden;
+
             color: #ffffff;
+
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 48px;
-            align-items: center;
-            box-shadow: 0 25px 50px -12px rgba(7, 27, 51, 0.25);
+            grid-template-columns: 0.95fr 1.05fr;
+
+            box-shadow:
+                0 25px 50px -12px rgba(7, 27, 51, 0.25);
+        }
+
+        /*
+           NEW:
+           The resource image is now a proper visual entry point,
+           rather than leaving the resource as one large block of text.
+        */
+
+        .resource-image {
+            position: relative;
+            min-height: 480px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(7, 27, 51, 0.22) 0%,
+                    rgba(7, 27, 51, 0.62) 100%
+                ),
+                url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=85&w=1100')
+                center / cover no-repeat;
+        }
+
+        .resource-image::after {
+            content: "Free executive resource";
+
+            position: absolute;
+            left: 28px;
+            bottom: 28px;
+
+            padding: 9px 13px;
+
+            background: rgba(7, 27, 51, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            color: #ffffff;
+
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .resource-content {
+            padding: 56px 48px 56px 40px;
         }
 
         .resource-content h3 {
-            font-size: clamp(1.7rem, 4vw, 2.1rem);
-            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
+            font-weight: 600;
             margin-bottom: 16px;
             color: #ffffff;
-            line-height: 1.25;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
         }
 
         .resource-content p {
             color: #cbd5e1;
             font-size: 1rem;
-            line-height: 1.65;
+            line-height: 1.7;
             margin-bottom: 22px;
         }
 
@@ -366,10 +480,14 @@
         }
 
         .resource-form {
+            margin-top: 30px;
+
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 30px;
+
+            padding: 28px;
             border-radius: 16px;
+
             backdrop-filter: blur(12px);
         }
 
@@ -379,28 +497,37 @@
 
         .form-group label {
             display: block;
+
             font-size: 0.78rem;
-            font-weight: 700;
+            font-weight: 600;
             color: #cbd5e1;
+
             margin-bottom: 7px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .form-input {
             width: 100%;
             padding: 13px 15px;
+
             border-radius: 8px;
             border: 1px solid #334155;
+
             background: #0f172a;
             color: #ffffff;
+
             font-size: 0.95rem;
+        }
+
+        .form-input::placeholder {
+            color: #64748b;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--brand-light-blue);
+            box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.1);
         }
+
 
         /* =========================
            INDUSTRY TAKEOVER
@@ -411,20 +538,24 @@
             border: 1px solid var(--border-color);
             border-radius: 20px;
             overflow: hidden;
+
             display: grid;
             grid-template-columns: 0.85fr 1.15fr;
+
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
         }
 
         .takeover-image {
             min-height: 330px;
+
             background:
-                url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=1000')
-                center/cover no-repeat;
+                url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=85&w=1000')
+                center / cover no-repeat;
         }
 
         .takeover-text {
             padding: 48px;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -432,7 +563,7 @@
 
         .takeover-text h3 {
             font-size: 1.65rem;
-            font-weight: 800;
+            font-weight: 650;
             color: var(--brand-dark);
             margin-bottom: 12px;
             line-height: 1.25;
@@ -440,10 +571,11 @@
 
         .takeover-text p {
             color: var(--text-muted);
-            line-height: 1.65;
+            line-height: 1.7;
             margin-bottom: 24px;
             max-width: 680px;
         }
+
 
         /* =========================
            METHODOLOGY
@@ -457,18 +589,17 @@
         }
 
         .approach-number {
-            font-size: 0.8rem;
-            font-weight: 800;
+            font-size: 0.78rem;
+            font-weight: 600;
             color: var(--brand-accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.06em;
             margin-bottom: 10px;
             display: block;
         }
 
         .approach-card h4 {
             font-size: 1.15rem;
-            font-weight: 700;
+            font-weight: 650;
             color: var(--brand-dark);
             margin-bottom: 8px;
         }
@@ -476,9 +607,10 @@
         .approach-card p {
             font-size: 0.9rem;
             color: var(--text-muted);
-            line-height: 1.55;
+            line-height: 1.6;
             margin: 0;
         }
+
 
         /* =========================
            CLOSING
@@ -486,41 +618,60 @@
 
         .closing-banner {
             padding: 100px 0;
+
             background:
-                linear-gradient(rgba(7, 27, 51, 0.92), rgba(15, 23, 42, 0.95)),
-                url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600')
-                center/cover no-repeat;
+                linear-gradient(
+                    rgba(7, 27, 51, 0.92),
+                    rgba(15, 23, 42, 0.95)
+                ),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=85&w=1600')
+                center / cover no-repeat;
+
             color: #ffffff;
             text-align: center;
         }
 
         .closing-banner h2 {
-            font-size: clamp(1.9rem, 4vw, 2.5rem);
-            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            font-weight: 600;
             margin-bottom: 16px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             line-height: 1.2;
         }
 
         .closing-banner p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #cbd5e1;
             margin: 0 auto 32px;
             max-width: 680px;
         }
+
 
         /* =========================
            BUTTONS
         ========================= */
 
         .btn {
-            display: inline-block;
-            padding: 13px 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 46px;
+            padding: 12px 24px;
+
             border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.92rem;
+
+            font-weight: 600;
+            font-size: 0.9rem;
+
             text-decoration: none;
-            transition: all 0.25s ease;
+
+            transition:
+                background 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+
             cursor: pointer;
             border: none;
             text-align: center;
@@ -543,7 +694,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.18);
         }
 
         .btn-outline {
@@ -562,18 +713,26 @@
             width: 100%;
         }
 
+
         /* =========================
            TABLET
         ========================= */
 
         @media (max-width: 1024px) {
+
             .grid-4 {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .resource-box {
                 grid-template-columns: 1fr;
-                gap: 32px;
+            }
+
+            .resource-image {
+                min-height: 340px;
+            }
+
+            .resource-content {
                 padding: 42px;
             }
 
@@ -586,6 +745,7 @@
             }
         }
 
+
         /* =========================
            MOBILE
         ========================= */
@@ -597,17 +757,28 @@
             }
 
             .page-hero {
+                min-height: 500px;
                 padding: 78px 0 62px;
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(7, 27, 51, 0.83) 0%,
+                        rgba(7, 27, 51, 0.77) 45%,
+                        rgba(7, 27, 51, 0.96) 100%
+                    ),
+                    url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000')
+                    center / cover no-repeat;
             }
 
             .page-title {
-                font-size: 2.2rem;
+                font-size: clamp(2.35rem, 10vw, 3.4rem);
                 max-width: 100%;
             }
 
             .hero-description {
                 font-size: 1rem;
-                line-height: 1.65;
+                line-height: 1.68;
                 margin-bottom: 28px;
             }
 
@@ -664,14 +835,46 @@
                 padding: 24px;
             }
 
+
+            /* Resource */
+
             .resource-box {
-                padding: 32px 24px;
                 border-radius: 16px;
             }
 
+            .resource-image {
+                min-height: 270px;
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(7, 27, 51, 0.15),
+                        rgba(7, 27, 51, 0.72)
+                    ),
+                    url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=900')
+                    center / cover no-repeat;
+            }
+
+            .resource-image::after {
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .resource-content {
+                padding: 32px 24px;
+            }
+
+            .resource-content h3 {
+                font-size: 1.85rem;
+            }
+
             .resource-form {
+                margin-top: 28px;
                 padding: 24px;
             }
+
+
+            /* Takeover */
 
             .takeover-image {
                 min-height: 220px;
@@ -689,9 +892,15 @@
                 width: 100%;
             }
 
+
+            /* Methodology */
+
             .approach-card {
                 padding: 25px 24px;
             }
+
+
+            /* Closing */
 
             .closing-banner {
                 padding: 75px 0;
@@ -701,11 +910,16 @@
                 font-size: 1rem;
             }
 
+
+            /* Buttons */
+
             .btn {
                 width: 100%;
+                min-height: 48px;
                 padding: 13px 20px;
             }
         }
+
 
         /* =========================
            SMALL PHONES
@@ -717,8 +931,12 @@
                 padding: 0 16px;
             }
 
+            .page-hero {
+                min-height: 470px;
+            }
+
             .page-title {
-                font-size: 1.95rem;
+                font-size: 2.1rem;
             }
 
             .hero-tagline,
@@ -739,7 +957,11 @@
                 padding: 22px 20px;
             }
 
-            .resource-box {
+            .resource-image {
+                min-height: 230px;
+            }
+
+            .resource-content {
                 padding: 28px 20px;
             }
 
@@ -752,15 +974,23 @@
             }
         }
 
-        /* Respect reduced motion preferences */
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
         @media (prefers-reduced-motion: reduce) {
+
             html {
                 scroll-behavior: auto;
             }
 
-            .card,
-            .btn {
-                transition: none;
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
             }
         }
     </style>
@@ -771,6 +1001,7 @@
     <!-- NAVBAR -->
     <div id="navbar-placeholder"></div>
 
+
     <main>
 
         <!-- =========================
@@ -778,29 +1009,44 @@
         ========================= -->
 
         <section class="page-hero">
+
             <div class="container">
 
-                <span class="hero-tagline">The Eightplus Academy</span>
+                <span class="hero-tagline">
+                    The Eightplus Academy
+                </span>
 
                 <h1 class="page-title">
                     Practical thinking for people who make communication matter.
                 </h1>
 
                 <p class="hero-description">
-                    We develop the thinking and practical capabilities behind communication that works — bringing together strategy, research, persuasive communication, audience intelligence, facilitation, customer experience, and emerging tools.
+                    We develop the thinking and practical capabilities behind
+                    communication that works — bringing together strategy,
+                    research, persuasive communication, audience intelligence,
+                    facilitation, customer experience, and emerging tools.
                 </p>
 
                 <div class="hero-cta-group">
-                    <a href="#learning-streams" class="btn btn-primary">
-                        Explore Learning
+
+                    <a
+                        href="#learning-streams"
+                        class="btn btn-primary"
+                    >
+                        Explore learning
                     </a>
 
-                    <a href="#free-resources" class="btn btn-secondary">
-                        Download Free Guide
+                    <a
+                        href="#free-resources"
+                        class="btn btn-secondary"
+                    >
+                        Download free guide
                     </a>
+
                 </div>
 
             </div>
+
         </section>
 
 
@@ -809,12 +1055,16 @@
         ========================= -->
 
         <section class="philosophy-section">
+
             <div class="container">
 
                 <div class="belief-card">
 
-                    <span class="section-tag" style="color: var(--brand-light-blue);">
-                        Our Philosophy
+                    <span
+                        class="section-tag"
+                        style="color: var(--brand-light-blue);"
+                    >
+                        Our philosophy
                     </span>
 
                     <h2>
@@ -822,16 +1072,25 @@
                     </h2>
 
                     <p>
-                        The strongest communicators do more than produce messages. They understand the people they are speaking to, investigate before they recommend, bring people towards decisions, and use evidence to understand whether their work is making a difference.
+                        The strongest communicators do more than produce
+                        messages. They understand the people they are speaking
+                        to, investigate before they recommend, bring people
+                        towards decisions, and use evidence to understand
+                        whether their work is making a difference.
                     </p>
 
                     <p class="belief-highlight">
-                        Our learning is designed for communications professionals, leaders, teams, and emerging practitioners who want to move beyond activity and build communication that is strategic, useful, and measurable.
+                        Our learning is designed for communications
+                        professionals, leaders, teams, and emerging
+                        practitioners who want to move beyond activity and
+                        build communication that is strategic, useful, and
+                        measurable.
                     </p>
 
                 </div>
 
             </div>
+
         </section>
 
 
@@ -839,23 +1098,30 @@
              3. LEARNING PROGRAMMES
         ========================= -->
 
-        <section id="learning-streams" class="academy-section">
+        <section
+            id="learning-streams"
+            class="academy-section"
+        >
 
             <div class="container">
 
                 <span class="section-tag">
-                    Masterclasses &amp; Programmes
+                    Masterclasses &amp; programmes
                 </span>
 
                 <h2 class="section-title">
-                    Executive Learning Programmes
+                    Executive learning programmes
                 </h2>
 
                 <p class="section-lead">
-                    Applied learning for leaders, teams, and communication professionals who want to think more strategically and work more effectively.
+                    Applied learning for leaders, teams, and communication
+                    professionals who want to think more strategically and
+                    work more effectively.
                 </p>
 
+
                 <div class="grid grid-2">
+
 
                     <!-- EXECUTIVE COMMUNICATIONS -->
 
@@ -871,19 +1137,22 @@
                         <div class="card-content">
 
                             <span class="badge badge-soon">
-                                Coming Soon
+                                Coming soon
                             </span>
 
                             <h3 class="card-title">
-                                Executive Communications
+                                Executive communications
                             </h3>
 
                             <p class="card-subtitle">
-                                Communication as a Leadership Function
+                                Communication as a leadership function
                             </p>
 
                             <p class="card-body">
-                                Explore how leaders can use communication to build understanding, alignment, trust, and direction before, during, and after critical decisions.
+                                Explore how leaders can use communication to
+                                build understanding, alignment, trust, and
+                                direction before, during, and after critical
+                                decisions.
                             </p>
 
                             <a
@@ -891,7 +1160,7 @@
                                 class="btn btn-outline"
                                 style="margin-top:auto;"
                             >
-                                Learn More
+                                Learn more
                             </a>
 
                         </div>
@@ -913,19 +1182,22 @@
                         <div class="card-content">
 
                             <span class="badge badge-active">
-                                Available for Teams
+                                Available for teams
                             </span>
 
                             <h3 class="card-title">
-                                Customer Care Communications
+                                Customer care communications
                             </h3>
 
                             <p class="card-subtitle">
-                                Every Customer Interaction Communicates Something
+                                Every customer interaction communicates
+                                something
                             </p>
 
                             <p class="card-body">
-                                Explore the psychology, language, listening, and service principles behind clearer and more empathetic customer interactions.
+                                Explore the psychology, language, listening,
+                                and service principles behind clearer and more
+                                empathetic customer interactions.
                             </p>
 
                             <a
@@ -933,7 +1205,7 @@
                                 class="btn btn-primary"
                                 style="margin-top:auto;"
                             >
-                                Enquire for Teams
+                                Enquire for teams
                             </a>
 
                         </div>
@@ -955,19 +1227,21 @@
                         <div class="card-content">
 
                             <span class="badge badge-soon">
-                                Coming Soon
+                                Coming soon
                             </span>
 
                             <h3 class="card-title">
-                                Persuasive Communication
+                                Persuasive communication
                             </h3>
 
                             <p class="card-subtitle">
-                                Words Change What People Understand, Feel and Do
+                                Words change what people understand, feel and do
                             </p>
 
                             <p class="card-body">
-                                Understand how audiences interpret information and how language, context, motivation, and psychology shape response.
+                                Understand how audiences interpret information
+                                and how language, context, motivation, and
+                                psychology shape response.
                             </p>
 
                             <a
@@ -975,7 +1249,7 @@
                                 class="btn btn-outline"
                                 style="margin-top:auto;"
                             >
-                                Join the Learning List
+                                Join the learning list
                             </a>
 
                         </div>
@@ -989,7 +1263,7 @@
 
                         <img
                             src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=900"
-                            alt="Evidence led communications and analytics"
+                            alt="Evidence-led communications and analytics"
                             class="card-img"
                             loading="lazy"
                         >
@@ -997,19 +1271,21 @@
                         <div class="card-content">
 
                             <span class="badge badge-soon">
-                                Coming Soon
+                                Coming soon
                             </span>
 
                             <h3 class="card-title">
-                                Evidence-Led Communications
+                                Evidence-led communications
                             </h3>
 
                             <p class="card-subtitle">
-                                From Activity Reporting to Intelligence
+                                From activity reporting to intelligence
                             </p>
 
                             <p class="card-body">
-                                Learn to interpret audience behaviour, identify patterns, measure change, and turn evidence into better communication decisions.
+                                Learn to interpret audience behaviour, identify
+                                patterns, measure change, and turn evidence
+                                into better communication decisions.
                             </p>
 
                             <a
@@ -1017,7 +1293,7 @@
                                 class="btn btn-outline"
                                 style="margin-top:auto;"
                             >
-                                Join the Learning List
+                                Join the learning list
                             </a>
 
                         </div>
@@ -1040,19 +1316,23 @@
             <div class="container">
 
                 <span class="section-tag">
-                    Interactive Workshops
+                    Interactive workshops
                 </span>
 
                 <h2 class="section-title">
-                    Helping Teams Figure Things Out
+                    Helping teams figure things out
                 </h2>
 
                 <p class="section-lead labs-intro">
-                    Not every organisational problem needs another presentation. Our Labs put the right people in a room, create a useful process, and move the conversation towards action.
+                    Not every organisational problem needs another
+                    presentation. Our Labs put the right people in a room,
+                    create a useful process, and move the conversation
+                    towards action.
                 </p>
 
 
                 <div class="grid grid-3">
+
 
                     <!-- CLARITY LAB -->
 
@@ -1072,11 +1352,13 @@
                             </h3>
 
                             <p class="card-subtitle">
-                                When the problem isn't as clear as everyone thinks it is.
+                                When the problem isn't as clear as everyone
+                                thinks it is.
                             </p>
 
                             <p class="card-body">
-                                Unpack the challenge, surface assumptions, and establish what actually needs to change.
+                                Unpack the challenge, surface assumptions, and
+                                establish what actually needs to change.
                             </p>
 
                             <div class="outcome-box">
@@ -1107,11 +1389,13 @@
                             </h3>
 
                             <p class="card-subtitle">
-                                When you need better ideas — not another brainstorming session.
+                                When you need better ideas — not another
+                                brainstorming session.
                             </p>
 
                             <p class="card-body">
-                                Generate, challenge, develop, and prioritise ideas around a specific strategic objective.
+                                Generate, challenge, develop, and prioritise
+                                ideas around a specific strategic objective.
                             </p>
 
                             <div class="outcome-box">
@@ -1146,7 +1430,9 @@
                             </p>
 
                             <p class="card-body">
-                                Work through campaigns, messages, or internal communication challenges that aren't connecting as intended.
+                                Work through campaigns, messages, or internal
+                                communication challenges that aren't connecting
+                                as intended.
                             </p>
 
                             <div class="outcome-box">
@@ -1169,83 +1455,109 @@
              5. FREE RESOURCE
         ========================= -->
 
-        <section id="free-resources" class="academy-section">
+        <section
+            id="free-resources"
+            class="academy-section"
+        >
 
             <div class="container">
 
                 <div class="resource-box">
 
+
+                    <!-- RESOURCE IMAGE -->
+
+                    <div
+                        class="resource-image"
+                        role="img"
+                        aria-label="Professional reviewing notes and working on a strategic document"
+                    ></div>
+
+
+                    <!-- RESOURCE CONTENT -->
+
                     <div class="resource-content">
 
-                        <span class="section-tag" style="color: var(--brand-light-blue);">
-                            Free Executive Resource
+                        <span
+                            class="section-tag"
+                            style="color: var(--brand-light-blue);"
+                        >
+                            Free executive resource
                         </span>
 
                         <h3>
-                            Thinking You Can Take With You
+                            Thinking you can take with you.
                         </h3>
 
                         <p>
-                            Selected articles, frameworks, and practical resources for people working across communications, marketing, and public affairs.
+                            Selected articles, frameworks, and practical
+                            resources for people working across communications,
+                            marketing, and public affairs.
                         </p>
 
                         <p class="resource-checklist">
-                            ✓ Instant PDF Access &nbsp; | &nbsp; ✓ Practitioner Checklist &nbsp; | &nbsp; ✓ No Spam
+                            ✓ Instant PDF access
+                            &nbsp; | &nbsp;
+                            ✓ Practitioner checklist
+                            &nbsp; | &nbsp;
+                            ✓ No spam
                         </p>
 
-                    </div>
 
+                        <div class="resource-form">
 
-                    <div class="resource-form">
-
-                        <form
-                            action="#"
-                            method="POST"
-                            onsubmit="event.preventDefault(); alert('Thank you! Your framework download link has been sent to your email.');"
-                        >
-
-                            <div class="form-group">
-
-                                <label for="res-name">
-                                    Full Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="res-name"
-                                    class="form-input"
-                                    placeholder="e.g. Rachel Mupela"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label for="res-email">
-                                    Work Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="res-email"
-                                    class="form-input"
-                                    placeholder="name@organisation.com"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <button
-                                type="submit"
-                                class="btn btn-primary btn-full"
+                            <form
+                                action="#"
+                                method="POST"
+                                onsubmit="event.preventDefault(); alert('Thank you! Your framework download link has been sent to your email.');"
                             >
-                                Download Free Framework Guide
-                            </button>
 
-                        </form>
+                                <div class="form-group">
+
+                                    <label for="res-name">
+                                        Full name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="res-name"
+                                        class="form-input"
+                                        placeholder="e.g. Rachel Mupela"
+                                        autocomplete="name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="res-email">
+                                        Work email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="res-email"
+                                        class="form-input"
+                                        placeholder="name@organisation.com"
+                                        autocomplete="email"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-full"
+                                >
+                                    Download free framework guide
+                                </button>
+
+                            </form>
+
+                        </div>
 
                     </div>
 
@@ -1275,15 +1587,18 @@
                     <div class="takeover-text">
 
                         <span class="section-tag">
-                            Community &amp; Industry Alignment
+                            Community &amp; industry alignment
                         </span>
 
                         <h3>
-                            Industry Takeover: Bringing Experience Into The Room
+                            Industry takeover: bringing experience into the room
                         </h3>
 
                         <p>
-                            Students, young professionals, and communities hear directly from the people doing the work — sharing real experiences, emerging ideas, and practical knowledge.
+                            Students, young professionals, and communities hear
+                            directly from the people doing the work — sharing
+                            real experiences, emerging ideas, and practical
+                            knowledge.
                         </p>
 
                         <a
@@ -1291,7 +1606,7 @@
                             class="btn btn-outline"
                             style="width: fit-content;"
                         >
-                            Explore Takeovers &rarr;
+                            Explore takeovers →
                         </a>
 
                     </div>
@@ -1311,20 +1626,24 @@
 
             <div class="container">
 
-                <div class="text-center" style="margin-bottom: 44px;">
+                <div
+                    class="text-center"
+                    style="margin-bottom: 44px;"
+                >
 
                     <span class="section-tag">
-                        How We Teach &amp; Train
+                        How we teach &amp; train
                     </span>
 
                     <h2 class="section-title">
-                        Our Learning Methodology
+                        Our learning methodology
                     </h2>
 
                 </div>
 
 
                 <div class="grid grid-4">
+
 
                     <div class="approach-card">
 
@@ -1337,7 +1656,8 @@
                         </h4>
 
                         <p>
-                            Understand people, context, and information before deciding what to say.
+                            Understand people, context, and information before
+                            deciding what to say.
                         </p>
 
                     </div>
@@ -1354,7 +1674,8 @@
                         </h4>
 
                         <p>
-                            Connect communication to decisions, objectives, and real outcomes.
+                            Connect communication to decisions, objectives,
+                            and real outcomes.
                         </p>
 
                     </div>
@@ -1371,7 +1692,8 @@
                         </h4>
 
                         <p>
-                            Turn ideas into communication that works in complex environments.
+                            Turn ideas into communication that works in
+                            complex environments.
                         </p>
 
                     </div>
@@ -1388,7 +1710,8 @@
                         </h4>
 
                         <p>
-                            Look beyond reach to understand engagement, response, behaviour, and change.
+                            Look beyond reach to understand engagement,
+                            response, behaviour, and change.
                         </p>
 
                     </div>
@@ -1413,14 +1736,15 @@
                 </h2>
 
                 <p>
-                    It should help people understand, decide, participate, and act. The Eightplus Academy is where we make that happen.
+                    It should help people understand, decide, participate,
+                    and act. The Eightplus Academy is where we make that happen.
                 </p>
 
                 <a
                     href="contact.html?topic=academy"
                     class="btn btn-primary"
                 >
-                    Start an Executive Conversation
+                    Start an executive conversation
                 </a>
 
             </div>
