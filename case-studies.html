@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies &amp; Work | Eightplus Media</title>
     <meta name="description" content="Explore selected communications transformation engagements and executive training masterclasses delivered by Eightplus Media.">
-
-    <!-- Shared site styles (colours, buttons, containers, grids, navbar, footer) -->
+    <!-- Shared site styles -->
     <link rel="stylesheet" href="./style.css">
-
-    <!-- CASE STUDIES PAGE STYLES: only what is unique to this page -->
+    <!-- CASE STUDIES PAGE STYLES -->
     <style>
         /* =========================
-           HERO (uses the shared .hero from style.css)
+           HERO
         ========================= */
-
         .cases-hero {
             background:
                 linear-gradient(
@@ -25,29 +22,27 @@
                 ),
                 url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')
                 center / cover no-repeat;
+            padding: 100px 0 60px;
         }
-
         .cases-hero .hero-lead {
             margin-bottom: 0;
         }
 
         /* =========================
-           CASE STUDY CARDS
+           CASE STUDY CARDS & LAYOUT
         ========================= */
-
         .case-card {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             padding: 48px;
             background: #ffffff;
             border: 1px solid var(--card-border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-subtle);
+            border-radius: var(--radius-lg, 16px);
+            box-shadow: var(--shadow-subtle, 0 10px 25px -5px rgba(0, 0, 0, 0.05));
             transition: border-color 0.25s ease, box-shadow 0.25s ease;
         }
-
         .case-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-card);
+            border-color: var(--primary, #0284c7);
+            box-shadow: var(--shadow-card, 0 15px 30px -10px rgba(15, 23, 42, 0.08));
         }
 
         .case-meta-top {
@@ -56,41 +51,79 @@
             align-items: flex-start;
             flex-wrap: wrap;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             padding-bottom: 24px;
             border-bottom: 1px solid var(--card-border);
         }
-
         .client-info h2 {
             margin-bottom: 4px;
-            color: var(--text-dark);
+            color: var(--text-dark, #0f172a);
             font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.15;
             letter-spacing: -0.03em;
         }
-
         .client-info p {
-            color: var(--primary);
+            color: var(--primary, #0284c7);
             font-size: 1.08rem;
             font-weight: 600;
         }
-
         .meta-pill-duration {
             padding: 7px 15px;
-            background: var(--soft-blue);
+            background: var(--soft-blue, #f0f9ff);
             border: 1px solid rgba(2, 132, 199, 0.25);
             border-radius: 100px;
-            color: var(--primary);
+            color: var(--primary, #0284c7);
             font-size: 0.85rem;
             font-weight: 650;
             white-space: nowrap;
         }
 
+        /* PHOTO INTEGRATION LAYOUTS */
+        .case-featured-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 36px;
+            margin-bottom: 32px;
+            align-items: center;
+        }
+
+        .case-featured-layout.reverse {
+            grid-template-columns: 1.1fr 1fr;
+        }
+
+        .case-cover-image {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .case-gallery-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .gallery-photo {
+            height: 220px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .gallery-photo:hover {
+            transform: scale(1.02);
+        }
+
         .case-intro {
-            max-width: 760px;
-            margin-bottom: 28px;
-            color: var(--text-muted);
+            margin-bottom: 0;
+            color: var(--text-muted, #64748b);
             font-size: 1.05rem;
             line-height: 1.7;
         }
@@ -98,47 +131,41 @@
         /* =========================
            NARRATIVE SECTIONS
         ========================= */
-
         .narrative-section {
             margin-bottom: 32px;
         }
-
         .narrative-section h3 {
             margin-bottom: 10px;
-            color: var(--text-dark);
+            color: var(--text-dark, #0f172a);
             font-size: 1.2rem;
             font-weight: 650;
             letter-spacing: -0.01em;
         }
-
         .narrative-section p {
-            max-width: 760px;
+            max-width: 100%;
             margin-bottom: 12px;
-            color: var(--text-primary);
+            color: var(--text-primary, #1e293b);
             font-size: 1.02rem;
             line-height: 1.7;
         }
-
         .approach-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
             gap: 12px;
             margin-top: 18px;
         }
-
         .approach-item {
             padding: 16px 20px;
-            background: var(--light-bg);
-            border: 1px solid var(--card-border);
-            border-left: 3px solid var(--primary);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            color: var(--text-dark);
+            background: var(--light-bg, #f8fafc);
+            border: 1px solid var(--card-border, #e2e8f0);
+            border-left: 3px solid var(--primary, #0284c7);
+            border-radius: 0 8px 8px 0;
+            color: var(--text-dark, #0f172a);
             font-size: 0.94rem;
             font-weight: 500;
             line-height: 1.5;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-
         .approach-item:hover {
             transform: translateX(5px);
             box-shadow: 0 14px 30px -15px rgba(15, 23, 42, 0.22);
@@ -147,27 +174,24 @@
         /* =========================
            RESULT BOX
         ========================= */
-
         .results-box {
             margin-top: 32px;
             padding: 26px 28px;
-            background: var(--soft-blue);
+            background: var(--soft-blue, #f0f9ff);
             border: 1px solid rgba(2, 132, 199, 0.2);
-            border-left: 4px solid var(--primary);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            border-left: 4px solid var(--primary, #0284c7);
+            border-radius: 0 8px 8px 0;
         }
-
         .results-box h3 {
             margin-bottom: 8px;
-            color: var(--dark-navy);
+            color: var(--dark-navy, #071b33);
             font-size: 1.2rem;
             font-weight: 650;
         }
-
         .results-box p {
-            max-width: 760px;
+            max-width: 100%;
             margin: 0;
-            color: var(--text-primary);
+            color: var(--text-primary, #1e293b);
             font-size: 1.02rem;
             font-weight: 500;
             line-height: 1.7;
@@ -176,7 +200,6 @@
         /* =========================
            SCOPE TAGS
         ========================= */
-
         .scope-footer {
             display: flex;
             align-items: center;
@@ -186,34 +209,29 @@
             padding-top: 24px;
             border-top: 1px solid var(--card-border);
         }
-
         .scope-label {
             margin-right: 4px;
             color: var(--text-muted);
             font-size: 0.85rem;
             font-weight: 650;
         }
-
         .scope-label-gap {
             margin-left: 12px;
         }
-
         .scope-tag {
             padding: 7px 14px;
-            background: var(--light-bg);
-            border: 1px solid var(--card-border);
+            background: var(--light-bg, #f8fafc);
+            border: 1px solid var(--card-border, #e2e8f0);
             border-radius: 100px;
             color: var(--text-dark);
             font-size: 0.82rem;
             font-weight: 600;
             transition: border-color 0.2s ease, color 0.2s ease;
         }
-
         .scope-tag:hover {
             border-color: var(--primary);
             color: var(--primary);
         }
-
         .scope-tag-strong {
             font-weight: 700;
         }
@@ -221,7 +239,6 @@
         /* =========================
            CLOSING BANNER
         ========================= */
-
         .closing-banner {
             padding: 90px 0;
             background:
@@ -235,7 +252,6 @@
             color: #ffffff;
             text-align: center;
         }
-
         .closing-banner h2 {
             margin: 0 0 14px;
             color: #ffffff;
@@ -244,7 +260,6 @@
             line-height: 1.08;
             letter-spacing: -0.04em;
         }
-
         .closing-lead {
             max-width: 600px;
             margin: 0 auto 28px;
@@ -254,64 +269,41 @@
         }
 
         /* =========================
-           MOBILE
+           RESPONSIVE BREAKPOINTS
         ========================= */
-
+        @media (max-width: 992px) {
+            .case-featured-layout, .case-featured-layout.reverse {
+                grid-template-columns: 1fr;
+            }
+            .case-cover-image {
+                min-height: 240px;
+            }
+        }
         @media (max-width: 768px) {
             .case-card {
                 margin-bottom: 28px;
                 padding: 26px 22px;
             }
-
-            .approach-grid {
+            .approach-grid, .case-gallery-row {
                 grid-template-columns: 1fr;
             }
-
             .results-box {
                 padding: 22px 20px;
             }
-
             .scope-label-gap {
                 margin-left: 0;
             }
-
             .closing-banner {
                 padding: 70px 0;
             }
         }
-
-        @media (max-width: 700px) {
-            .cases-hero {
-                background:
-                    linear-gradient(
-                        180deg,
-                        rgba(7, 27, 51, 0.84) 0%,
-                        rgba(7, 27, 51, 0.94) 100%
-                    ),
-                    url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80')
-                    center / cover no-repeat;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .case-card {
-                padding: 22px 18px;
-            }
-
-            .meta-pill-duration {
-                white-space: normal;
-            }
-        }
     </style>
 </head>
-
 <body>
-
     <!-- NAVBAR -->
     <div id="navbar-placeholder"></div>
 
     <main>
-
         <!-- HERO -->
         <section class="hero cases-hero">
             <div class="container">
@@ -323,14 +315,12 @@
             </div>
         </section>
 
-
         <!-- CASE STUDIES -->
         <section class="page-section">
             <div class="container">
 
                 <!-- CASE STUDY 1: PAYZ -->
                 <article class="case-card">
-
                     <div class="case-meta-top">
                         <div class="client-info">
                             <h2>PAYZ</h2>
@@ -339,9 +329,13 @@
                         <span class="meta-pill-duration">Six-Month Engagement</span>
                     </div>
 
-                    <p class="case-intro">
-                        PAYZ operates within a fast-moving financial and payments ecosystem where clarity, credibility, and visibility matter. The challenge was not simply to produce more content, but to create a more coherent communications presence that reflected PAYZ’s role and ambitions.
-                    </p>
+                    <!-- PHOTO LAYOUT INTEGRATION -->
+                    <div class="case-featured-layout">
+                        <div class="case-cover-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=800&q=80');"></div>
+                        <p class="case-intro">
+                            PAYZ operates within a fast-moving financial and payments ecosystem where clarity, credibility, and visibility matter. The challenge was not simply to produce more content, but to create a more coherent communications presence that reflected PAYZ’s role and ambitions.
+                        </p>
+                    </div>
 
                     <!-- The Challenge -->
                     <div class="narrative-section">
@@ -354,7 +348,7 @@
                     <div class="narrative-section">
                         <h3>The Approach</h3>
                         <p>Eightplus Media led a six-month communications transformation engagement spanning strategy, brand expression, and content. Rather than treating each communication as a standalone deliverable, we created a connected communications system where brand, messaging, and content reinforced one another.</p>
-
+                        
                         <div class="approach-grid">
                             <div class="approach-item">Refining communications positioning &amp; messaging</div>
                             <div class="approach-item">Developing a refreshed visual identity</div>
@@ -365,6 +359,12 @@
                             <div class="approach-item">Developing newsletter content &amp; print materials</div>
                             <div class="approach-item">Providing ongoing PR &amp; communications strategy support</div>
                         </div>
+                    </div>
+
+                    <!-- MID-CARD GALLERY SHOWCASE -->
+                    <div class="case-gallery-row">
+                        <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80');"></div>
                     </div>
 
                     <!-- The Result -->
@@ -384,13 +384,10 @@
                         <span class="scope-tag">Stakeholder Comms</span>
                         <span class="scope-tag">Newsletter Development</span>
                     </div>
-
                 </article>
-
 
                 <!-- CASE STUDY 2: Financial Insights Zambia × Eightplus Media -->
                 <article class="case-card">
-
                     <div class="case-meta-top">
                         <div class="client-info">
                             <h2>Financial Insights Zambia × Eightplus Media</h2>
@@ -399,9 +396,13 @@
                         <span class="meta-pill-duration">One-Day Executive Masterclass</span>
                     </div>
 
-                    <p class="case-intro">
-                        Financial professionals are accustomed to working with complex information. Communicating that information effectively—particularly under media scrutiny, during a crisis, or when engaging senior stakeholders—requires a specialized set of strategic skills.
-                    </p>
+                    <!-- PHOTO LAYOUT INTEGRATION (REVERSED) -->
+                    <div class="case-featured-layout reverse">
+                        <p class="case-intro">
+                            Financial professionals are accustomed to working with complex information. Communicating that information effectively—particularly under media scrutiny, during a crisis, or when engaging senior stakeholders—requires a specialized set of strategic skills.
+                        </p>
+                        <div class="case-cover-image" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80');"></div>
+                    </div>
 
                     <!-- The Challenge -->
                     <div class="narrative-section">
@@ -414,7 +415,7 @@
                     <div class="narrative-section">
                         <h3>The Approach</h3>
                         <p>Financial Insights Zambia and Eightplus Media jointly delivered a practical executive communications programme combining strategic principles with real-world application.</p>
-
+                        
                         <div class="approach-grid">
                             <div class="approach-item">Strategic messaging &amp; communication</div>
                             <div class="approach-item">Simplifying complex ideas for technical &amp; non-technical audiences</div>
@@ -423,6 +424,12 @@
                             <div class="approach-item">Crisis communication &amp; reputation management</div>
                             <div class="approach-item">Communicating effectively under high pressure</div>
                         </div>
+                    </div>
+
+                    <!-- MID-CARD GALLERY SHOWCASE -->
+                    <div class="case-gallery-row">
+                        <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80');"></div>
+                        <div class="gallery-photo" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80');"></div>
                     </div>
 
                     <!-- The Result -->
@@ -442,29 +449,23 @@
                         <span class="scope-tag">Crisis Communication</span>
                         <span class="scope-tag">Reputation</span>
                     </div>
-
                 </article>
 
             </div>
         </section>
 
-
         <!-- CLOSING BANNER -->
         <section class="closing-banner">
             <div class="container">
                 <h2>Transform Your Strategic Communications</h2>
-
                 <p class="closing-lead">
                     Explore how Eightplus Media can build a coherent communications framework or deliver executive training for your leadership team.
                 </p>
-
                 <a href="contact.html" class="btn btn-primary">Initiate a Consultation</a>
             </div>
         </section>
-
     </main>
 
     <script src="./navbar.js" defer></script>
-
 </body>
 </html>
