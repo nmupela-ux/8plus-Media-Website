@@ -8,135 +8,30 @@
 
     <meta name="description" content="The Eightplus Media newsroom — strategic insights, press releases, industry perspectives and communications intelligence.">
 
+    <!-- Shared site styles (colours, buttons, containers, grids, navbar, footer) -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- NEWSROOM PAGE STYLES: only what is unique to this page -->
     <style>
-        :root {
-            --dark-navy: #071522;
-            --navy: #0d2235;
-            --blue: #5f91b5;
-            --light-blue: #9bbbd2;
-            --off-white: #f7f8f9;
-            --white: #ffffff;
-            --soft-grey: #e8edf1;
-            --mid-grey: #697782;
-            --text: #1d2a33;
-            --border: #dce3e8;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: var(--text);
-            background: var(--white);
-            line-height: 1.6;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        select {
-            font: inherit;
-        }
-
         /* ========================================
-           HERO
+           HERO (uses the shared .hero from style.css)
         ======================================== */
 
         .newsroom-hero {
-            position: relative;
-            min-height: 430px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-
             background:
                 linear-gradient(
                     90deg,
-                    rgba(7, 21, 34, 0.96) 0%,
-                    rgba(7, 21, 34, 0.88) 42%,
-                    rgba(7, 21, 34, 0.58) 100%
+                    rgba(7, 27, 51, 0.96) 0%,
+                    rgba(7, 27, 51, 0.88) 42%,
+                    rgba(7, 27, 51, 0.58) 100%
                 ),
                 url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=85')
                 center / cover no-repeat;
         }
 
-        .newsroom-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                transparent 65%,
-                rgba(7, 21, 34, 0.3)
-            );
-            pointer-events: none;
+        .newsroom-hero .hero-lead {
+            margin-bottom: 0;
         }
-
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
-            padding: 80px 0;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--light-blue);
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            margin-bottom: 18px;
-        }
-
-        .hero-tag::before {
-            content: "";
-            width: 28px;
-            height: 1px;
-            background: var(--light-blue);
-        }
-
-        .newsroom-hero h1 {
-            max-width: 780px;
-            margin: 0;
-            color: var(--white);
-            font-size: clamp(3rem, 6vw, 5.8rem);
-            line-height: 0.98;
-            font-weight: 500;
-            letter-spacing: -0.045em;
-        }
-
-        .newsroom-hero p {
-            max-width: 680px;
-            margin: 28px 0 0;
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .hero-rule {
-            width: 56px;
-            height: 2px;
-            margin-top: 30px;
-            background: var(--blue);
-        }
-
 
         /* ========================================
            FILTER BAR
@@ -144,16 +39,15 @@
 
         .filter-bar {
             position: sticky;
-            top: 0;
-            z-index: 20;
+            top: var(--nav-height);
+            z-index: 900;
             background: rgba(255, 255, 255, 0.97);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--card-border);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
         .filter-inner {
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -164,53 +58,48 @@
         .filter-group {
             display: flex;
             align-items: center;
-            gap: 8px;
             flex-wrap: wrap;
+            gap: 8px;
         }
 
         .filter-button {
+            min-height: 40px;
+            padding: 9px 15px;
             border: 0;
+            border-radius: var(--radius-sm);
             background: transparent;
-            color: var(--mid-grey);
-            padding: 9px 13px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.2s ease;
+            color: var(--text-muted);
             font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            transition: background 0.2s ease, color 0.2s ease;
         }
 
         .filter-button:hover {
-            color: var(--dark-navy);
-            background: var(--soft-grey);
+            background: var(--soft-blue);
+            color: var(--text-dark);
         }
 
         .filter-button.active {
             background: var(--dark-navy);
-            color: var(--white);
+            color: #ffffff;
         }
 
         .topic-select {
-            border: 1px solid var(--border);
-            background: var(--white);
-            color: var(--text);
-            padding: 9px 32px 9px 12px;
-            border-radius: 4px;
+            min-height: 44px;
+            padding: 9px 32px 9px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            color: var(--text-dark);
+            font-size: 0.92rem;
             cursor: pointer;
         }
 
-
         /* ========================================
-           MAIN CONTENT
+           SECTION INTROS
         ======================================== */
-
-        .content-wrap {
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
-        }
-
-        .section {
-            padding: 90px 0;
-        }
 
         .section-intro {
             display: grid;
@@ -219,30 +108,22 @@
             margin-bottom: 45px;
         }
 
-        .eyebrow {
-            color: var(--blue);
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            margin-bottom: 12px;
-        }
-
-        .section-intro h2 {
+        .section-intro .section-title {
             margin: 0;
-            color: var(--dark-navy);
-            font-size: clamp(2rem, 4vw, 3.3rem);
-            font-weight: 500;
-            line-height: 1.08;
-            letter-spacing: -0.035em;
         }
 
         .section-intro p {
             max-width: 620px;
             margin: 0;
-            color: var(--mid-grey);
-            font-size: 1rem;
-            line-height: 1.8;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
+        /* Stories section sits directly under Featured */
+        .stories-section {
+            padding-top: 20px;
+        }
 
         /* ========================================
            FEATURED STORY
@@ -252,8 +133,10 @@
             display: grid;
             grid-template-columns: 1.25fr 1fr;
             min-height: 490px;
-            background: var(--dark-navy);
             overflow: hidden;
+            border-radius: 24px;
+            background: var(--dark-navy);
+            box-shadow: 0 25px 60px -25px rgba(7, 27, 51, 0.45);
         }
 
         .featured-image {
@@ -261,8 +144,8 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(7, 21, 34, 0.08),
-                    rgba(7, 21, 34, 0.15)
+                    rgba(7, 27, 51, 0.08),
+                    rgba(7, 27, 51, 0.15)
                 ),
                 url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=85')
                 center / cover no-repeat;
@@ -273,27 +156,29 @@
             flex-direction: column;
             justify-content: center;
             padding: 55px;
-            color: var(--white);
+            color: #ffffff;
         }
 
         .story-type {
-            color: var(--light-blue);
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
             margin-bottom: 18px;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 650;
+            letter-spacing: 0.08em;
         }
 
         .featured-content h3 {
             margin: 0 0 20px;
-            font-size: clamp(2rem, 3.5vw, 3.2rem);
-            font-weight: 500;
+            color: #ffffff;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 600;
             line-height: 1.08;
-            letter-spacing: -0.035em;
+            letter-spacing: -0.04em;
         }
 
         .featured-content p {
             margin: 0;
-            color: rgba(255, 255, 255, 0.72);
+            color: #cbd5e1;
             line-height: 1.75;
         }
 
@@ -302,19 +187,20 @@
             align-items: center;
             gap: 10px;
             width: fit-content;
-            margin-top: 30px;
-            padding-bottom: 5px;
+            min-height: 44px;
+            margin-top: 22px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            color: var(--white);
-            font-size: 0.9rem;
-            transition: 0.2s ease;
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: gap 0.2s ease, border-color 0.2s ease;
         }
 
         .read-more:hover {
             gap: 15px;
-            border-color: var(--white);
+            border-color: #ffffff;
+            color: #ffffff;
         }
-
 
         /* ========================================
            STORY GRID
@@ -322,28 +208,28 @@
 
         .story-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
         }
 
         .story-card {
-            border: 1px solid var(--border);
-            background: var(--white);
             overflow: hidden;
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .story-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 14px 35px rgba(7, 21, 34, 0.08);
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 25px 45px -20px rgba(7, 27, 51, 0.3);
         }
 
         .story-image {
             aspect-ratio: 16 / 10;
             overflow: hidden;
-            background: var(--soft-grey);
+            background: var(--card-border);
         }
 
         .story-image img {
@@ -358,7 +244,7 @@
         }
 
         .story-body {
-            padding: 25px;
+            padding: 26px;
         }
 
         .story-meta {
@@ -366,107 +252,99 @@
             justify-content: space-between;
             gap: 15px;
             margin-bottom: 14px;
-            color: var(--blue);
-            font-size: 0.75rem;
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 650;
         }
 
         .story-body h3 {
             margin: 0;
-            color: var(--dark-navy);
-            font-size: 1.35rem;
-            line-height: 1.2;
-            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            font-weight: 650;
+            line-height: 1.22;
+            letter-spacing: -0.01em;
         }
 
         .story-body p {
             margin: 14px 0 0;
-            color: var(--mid-grey);
-            font-size: 0.92rem;
-            line-height: 1.7;
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            line-height: 1.65;
         }
-
 
         /* ========================================
            PRESS STRIP
         ======================================== */
 
-        .press-section {
-            background: var(--off-white);
-        }
-
         .press-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
         }
 
         .press-item {
             min-height: 150px;
-            padding: 25px;
-            border-right: 1px solid var(--border);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 26px;
+            border-right: 1px solid var(--card-border);
+            transition: background 0.2s ease;
         }
 
         .press-item:last-child {
             border-right: 0;
         }
 
+        .press-item:hover {
+            background: var(--light-bg);
+        }
+
+        .press-item:hover h4 {
+            color: var(--primary);
+        }
+
         .press-source {
-            color: var(--blue);
-            font-size: 0.75rem;
             margin-bottom: 8px;
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 650;
         }
 
         .press-item h4 {
             margin: 0;
-            color: var(--dark-navy);
+            color: var(--text-dark);
             font-size: 1rem;
+            font-weight: 600;
             line-height: 1.35;
-            font-weight: 500;
+            transition: color 0.2s ease;
         }
-
 
         /* ========================================
-           PODCAST SECTION
+           PODCAST
         ======================================== */
-
-        .podcast-section {
-            padding: 90px 0;
-        }
 
         .podcast-banner {
             position: relative;
             min-height: 430px;
-            overflow: hidden;
-
             display: flex;
             align-items: center;
-
+            overflow: hidden;
+            border-radius: 24px;
             background:
                 linear-gradient(
                     90deg,
-                    rgba(7, 21, 34, 0.97) 0%,
-                    rgba(7, 21, 34, 0.88) 42%,
-                    rgba(7, 21, 34, 0.55) 100%
+                    rgba(7, 27, 51, 0.97) 0%,
+                    rgba(7, 27, 51, 0.88) 42%,
+                    rgba(7, 27, 51, 0.55) 100%
                 ),
                 url('https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1800&q=85')
                 center / cover no-repeat;
-        }
-
-        .podcast-banner::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    circle at 80% 50%,
-                    rgba(95, 145, 181, 0.18),
-                    transparent 35%
-                );
-            pointer-events: none;
+            box-shadow: 0 25px 60px -25px rgba(7, 27, 51, 0.45);
         }
 
         .podcast-content {
@@ -479,55 +357,43 @@
         .podcast-icon {
             width: 58px;
             height: 58px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #ffffff;
             font-size: 1.4rem;
         }
 
         .podcast-label {
-            color: var(--light-blue);
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
             margin-bottom: 15px;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 650;
+            letter-spacing: 0.08em;
         }
 
         .podcast-content h2 {
             margin: 0;
-            color: var(--white);
+            color: #ffffff;
             font-size: clamp(2.2rem, 4vw, 3.7rem);
             font-weight: 500;
-            line-height: 1.05;
-            letter-spacing: -0.04em;
+            line-height: 1.02;
+            letter-spacing: -0.05em;
         }
 
         .podcast-content p {
             max-width: 570px;
             margin: 22px 0 0;
-            color: rgba(255, 255, 255, 0.74);
+            color: rgba(255, 255, 255, 0.78);
             line-height: 1.75;
         }
 
         .podcast-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
             margin-top: 30px;
-            padding: 13px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.45);
-            color: var(--white);
-            transition: 0.2s ease;
         }
-
-        .podcast-button:hover {
-            background: var(--white);
-            color: var(--dark-navy);
-        }
-
 
         /* ========================================
            CTA
@@ -535,56 +401,37 @@
 
         .newsroom-cta {
             padding: 100px 0;
-            text-align: center;
             background: var(--dark-navy);
+            text-align: center;
         }
 
         .newsroom-cta h2 {
             max-width: 760px;
             margin: 0 auto;
-            color: var(--white);
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            line-height: 1.05;
+            color: #ffffff;
+            font-size: clamp(2.3rem, 4.5vw, 3.6rem);
             font-weight: 500;
-            letter-spacing: -0.04em;
+            line-height: 1;
+            letter-spacing: -0.045em;
         }
 
         .newsroom-cta p {
             max-width: 600px;
             margin: 22px auto 0;
-            color: rgba(255, 255, 255, 0.7);
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
-        .cta-button {
-            display: inline-flex;
+        .newsroom-cta .btn {
             margin-top: 30px;
-            padding: 14px 24px;
-            background: var(--white);
-            color: var(--dark-navy);
-            transition: 0.2s ease;
         }
-
-        .cta-button:hover {
-            background: var(--light-blue);
-        }
-
 
         /* ========================================
-           RESPONSIVE
+           TABLET
         ======================================== */
 
         @media (max-width: 900px) {
-
-            .hero-inner,
-            .content-wrap,
-            .filter-inner {
-                width: min(100% - 36px, 720px);
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-
             .section-intro {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -599,11 +446,11 @@
             }
 
             .story-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .press-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .press-item:nth-child(2) {
@@ -611,7 +458,7 @@
             }
 
             .press-item:nth-child(-n + 2) {
-                border-bottom: 1px solid var(--border);
+                border-bottom: 1px solid var(--card-border);
             }
 
             .podcast-content {
@@ -619,48 +466,33 @@
             }
         }
 
+        /* ========================================
+           MOBILE
+        ======================================== */
 
-        @media (max-width: 650px) {
-
+        @media (max-width: 700px) {
             .newsroom-hero {
-                min-height: 460px;
                 background:
                     linear-gradient(
                         180deg,
-                        rgba(7, 21, 34, 0.92) 0%,
-                        rgba(7, 21, 34, 0.82) 55%,
-                        rgba(7, 21, 34, 0.95) 100%
+                        rgba(7, 27, 51, 0.84) 0%,
+                        rgba(7, 27, 51, 0.94) 100%
                     ),
                     url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=80')
                     center / cover no-repeat;
             }
 
-            .hero-inner,
-            .content-wrap,
-            .filter-inner {
-                width: calc(100% - 30px);
-            }
-
-            .hero-inner {
-                padding: 65px 0;
-            }
-
-            .newsroom-hero h1 {
-                font-size: clamp(2.7rem, 13vw, 4rem);
-            }
-
-            .newsroom-hero p {
-                font-size: 0.98rem;
-                margin-top: 20px;
-            }
-
+            /* Filter bar scrolls away on phones to save screen space */
             .filter-bar {
                 position: relative;
+                top: auto;
             }
 
             .filter-inner {
-                padding: 12px 0;
                 display: block;
+                min-height: 0;
+                padding-top: 12px;
+                padding-bottom: 12px;
             }
 
             .filter-group {
@@ -669,24 +501,16 @@
             }
 
             .filter-button {
-                padding: 8px 10px;
-                font-size: 0.8rem;
+                padding: 8px 12px;
+                font-size: 0.82rem;
             }
 
             .topic-select {
                 width: 100%;
             }
 
-            .section {
-                padding: 55px 0;
-            }
-
             .section-intro {
                 margin-bottom: 30px;
-            }
-
-            .section-intro h2 {
-                font-size: 2.15rem;
             }
 
             .featured-image {
@@ -694,11 +518,7 @@
             }
 
             .featured-content {
-                padding: 35px 25px;
-            }
-
-            .featured-content h3 {
-                font-size: 2rem;
+                padding: 35px 24px;
             }
 
             .story-grid {
@@ -707,7 +527,7 @@
             }
 
             .story-body {
-                padding: 21px;
+                padding: 22px;
             }
 
             .press-grid {
@@ -717,27 +537,22 @@
             .press-item {
                 min-height: 120px;
                 border-right: 0;
-                border-bottom: 1px solid var(--border);
+                border-bottom: 1px solid var(--card-border);
             }
 
             .press-item:last-child {
                 border-bottom: 0;
             }
 
-            .podcast-section {
-                padding: 55px 0;
-            }
-
             .podcast-banner {
                 min-height: 500px;
                 align-items: flex-end;
-
                 background:
                     linear-gradient(
                         180deg,
-                        rgba(7, 21, 34, 0.38) 0%,
-                        rgba(7, 21, 34, 0.72) 38%,
-                        rgba(7, 21, 34, 0.97) 100%
+                        rgba(7, 27, 51, 0.38) 0%,
+                        rgba(7, 27, 51, 0.72) 38%,
+                        rgba(7, 27, 51, 0.97) 100%
                     ),
                     url('https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1000&q=85')
                     center / cover no-repeat;
@@ -745,7 +560,7 @@
 
             .podcast-content {
                 width: 100%;
-                padding: 35px 25px;
+                padding: 35px 24px;
             }
 
             .podcast-icon {
@@ -754,63 +569,19 @@
                 margin-bottom: 20px;
             }
 
-            .podcast-content h2 {
-                font-size: 2.3rem;
-            }
-
             .podcast-content p {
-                font-size: 0.92rem;
+                font-size: 0.94rem;
             }
 
             .newsroom-cta {
-                padding: 70px 20px;
-            }
-
-            .newsroom-cta h2 {
-                font-size: 2.35rem;
+                padding: 70px 0;
             }
         }
-
 
         @media (max-width: 400px) {
-
-            .newsroom-hero h1 {
-                font-size: 2.55rem;
-            }
-
-            .hero-tag {
-                font-size: 0.72rem;
-            }
-
-            .featured-content {
-                padding: 30px 20px;
-            }
-
+            .featured-content,
             .podcast-content {
                 padding: 30px 20px;
-            }
-
-            .podcast-content h2 {
-                font-size: 2rem;
-            }
-        }
-
-
-        /* ========================================
-           ACCESSIBILITY / REDUCED MOTION
-        ======================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-                animation: none !important;
             }
         }
     </style>
@@ -818,29 +589,30 @@
 
 <body>
 
+    <!-- NAVBAR -->
+    <div id="navbar-placeholder"></div>
+
 
     <!-- ========================================
          HERO
     ======================================== -->
 
-    <header class="newsroom-hero">
+    <header class="hero newsroom-hero">
 
-        <div class="hero-inner">
+        <div class="container">
 
-            <div class="hero-tag">
+            <span class="hero-badge">
                 Eightplus Media
-            </div>
+            </span>
 
-            <h1>
+            <h1 class="hero-title">
                 The Eightplus Newsroom
             </h1>
 
-            <p>
+            <p class="hero-lead">
                 Official press releases, strategic insights, industry perspectives
                 and curated communications intelligence.
             </p>
-
-            <div class="hero-rule"></div>
 
         </div>
 
@@ -853,7 +625,7 @@
 
     <nav class="filter-bar" aria-label="Newsroom filters">
 
-        <div class="filter-inner">
+        <div class="container filter-inner">
 
             <div class="filter-group">
 
@@ -898,18 +670,18 @@
              FEATURED
         ======================================== -->
 
-        <section class="section">
+        <section class="page-section">
 
-            <div class="content-wrap">
+            <div class="container">
 
                 <div class="section-intro">
 
                     <div>
-                        <div class="eyebrow">
+                        <span class="section-tag">
                             Featured
-                        </div>
+                        </span>
 
-                        <h2>
+                        <h2 class="section-title">
                             What we're paying attention to.
                         </h2>
                     </div>
@@ -959,18 +731,18 @@
              STORIES
         ======================================== -->
 
-        <section class="section" style="padding-top: 20px;">
+        <section class="page-section stories-section">
 
-            <div class="content-wrap">
+            <div class="container">
 
                 <div class="section-intro">
 
                     <div>
-                        <div class="eyebrow">
+                        <span class="section-tag">
                             Latest
-                        </div>
+                        </span>
 
-                        <h2>
+                        <h2 class="section-title">
                             From Eightplus.
                         </h2>
                     </div>
@@ -1185,18 +957,18 @@
              PRESS
         ======================================== -->
 
-        <section class="section press-section">
+        <section class="page-section section-alt">
 
-            <div class="content-wrap">
+            <div class="container">
 
                 <div class="section-intro">
 
                     <div>
-                        <div class="eyebrow">
+                        <span class="section-tag">
                             In the news
-                        </div>
+                        </span>
 
-                        <h2>
+                        <h2 class="section-title">
                             Around the industry.
                         </h2>
                     </div>
@@ -1273,11 +1045,11 @@
              PODCAST
         ======================================== -->
 
-        <section class="podcast-section">
+        <section class="page-section">
 
-            <div class="content-wrap">
+            <div class="container">
 
-                <div class="podcast-banner">
+                <div class="podcast-banner on-dark">
 
                     <div class="podcast-content">
 
@@ -1299,7 +1071,7 @@
                             behind organisational change.
                         </p>
 
-                        <a href="#" class="podcast-button">
+                        <a href="#" class="btn btn-secondary podcast-button">
                             Explore the podcast →
                         </a>
 
@@ -1318,7 +1090,7 @@
 
         <section class="newsroom-cta">
 
-            <div class="content-wrap">
+            <div class="container">
 
                 <h2>
                     Have a story worth telling?
@@ -1329,7 +1101,7 @@
                     to move.
                 </p>
 
-                <a href="#" class="cta-button">
+                <a href="contact.html" class="btn btn-primary">
                     Start a conversation
                 </a>
 
@@ -1384,6 +1156,8 @@
         }
 
     </script>
+
+    <script src="./navbar.js" defer></script>
 
 </body>
 </html>
