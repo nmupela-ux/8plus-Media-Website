@@ -3,104 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Studies & Work | Eightplus Media</title>
+    <title>Case Studies &amp; Work | Eightplus Media</title>
     <meta name="description" content="Explore selected communications transformation engagements and executive training masterclasses delivered by Eightplus Media.">
-    
-    <!-- Shared Master Stylesheet -->
-    <link rel="stylesheet" href="style.css">
 
+    <!-- Shared site styles (colours, buttons, containers, grids, navbar, footer) -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- CASE STUDIES PAGE STYLES: only what is unique to this page -->
     <style>
-        /* Scoped Light Editorial Theme */
-        :root {
-            --bg-canvas: #F8FAFC;
-            --bg-card: #FFFFFF;
-            --text-heading: #0F172A;
-            --text-body: #334155;
-            --text-muted: #64748B;
-            --border-light: #E2E8F0;
-            --accent-blue: #2563EB;
-            --accent-teal: #0D9488;
-            --accent-light-blue: #EFF6FF;
-            --accent-light-teal: #CCFBF1;
+        /* =========================
+           HERO (uses the shared .hero from style.css)
+        ========================= */
+
+        .cases-hero {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7, 27, 51, 0.96) 0%,
+                    rgba(7, 27, 51, 0.88) 42%,
+                    rgba(7, 27, 51, 0.58) 100%
+                ),
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')
+                center / cover no-repeat;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        .cases-hero .hero-lead {
+            margin-bottom: 0;
         }
 
-        body {
-            background-color: var(--bg-canvas);
-            color: var(--text-body);
-            line-height: 1.6;
-        }
+        /* =========================
+           CASE STUDY CARDS
+        ========================= */
 
-        /* Page Hero Header */
-        .page-hero {
-            background-color: #FFFFFF;
-            padding: 100px 24px 50px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .page-hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background-color: var(--accent-light-blue);
-            color: var(--accent-blue);
-            border: 1px solid #BFDBFE;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 16px;
-        }
-
-        .page-hero h1 {
-            font-size: 2.5rem;
-            color: var(--text-heading);
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-
-        .page-hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        /* Layout Container */
-        .case-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 24px;
-        }
-
-        /* Case Study Card Block */
         .case-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
+            margin-bottom: 40px;
             padding: 48px;
-            margin-bottom: 48px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-subtle);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .case-card:hover {
-            border-color: #CBD5E1;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-card);
         }
 
-        /* Case Header Meta */
         .case-meta-top {
             display: flex;
             justify-content: space-between;
@@ -109,346 +58,413 @@
             gap: 16px;
             margin-bottom: 24px;
             padding-bottom: 24px;
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--card-border);
         }
 
         .client-info h2 {
-            font-size: 1.85rem;
-            color: var(--text-heading);
-            font-weight: 800;
             margin-bottom: 4px;
+            color: var(--text-dark);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
         }
 
         .client-info p {
-            font-size: 1.1rem;
-            color: var(--accent-blue);
+            color: var(--primary);
+            font-size: 1.08rem;
             font-weight: 600;
         }
 
         .meta-pill-duration {
-            background-color: var(--accent-light-teal);
-            color: var(--accent-teal);
-            border: 1px solid #99F6E4;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 7px 15px;
+            background: var(--soft-blue);
+            border: 1px solid rgba(2, 132, 199, 0.25);
+            border-radius: 100px;
+            color: var(--primary);
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 650;
             white-space: nowrap;
         }
 
-        /* Narrative Grid Sections */
+        .case-intro {
+            max-width: 760px;
+            margin-bottom: 28px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           NARRATIVE SECTIONS
+        ========================= */
+
         .narrative-section {
             margin-bottom: 32px;
         }
 
         .narrative-section h3 {
-            font-size: 1.15rem;
-            color: var(--text-heading);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            font-weight: 650;
+            letter-spacing: -0.01em;
         }
 
         .narrative-section p {
-            color: var(--text-body);
-            font-size: 1.025rem;
-            line-height: 1.7;
+            max-width: 760px;
             margin-bottom: 12px;
+            color: var(--text-primary);
+            font-size: 1.02rem;
+            line-height: 1.7;
         }
 
-        /* Approach Grid Layout */
         .approach-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
             gap: 12px;
-            margin-top: 16px;
+            margin-top: 18px;
         }
 
         .approach-item {
-            background-color: var(--bg-canvas);
-            border: 1px solid var(--border-light);
-            border-left: 3px solid var(--accent-blue);
-            padding: 14px 18px;
-            border-radius: 8px;
-            font-size: 0.925rem;
-            color: var(--text-heading);
+            padding: 16px 20px;
+            background: var(--light-bg);
+            border: 1px solid var(--card-border);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            color: var(--text-dark);
+            font-size: 0.94rem;
             font-weight: 500;
+            line-height: 1.5;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        /* Results Highlight Box */
+        .approach-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 14px 30px -15px rgba(15, 23, 42, 0.22);
+        }
+
+        /* =========================
+           RESULT BOX
+        ========================= */
+
         .results-box {
-            background-color: #F0FDF4;
-            border: 1px solid #BBF7D0;
-            border-left: 4px solid #16A34A;
-            padding: 24px;
-            border-radius: 12px;
             margin-top: 32px;
+            padding: 26px 28px;
+            background: var(--soft-blue);
+            border: 1px solid rgba(2, 132, 199, 0.2);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
         }
 
         .results-box h3 {
-            color: #14532D;
             margin-bottom: 8px;
+            color: var(--dark-navy);
+            font-size: 1.2rem;
+            font-weight: 650;
         }
 
         .results-box p {
-            color: #166534;
+            max-width: 760px;
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1.02rem;
             font-weight: 500;
-            margin-bottom: 0;
+            line-height: 1.7;
         }
 
-        /* Scope Pills List */
+        /* =========================
+           SCOPE TAGS
+        ========================= */
+
         .scope-footer {
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-light);
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--card-border);
         }
 
         .scope-label {
-            font-size: 0.85rem;
-            font-weight: 700;
+            margin-right: 4px;
             color: var(--text-muted);
-            text-transform: uppercase;
-            margin-right: 8px;
+            font-size: 0.85rem;
+            font-weight: 650;
+        }
+
+        .scope-label-gap {
+            margin-left: 12px;
         }
 
         .scope-tag {
-            background: var(--bg-canvas);
-            border: 1px solid var(--border-light);
-            color: var(--text-body);
-            font-size: 0.8rem;
+            padding: 7px 14px;
+            background: var(--light-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            color: var(--text-dark);
+            font-size: 0.82rem;
             font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 6px;
+            transition: border-color 0.2s ease, color 0.2s ease;
         }
 
-        /* CTA Section */
-        .cta-banner {
-            background-color: #FFFFFF;
-            border: 1px solid var(--border-light);
-            padding: 48px 32px;
-            border-radius: 16px;
+        .scope-tag:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .scope-tag-strong {
+            font-weight: 700;
+        }
+
+        /* =========================
+           CLOSING BANNER
+        ========================= */
+
+        .closing-banner {
+            padding: 90px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(7, 27, 51, 0.95) 0%,
+                    rgba(15, 40, 71, 0.95) 100%
+                ),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')
+                center / cover no-repeat;
+            color: #ffffff;
             text-align: center;
-            margin-top: 32px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
-        .cta-banner h2 {
-            font-size: 1.85rem;
-            color: var(--text-heading);
-            margin-bottom: 12px;
-        }
-
-        .cta-banner p {
-            color: var(--text-muted);
-            margin-bottom: 24px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: #FFFFFF;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
+        .closing-banner h2 {
+            margin: 0 0 14px;
+            color: #ffffff;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 600;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            line-height: 1.08;
+            letter-spacing: -0.04em;
         }
 
-        .btn-primary:hover {
-            background-color: #1D4ED8;
-            transform: translateY(-1px);
+        .closing-lead {
+            max-width: 600px;
+            margin: 0 auto 28px;
+            color: #cbd5e1;
+            font-size: 1.02rem;
+            line-height: 1.7;
         }
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 768px) {
-            .case-card { padding: 24px; }
-            .page-hero h1 { font-size: 2rem; }
-            .client-info h2 { font-size: 1.5rem; }
-            .approach-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
+            .case-card {
+                margin-bottom: 28px;
+                padding: 26px 22px;
+            }
 
-    <!-- Loaded Navigation Bar -->
-    <div id="navbar-placeholder"></div>
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
 
-    <!-- Page Hero Banner -->
-    <section class="page-hero">
-        <div class="page-hero-container">
-            <span class="hero-badge">Selected Engagements</span>
-            <h1>Strategic Impact & Proven Results</h1>
-            <p>Case studies reflecting how Eightplus Media transforms public presence, crafts executive capability, and builds strategic communications infrastructure.</p>
-        </div>
-    </section>
+            .results-box {
+                padding: 22px 20px;
+            }
 
-    <!-- Main Content Container -->
-    <main class="case-container">
+            .scope-label-gap {
+                margin-left: 0;
+            }
 
-        <!-- CASE STUDY 1: PAYZ -->
-        <article class="case-card">
-            
-            <div class="case-meta-top">
-                <div class="client-info">
-                    <h2>PAYZ</h2>
-                    <p>Building a clearer voice for Zambia’s payments ecosystem</p>
-                </div>
-                <span class="meta-pill-duration">Six-Month Engagement</span>
-            </div>
-
-            <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 28px;">
-                PAYZ operates within a fast-moving financial and payments ecosystem where clarity, credibility, and visibility matter. The challenge was not simply to produce more content, but to create a more coherent communications presence that reflected PAYZ’s role and ambitions.
-            </p>
-
-            <!-- The Challenge -->
-            <div class="narrative-section">
-                <h3>The Challenge</h3>
-                <p>PAYZ needed to strengthen how it presented itself publicly—from its visual identity and messaging to the way it communicated its work, perspectives, and role within the payments ecosystem.</p>
-                <p>The engagement called for a more consistent and purposeful communications approach across platforms and audiences.</p>
-            </div>
-
-            <!-- The Approach -->
-            <div class="narrative-section">
-                <h3>The Approach</h3>
-                <p>Eightplus Media led a six-month communications transformation engagement spanning strategy, brand expression, and content. Rather than treating each communication as a standalone deliverable, we created a connected communications system where brand, messaging, and content reinforced one another.</p>
-                
-                <div class="approach-grid">
-                    <div class="approach-item">Refining communications positioning & messaging</div>
-                    <div class="approach-item">Developing a refreshed visual identity</div>
-                    <div class="approach-item">Establishing social media content pillars</div>
-                    <div class="approach-item">Developing platform-specific editorial content</div>
-                    <div class="approach-item">Producing thought-leadership articles</div>
-                    <div class="approach-item">Supporting campaigns & stakeholder communications</div>
-                    <div class="approach-item">Developing newsletter content & print materials</div>
-                    <div class="approach-item">Providing ongoing PR & communications strategy support</div>
-                </div>
-            </div>
-
-            <!-- The Result -->
-            <div class="results-box">
-                <h3>The Result</h3>
-                <p>The engagement gave PAYZ a clearer and more consistent public identity, strengthened its communications infrastructure, and created a stronger foundation for visibility within Zambia’s evolving payments ecosystem. The work moved PAYZ from simply communicating activity to communicating with greater clarity, consistency, and strategic intent.</p>
-            </div>
-
-            <!-- Scope Tags Footer -->
-            <div class="scope-footer">
-                <span class="scope-label">Scope:</span>
-                <span class="scope-tag">Strategy</span>
-                <span class="scope-tag">Brand & Messaging</span>
-                <span class="scope-tag">Social & Digital Content</span>
-                <span class="scope-tag">Thought Leadership</span>
-                <span class="scope-tag">Campaign Support</span>
-                <span class="scope-tag">Stakeholder Comms</span>
-                <span class="scope-tag">Newsletter Development</span>
-            </div>
-
-        </article>
-
-
-        <!-- CASE STUDY 2: Financial Insights Zambia × Eightplus Media -->
-        <article class="case-card">
-            
-            <div class="case-meta-top">
-                <div class="client-info">
-                    <h2>Financial Insights Zambia × Eightplus Media</h2>
-                    <p>Executive Communications Masterclass for ACI Zambia</p>
-                </div>
-                <span class="meta-pill-duration" style="background-color: var(--accent-light-blue); color: var(--accent-blue); border-color: #BFDBFE;">One-Day Executive Masterclass</span>
-            </div>
-
-            <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 28px;">
-                Financial professionals are accustomed to working with complex information. Communicating that information effectively—particularly under media scrutiny, during a crisis, or when engaging senior stakeholders—requires a specialized set of strategic skills.
-            </p>
-
-            <!-- The Challenge -->
-            <div class="narrative-section">
-                <h3>The Challenge</h3>
-                <p>The participants understood their technical fields. The opportunity was to strengthen how they translated that expertise into clear, credible, and strategic public and corporate communication.</p>
-                <p>The programme focused on helping finance professionals communicate beyond information-sharing—with greater confidence, clarity, and awareness of the reputational context surrounding their messages.</p>
-            </div>
-
-            <!-- The Approach -->
-            <div class="narrative-section">
-                <h3>The Approach</h3>
-                <p>Financial Insights Zambia and Eightplus Media jointly delivered a practical executive communications programme combining strategic principles with real-world application.</p>
-                
-                <div class="approach-grid">
-                    <div class="approach-item">Strategic messaging & communication</div>
-                    <div class="approach-item">Simplifying complex ideas for technical & non-technical audiences</div>
-                    <div class="approach-item">Media readiness & interview preparation</div>
-                    <div class="approach-item">Executive presence & leadership communication</div>
-                    <div class="approach-item">Crisis communication & reputation management</div>
-                    <div class="approach-item">Communicating effectively under high pressure</div>
-                </div>
-            </div>
-
-            <!-- The Result -->
-            <div class="results-box" style="background-color: #F0F9FF; border-color: #BAE6FD; border-left-color: #0284C7;">
-                <h3 style="color: #0C4A6E;">The Result</h3>
-                <p style="color: #0369A1;">The programme strengthened participants' understanding of communication as a strategic leadership capability—particularly in an industry where credibility, clarity, and public trust are critical. It demonstrated how Eightplus applies its expertise to help professionals in highly specialized sectors translate complex knowledge into effective communication.</p>
-            </div>
-
-            <!-- Scope Tags Footer -->
-            <div class="scope-footer">
-                <span class="scope-label">Delivered For:</span>
-                <span class="scope-tag" style="background-color: #F1F5F9; font-weight: 700; color: #0F172A;">ACI Zambia</span>
-                <span class="scope-label" style="margin-left: 12px;">Focus:</span>
-                <span class="scope-tag">Strategic Messaging</span>
-                <span class="scope-tag">Media Readiness</span>
-                <span class="scope-tag">Executive Communication</span>
-                <span class="scope-tag">Crisis Communication</span>
-                <span class="scope-tag">Reputation</span>
-            </div>
-
-        </article>
-
-        <!-- CTA Banner -->
-        <div class="cta-banner">
-            <h2>Transform Your Strategic Communications</h2>
-            <p>Explore how Eightplus Media can build a coherent communications framework or deliver executive training for your leadership team.</p>
-            <a href="contact.html" class="btn-primary">Initiate a Consultation</a>
-        </div>
-
-    </main>
-
-    <!-- Resilient Component Loader Script -->
-    <script>
-        async function loadNavbar() {
-            const container = document.getElementById('navbar-placeholder');
-            try {
-                const response = await fetch('navbar.html');
-                if (response.ok) {
-                    container.innerHTML = await response.text();
-                    
-                    // Mark current page link as active
-                    const path = window.location.pathname.split("/").pop() || 'case-studies.html';
-                    const activeLink = container.querySelector(`a[href="${path}"]`);
-                    if (activeLink) activeLink.classList.add('active');
-
-                    // Re-bind Mobile Toggle Event
-                    const toggleBtn = document.getElementById('navToggle');
-                    const navMenu = document.getElementById('navLinks');
-                    if (toggleBtn && navMenu) {
-                        toggleBtn.addEventListener('click', function() {
-                            const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                            toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                            navMenu.classList.toggle('is-active');
-                        });
-                    }
-                }
-            } catch (error) {
-                console.warn('Navbar fetch deferred or running locally; ensure navbar.html is served via HTTP.');
+            .closing-banner {
+                padding: 70px 0;
             }
         }
 
-        document.addEventListener('DOMContentLoaded', loadNavbar);
-    </script>
+        @media (max-width: 700px) {
+            .cases-hero {
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(7, 27, 51, 0.84) 0%,
+                        rgba(7, 27, 51, 0.94) 100%
+                    ),
+                    url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80')
+                    center / cover no-repeat;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .case-card {
+                padding: 22px 18px;
+            }
+
+            .meta-pill-duration {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero cases-hero">
+            <div class="container">
+                <span class="hero-badge">Selected Engagements</span>
+                <h1 class="hero-title">Strategic Impact &amp; Proven Results</h1>
+                <p class="hero-lead">
+                    Case studies reflecting how Eightplus Media transforms public presence, crafts executive capability, and builds strategic communications infrastructure.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- CASE STUDIES -->
+        <section class="page-section">
+            <div class="container">
+
+                <!-- CASE STUDY 1: PAYZ -->
+                <article class="case-card">
+
+                    <div class="case-meta-top">
+                        <div class="client-info">
+                            <h2>PAYZ</h2>
+                            <p>Building a clearer voice for Zambia’s payments ecosystem</p>
+                        </div>
+                        <span class="meta-pill-duration">Six-Month Engagement</span>
+                    </div>
+
+                    <p class="case-intro">
+                        PAYZ operates within a fast-moving financial and payments ecosystem where clarity, credibility, and visibility matter. The challenge was not simply to produce more content, but to create a more coherent communications presence that reflected PAYZ’s role and ambitions.
+                    </p>
+
+                    <!-- The Challenge -->
+                    <div class="narrative-section">
+                        <h3>The Challenge</h3>
+                        <p>PAYZ needed to strengthen how it presented itself publicly—from its visual identity and messaging to the way it communicated its work, perspectives, and role within the payments ecosystem.</p>
+                        <p>The engagement called for a more consistent and purposeful communications approach across platforms and audiences.</p>
+                    </div>
+
+                    <!-- The Approach -->
+                    <div class="narrative-section">
+                        <h3>The Approach</h3>
+                        <p>Eightplus Media led a six-month communications transformation engagement spanning strategy, brand expression, and content. Rather than treating each communication as a standalone deliverable, we created a connected communications system where brand, messaging, and content reinforced one another.</p>
+
+                        <div class="approach-grid">
+                            <div class="approach-item">Refining communications positioning &amp; messaging</div>
+                            <div class="approach-item">Developing a refreshed visual identity</div>
+                            <div class="approach-item">Establishing social media content pillars</div>
+                            <div class="approach-item">Developing platform-specific editorial content</div>
+                            <div class="approach-item">Producing thought-leadership articles</div>
+                            <div class="approach-item">Supporting campaigns &amp; stakeholder communications</div>
+                            <div class="approach-item">Developing newsletter content &amp; print materials</div>
+                            <div class="approach-item">Providing ongoing PR &amp; communications strategy support</div>
+                        </div>
+                    </div>
+
+                    <!-- The Result -->
+                    <div class="results-box">
+                        <h3>The Result</h3>
+                        <p>The engagement gave PAYZ a clearer and more consistent public identity, strengthened its communications infrastructure, and created a stronger foundation for visibility within Zambia’s evolving payments ecosystem. The work moved PAYZ from simply communicating activity to communicating with greater clarity, consistency, and strategic intent.</p>
+                    </div>
+
+                    <!-- Scope Tags Footer -->
+                    <div class="scope-footer">
+                        <span class="scope-label">Scope:</span>
+                        <span class="scope-tag">Strategy</span>
+                        <span class="scope-tag">Brand &amp; Messaging</span>
+                        <span class="scope-tag">Social &amp; Digital Content</span>
+                        <span class="scope-tag">Thought Leadership</span>
+                        <span class="scope-tag">Campaign Support</span>
+                        <span class="scope-tag">Stakeholder Comms</span>
+                        <span class="scope-tag">Newsletter Development</span>
+                    </div>
+
+                </article>
+
+
+                <!-- CASE STUDY 2: Financial Insights Zambia × Eightplus Media -->
+                <article class="case-card">
+
+                    <div class="case-meta-top">
+                        <div class="client-info">
+                            <h2>Financial Insights Zambia × Eightplus Media</h2>
+                            <p>Executive Communications Masterclass for ACI Zambia</p>
+                        </div>
+                        <span class="meta-pill-duration">One-Day Executive Masterclass</span>
+                    </div>
+
+                    <p class="case-intro">
+                        Financial professionals are accustomed to working with complex information. Communicating that information effectively—particularly under media scrutiny, during a crisis, or when engaging senior stakeholders—requires a specialized set of strategic skills.
+                    </p>
+
+                    <!-- The Challenge -->
+                    <div class="narrative-section">
+                        <h3>The Challenge</h3>
+                        <p>The participants understood their technical fields. The opportunity was to strengthen how they translated that expertise into clear, credible, and strategic public and corporate communication.</p>
+                        <p>The programme focused on helping finance professionals communicate beyond information-sharing—with greater confidence, clarity, and awareness of the reputational context surrounding their messages.</p>
+                    </div>
+
+                    <!-- The Approach -->
+                    <div class="narrative-section">
+                        <h3>The Approach</h3>
+                        <p>Financial Insights Zambia and Eightplus Media jointly delivered a practical executive communications programme combining strategic principles with real-world application.</p>
+
+                        <div class="approach-grid">
+                            <div class="approach-item">Strategic messaging &amp; communication</div>
+                            <div class="approach-item">Simplifying complex ideas for technical &amp; non-technical audiences</div>
+                            <div class="approach-item">Media readiness &amp; interview preparation</div>
+                            <div class="approach-item">Executive presence &amp; leadership communication</div>
+                            <div class="approach-item">Crisis communication &amp; reputation management</div>
+                            <div class="approach-item">Communicating effectively under high pressure</div>
+                        </div>
+                    </div>
+
+                    <!-- The Result -->
+                    <div class="results-box">
+                        <h3>The Result</h3>
+                        <p>The programme strengthened participants' understanding of communication as a strategic leadership capability—particularly in an industry where credibility, clarity, and public trust are critical. It demonstrated how Eightplus applies its expertise to help professionals in highly specialized sectors translate complex knowledge into effective communication.</p>
+                    </div>
+
+                    <!-- Scope Tags Footer -->
+                    <div class="scope-footer">
+                        <span class="scope-label">Delivered For:</span>
+                        <span class="scope-tag scope-tag-strong">ACI Zambia</span>
+                        <span class="scope-label scope-label-gap">Focus:</span>
+                        <span class="scope-tag">Strategic Messaging</span>
+                        <span class="scope-tag">Media Readiness</span>
+                        <span class="scope-tag">Executive Communication</span>
+                        <span class="scope-tag">Crisis Communication</span>
+                        <span class="scope-tag">Reputation</span>
+                    </div>
+
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- CLOSING BANNER -->
+        <section class="closing-banner">
+            <div class="container">
+                <h2>Transform Your Strategic Communications</h2>
+
+                <p class="closing-lead">
+                    Explore how Eightplus Media can build a coherent communications framework or deliver executive training for your leadership team.
+                </p>
+
+                <a href="contact.html" class="btn btn-primary">Initiate a Consultation</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./navbar.js" defer></script>
+
 </body>
 </html>
