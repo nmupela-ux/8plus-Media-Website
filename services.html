@@ -5,115 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Eightplus Media</title>
     <meta name="description" content="Strategic communications, reputation, crisis management, executive positioning, content, and ESG reporting.">
+
+    <!-- Shared site styles (colours, buttons, containers, navbar, footer) -->
     <link rel="stylesheet" href="./style.css">
-    
+
+    <!-- SERVICES PAGE STYLES: only what is unique to this page -->
     <style>
-        :root {
-            --navy-deep: #071b33;
-            --navy-mid: #0f2847;
-            --slate-body: #334155;
-            --accent-blue: #0284c7;
-            --accent-light: #7dd3fc;
-            --bg-light: #f8fafc;
-        }
+        /* =========================
+           HERO
+        ========================= */
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            color: var(--slate-body);
-            background-color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* HERO */
         .page-hero {
-            padding: 70px 0 45px;
+            position: relative;
+            padding: 110px 0 90px;
             background:
-                linear-gradient(135deg, rgba(7, 27, 51, 0.94) 0%, rgba(15, 40, 71, 0.88) 100%),
-                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+                linear-gradient(
+                    90deg,
+                    rgba(7, 27, 51, 0.96) 0%,
+                    rgba(7, 27, 51, 0.88) 42%,
+                    rgba(7, 27, 51, 0.58) 100%
+                ),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80')
+                center / cover no-repeat;
             color: #ffffff;
         }
 
-        .hero-tagline {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: var(--accent-light);
-            display: block;
-            margin-bottom: 8px;
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-blue));
         }
 
-        .page-title {
-            font-size: 2.75rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.03em;
+        /* Smaller than the home/takeover hero title */
+        .page-hero .hero-title {
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            margin-bottom: 22px;
         }
 
-        .hero-description {
-            font-size: 1.05rem;
-            color: #e2e8f0;
-            max-width: 650px;
-            margin: 0;
+        .page-hero .hero-lead {
+            margin-bottom: 0;
         }
 
-        /* SECTION HEADERS */
-        .services-section {
-            padding: 45px 0;
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .services-section .section-title {
+            margin-bottom: 40px;
         }
 
-        .eyebrow {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            color: var(--accent-blue);
-            display: block;
-            margin-bottom: 5px;
+        .sectors-section {
+            background: #ffffff;
         }
 
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin: 0 0 20px 0;
-            color: var(--navy-deep);
-            letter-spacing: -0.02em;
-        }
+        /* =========================
+           DISCIPLINE CARDS
+        ========================= */
 
-        /* DISCIPLINES GRID */
         .grid-disciplines {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 24px;
         }
 
         .discipline-card {
             position: relative;
-            height: 240px;
-            border-radius: 6px;
-            overflow: hidden;
+            height: 260px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px;
+            padding: 24px;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
             color: #ffffff;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            isolation: isolate;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -121,35 +91,35 @@
             content: '';
             position: absolute;
             inset: 0;
+            z-index: -2;
             background-size: cover;
             background-position: center;
             transition: transform 0.5s ease;
-            z-index: 1;
         }
 
         .discipline-card::after {
             content: '';
             position: absolute;
             inset: 0;
+            z-index: -1;
             background: linear-gradient(
                 180deg,
-                rgba(7, 27, 51, 0.2) 0%,
+                rgba(7, 27, 51, 0.1) 0%,
                 rgba(7, 27, 51, 0.85) 65%,
-                rgba(7, 27, 51, 0.98) 100%
+                rgba(7, 27, 51, 0.96) 100%
             );
-            z-index: 2;
         }
 
         .discipline-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 45px -20px rgba(7, 27, 51, 0.4);
         }
 
         .discipline-card:hover::before {
             transform: scale(1.05);
         }
 
-        /* Background Images */
+        /* Background images */
         .card-1::before {
             background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');
         }
@@ -182,22 +152,15 @@
             background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80');
         }
 
-        .card-top {
-            position: relative;
-            z-index: 3;
-        }
-
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #ffffff;
             margin: 0;
-            letter-spacing: -0.01em;
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 650;
+            line-height: 1.2;
         }
 
         .card-bottom {
-            position: relative;
-            z-index: 3;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -205,68 +168,69 @@
         }
 
         .explore-btn {
-            font-family: inherit;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: var(--accent-light);
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(4px);
-            padding: 7px 12px;
-            border-radius: 4px;
+            min-height: 40px;
+            padding: 9px 16px;
             border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 650;
+            letter-spacing: 0.04em;
             cursor: pointer;
-            transition: all 0.2s ease;
+            touch-action: manipulation;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
         .discipline-card:hover .explore-btn {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
+            background: var(--primary);
+            border-color: var(--primary);
             color: #ffffff;
         }
 
         .card-revealed-info {
             display: none;
             width: 100%;
-            margin-bottom: 12px;
-            padding-top: 10px;
+            margin-bottom: 14px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 0.25s ease;
         }
 
         .card-subtitle {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: var(--accent-light);
             margin-bottom: 4px;
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: 700;
         }
 
         .card-body-text {
-            font-size: 0.8rem;
-            color: #e2e8f0;
-            line-height: 1.5;
             margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.86rem;
+            line-height: 1.55;
         }
 
         .btn-card-link {
             display: inline-flex;
             align-items: center;
-            font-size: 0.75rem;
-            font-weight: 700;
+            min-height: 36px;
             color: #ffffff;
-            text-decoration: none;
-            letter-spacing: 0.01em;
+            font-size: 0.82rem;
+            font-weight: 650;
         }
 
         .btn-card-link:hover {
-            color: var(--accent-light);
+            color: var(--accent-blue);
         }
 
-        /* EXPANDED STATE */
+        /* Expanded state */
         .discipline-card.is-expanded {
             grid-column: span 2;
             height: auto;
-            min-height: 240px;
+            min-height: 260px;
         }
 
         .discipline-card.is-expanded .card-revealed-info {
@@ -285,81 +249,87 @@
             }
         }
 
-        /* CALLOUT BRIDGE */
+        /* =========================
+           "NOT SURE" CALLOUT
+        ========================= */
+
         .unsure-bridge {
-            background-color: var(--bg-light);
-            padding: 35px 0;
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 60px 0;
         }
 
         .unsure-box {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 28px;
+            padding: 28px 32px;
             background: #ffffff;
-            border-left: 4px solid var(--navy-deep);
-            padding: 24px 30px;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-            gap: 25px;
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            box-shadow: var(--shadow-subtle);
         }
 
         .unsure-box h3 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--navy-deep);
-            margin: 0 0 4px 0;
+            margin: 0 0 4px;
+            color: var(--text-dark);
+            font-size: 1.25rem;
+            font-weight: 650;
             letter-spacing: -0.01em;
         }
 
         .unsure-box p {
-            font-size: 0.9rem;
-            color: var(--slate-body);
             margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        /* SECTORS */
-        .sectors-section {
-            padding: 45px 0;
+        .unsure-box .btn {
+            flex-shrink: 0;
         }
+
+        /* =========================
+           SECTORS
+        ========================= */
 
         .sector-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
         }
 
         .sector-item {
             position: relative;
-            min-height: 80px;
-            border-radius: 4px;
-            overflow: hidden;
-            padding: 16px 20px;
+            min-height: 92px;
             display: flex;
             align-items: center;
+            padding: 18px 24px;
+            overflow: hidden;
+            border-radius: var(--radius-md);
             color: #ffffff;
+            isolation: isolate;
         }
 
         .sector-item::before {
             content: '';
             position: absolute;
             inset: 0;
+            z-index: -2;
             background-size: cover;
             background-position: center;
-            z-index: 1;
         }
 
         .sector-item::after {
             content: '';
             position: absolute;
             inset: 0;
+            z-index: -1;
             background: linear-gradient(
                 90deg,
                 rgba(7, 27, 51, 0.92) 0%,
                 rgba(7, 27, 51, 0.78) 100%
             );
-            z-index: 2;
         }
 
         .sec-1::before {
@@ -402,195 +372,140 @@
             background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80');
         }
 
-        .sector-content {
-            position: relative;
-            z-index: 3;
-        }
-
         .sector-name {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: -0.005em;
             margin-bottom: 2px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 650;
         }
 
         .sector-tagline {
-            font-size: 0.8rem;
             color: #cbd5e1;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
 
-        /* CLOSING BANNER */
+        /* =========================
+           CLOSING BANNER
+        ========================= */
+
         .closing-banner {
-            padding: 55px 0;
+            padding: 90px 0;
             background:
-                linear-gradient(135deg, rgba(7, 27, 51, 0.95) 0%, rgba(15, 40, 71, 0.95) 100%),
-                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+                linear-gradient(
+                    135deg,
+                    rgba(7, 27, 51, 0.95) 0%,
+                    rgba(15, 40, 71, 0.95) 100%
+                ),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')
+                center / cover no-repeat;
             color: #ffffff;
             text-align: center;
         }
 
         .closing-banner h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.02em;
+            margin: 0 0 14px;
+            color: #ffffff;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -0.04em;
         }
 
         .closing-lead {
-            font-size: 0.95rem;
             max-width: 600px;
-            margin: 0 auto 20px;
+            margin: 0 auto 28px;
             color: #cbd5e1;
+            font-size: 1.02rem;
+            line-height: 1.7;
         }
 
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: #ffffff;
-            padding: 12px 28px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
+        /* =========================
+           TABLET
+        ========================= */
 
-        .btn-primary:hover {
-            background-color: #0369a1;
-            transform: translateY(-1px);
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 1100px) {
             .grid-disciplines {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .discipline-card.is-expanded {
-                grid-column: span 2;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 768px) {
-            .container {
-                width: 92%;
-            }
-
             .page-hero {
-                padding: 50px 0 32px;
+                padding: 80px 0 64px;
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(7, 27, 51, 0.84) 0%,
+                        rgba(7, 27, 51, 0.94) 100%
+                    ),
+                    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80')
+                    center / cover no-repeat;
             }
 
-            .hero-tagline {
-                font-size: 0.7rem;
-            }
-
-            .page-title {
-                font-size: 2.1rem;
-            }
-
-            .hero-description {
-                font-size: 0.98rem;
-            }
-
-            .services-section,
-            .sectors-section {
-                padding: 35px 0;
-            }
-
-            .section-title {
-                font-size: 1.55rem;
-                margin-bottom: 18px;
+            .services-section .section-title {
+                margin-bottom: 28px;
             }
 
             .grid-disciplines,
             .sector-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .discipline-card,
             .discipline-card.is-expanded {
                 grid-column: span 1;
                 height: auto;
-                min-height: 205px;
-                padding: 18px;
-            }
-
-            .card-title {
-                font-size: 1.15rem;
-            }
-
-            .card-subtitle {
-                font-size: 0.84rem;
-            }
-
-            .card-body-text {
-                font-size: 0.79rem;
+                min-height: 220px;
+                padding: 22px 20px;
             }
 
             .unsure-bridge {
-                padding: 28px 0;
+                padding: 48px 0;
             }
 
             .unsure-box {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 16px;
-                padding: 20px;
+                gap: 18px;
+                padding: 24px 20px;
             }
 
-            .unsure-box h3 {
-                font-size: 1.1rem;
-            }
-
-            .btn-primary {
+            .unsure-box .btn {
                 width: 100%;
-                text-align: center;
             }
 
             .sector-item {
-                min-height: 82px;
-                padding: 15px 18px;
+                min-height: 84px;
+                padding: 16px 20px;
             }
 
             .closing-banner {
-                padding: 42px 0;
-            }
-
-            .closing-banner h2 {
-                font-size: 1.65rem;
+                padding: 70px 0;
             }
         }
 
-        @media (max-width: 480px) {
-            .page-title {
-                font-size: 1.85rem;
-            }
+        /* =========================
+           SMALL PHONES
+        ========================= */
 
+        @media (max-width: 480px) {
             .discipline-card,
             .discipline-card.is-expanded {
-                min-height: 190px;
+                min-height: 200px;
             }
 
             .sector-name {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
 
             .sector-tagline {
-                font-size: 0.76rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-                animation: none !important;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -605,18 +520,18 @@
         <!-- HERO -->
         <section class="page-hero">
             <div class="container">
-                <span class="hero-tagline">Capabilities &amp; advisory</span>
-                <h1 class="page-title">What needs to move?</h1>
-                <p class="hero-description">
+                <span class="hero-badge">Capabilities &amp; advisory</span>
+                <h1 class="hero-title">What needs to move?</h1>
+                <p class="hero-lead">
                     Combining strategic communication and execution around the problems that actually need solving.
                 </p>
             </div>
         </section>
 
         <!-- WHAT WE DO -->
-        <section class="services-section">
+        <section class="page-section services-section">
             <div class="container">
-                <span class="eyebrow">What we do</span>
+                <span class="section-tag">What we do</span>
                 <h2 class="section-title">Specialist disciplines</h2>
 
                 <div class="grid-disciplines">
@@ -794,7 +709,7 @@
         </section>
 
         <!-- UNSURE BRIDGE -->
-        <section class="unsure-bridge">
+        <section class="section-alt unsure-bridge">
             <div class="container">
                 <div class="unsure-box">
                     <div>
@@ -804,7 +719,7 @@
                         </p>
                     </div>
 
-                    <a href="contact.html" class="btn-primary">
+                    <a href="contact.html" class="btn btn-primary">
                         Tell us what's moving &rarr;
                     </a>
                 </div>
@@ -812,9 +727,9 @@
         </section>
 
         <!-- SECTOR EXPERIENCE -->
-        <section class="sectors-section">
+        <section class="page-section services-section sectors-section">
             <div class="container">
-                <span class="eyebrow">Sector experience</span>
+                <span class="section-tag">Sector experience</span>
                 <h2 class="section-title">Where context matters</h2>
 
                 <div class="sector-grid">
@@ -902,7 +817,7 @@
                     Strategy is only useful when it changes what happens next.
                 </p>
 
-                <a href="contact.html" class="btn-primary">
+                <a href="contact.html" class="btn btn-primary">
                     Start a conversation &rarr;
                 </a>
             </div>
