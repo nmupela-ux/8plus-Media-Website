@@ -11,222 +11,48 @@
         content="Tell us what you're trying to solve. Strategic communications, crisis management, executive training, media inquiries, and workshops."
     >
 
-    <meta name="theme-color" content="#071522">
+    <meta name="theme-color" content="#071b33">
 
+    <!-- Shared site styles (colours, buttons, containers, grids, navbar, footer) -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- CONTACT PAGE STYLES: only what is unique to this page -->
     <style>
         /* =========================================================
-           BASE
-        ========================================================= */
-
-        :root {
-            --navy: #071522;
-            --navy-soft: #0c2135;
-            --blue: #5f91b5;
-            --blue-light: #9bbbd2;
-            --ink: #16212b;
-            --muted: #667481;
-            --light: #f5f7f8;
-            --line: #dfe5e9;
-            --white: #ffffff;
-            --soft-blue: #edf4f8;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: #ffffff;
-            color: var(--ink);
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Helvetica,
-                Arial,
-                sans-serif;
-            line-height: 1.6;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        textarea,
-        select {
-            font: inherit;
-        }
-
-        button,
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .container {
-            width: min(1180px, calc(100% - 48px));
-            margin: 0 auto;
-        }
-
-
-        /* =========================================================
-           HERO
+           HERO (uses the shared .hero from style.css)
         ========================================================= */
 
         .contact-hero {
-            position: relative;
-            min-height: 450px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-
             background:
                 linear-gradient(
                     90deg,
-                    rgba(7, 21, 34, 0.96) 0%,
-                    rgba(7, 21, 34, 0.88) 42%,
-                    rgba(7, 21, 34, 0.55) 100%
+                    rgba(7, 27, 51, 0.96) 0%,
+                    rgba(7, 27, 51, 0.88) 42%,
+                    rgba(7, 27, 51, 0.58) 100%
                 ),
                 url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1920&q=85')
                 center / cover no-repeat;
-
-            color: var(--white);
         }
 
-        .contact-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent 55%,
-                    rgba(7, 21, 34, 0.28)
-                );
-
-            pointer-events: none;
+        .contact-hero .hero-lead {
+            margin-bottom: 0;
         }
-
-        .contact-hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-
-            margin-bottom: 20px;
-
-            color: var(--blue-light);
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-        }
-
-        .hero-tag::before {
-            content: "";
-            width: 30px;
-            height: 1px;
-            background: var(--blue-light);
-        }
-
-        .contact-title {
-            max-width: 750px;
-            margin: 0 0 22px;
-
-            color: #ffffff;
-            font-size: clamp(3.2rem, 7vw, 6rem);
-            font-weight: 500;
-            line-height: 0.98;
-            letter-spacing: -0.05em;
-        }
-
-        .contact-sub {
-            max-width: 680px;
-            margin: 0;
-
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 1.08rem;
-            line-height: 1.75;
-        }
-
-        .contact-hero-rule {
-            width: 56px;
-            height: 2px;
-            margin-top: 30px;
-            background: var(--blue);
-        }
-
 
         /* =========================================================
-           GENERAL SECTION STYLES
+           SECTION INTROS
         ========================================================= */
-
-        .contact-section {
-            padding: 90px 0;
-        }
-
-        .contact-section.soft {
-            background: var(--light);
-        }
 
         .section-intro {
             max-width: 720px;
             margin-bottom: 48px;
         }
 
-        .section-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-
-            margin-bottom: 14px;
-
-            color: #527d9b;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.07em;
-        }
-
-        .section-kicker::before {
-            content: "";
-            width: 28px;
-            height: 1px;
-            background: #7b9eb7;
-        }
-
-        .section-title {
-            margin: 0 0 16px;
-
-            color: var(--navy);
-            font-size: clamp(2rem, 4vw, 3.25rem);
-            font-weight: 500;
-            line-height: 1.08;
-            letter-spacing: -0.035em;
-        }
-
         .section-copy {
             margin: 0;
-            color: var(--muted);
-            font-size: 1.02rem;
-            line-height: 1.75;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
-
 
         /* =========================================================
            CONTACT DESK
@@ -241,26 +67,26 @@
 
         .desk-intro {
             position: sticky;
-            top: 110px;
+            top: calc(var(--nav-height) + 30px);
         }
 
-        .desk-intro p {
-            color: var(--muted);
-            margin: 0 0 24px;
-            line-height: 1.75;
+        .desk-intro .section-intro {
+            margin-bottom: 28px;
         }
 
         .desk-note {
             padding: 20px 22px;
-            border-left: 2px solid var(--blue);
             background: var(--soft-blue);
-            color: #4e606d;
-            font-size: 0.92rem;
+            border-left: 3px solid var(--primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            color: var(--text-muted);
+            font-size: 0.94rem;
             line-height: 1.65;
         }
 
         .desk-form {
             width: 100%;
+            min-width: 0;
         }
 
         .form-group {
@@ -270,18 +96,16 @@
         .form-label {
             display: block;
             margin-bottom: 9px;
-
-            color: var(--navy);
-            font-size: 0.92rem;
-            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 650;
         }
 
         .form-help {
-            margin: -2px 0 12px;
-            color: #7a8790;
-            font-size: 0.86rem;
+            margin: -2px 0 14px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
         }
-
 
         /* =========================================================
            ENQUIRY SELECTOR
@@ -290,7 +114,7 @@
         .enquiry-options {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
+            gap: 12px;
         }
 
         .enquiry-option {
@@ -306,41 +130,35 @@
         .enquiry-option label {
             display: flex;
             align-items: center;
-
             min-height: 54px;
-            padding: 13px 15px;
-
-            border: 1px solid var(--line);
+            padding: 13px 16px;
             background: #ffffff;
-
-            color: #46545f;
-            font-size: 0.93rem;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.94rem;
             line-height: 1.35;
-
             cursor: pointer;
-            transition:
-                border-color 0.2s ease,
-                background 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
+            transition: border-color 0.2s ease, background 0.2s ease,
+                        color 0.2s ease, transform 0.2s ease;
         }
 
         .enquiry-option label:hover {
-            border-color: #a9c0cf;
+            border-color: var(--primary);
             transform: translateY(-1px);
         }
 
         .enquiry-option input:checked + label {
-            border-color: var(--blue);
             background: var(--soft-blue);
-            color: var(--navy);
+            border-color: var(--primary);
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
         .enquiry-option input:focus-visible + label {
-            outline: 3px solid rgba(95, 145, 181, 0.22);
+            outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
-
 
         /* =========================================================
            FORM FIELDS
@@ -363,8 +181,7 @@
         .field label {
             display: block;
             margin-bottom: 8px;
-
-            color: var(--navy);
+            color: var(--text-dark);
             font-size: 0.9rem;
             font-weight: 600;
         }
@@ -373,20 +190,14 @@
         .field select,
         .field textarea {
             width: 100%;
-
-            border: 1px solid #d6dee3;
-            border-radius: 0;
-
-            padding: 14px 15px;
-
+            padding: 14px 16px;
             background: #ffffff;
-            color: var(--ink);
-
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-size: 0.95rem;
             outline: none;
-
-            transition:
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         .field input,
@@ -402,16 +213,15 @@
 
         .field input::placeholder,
         .field textarea::placeholder {
-            color: #9aa6ae;
+            color: #94a3b8;
         }
 
         .field input:focus,
         .field select:focus,
         .field textarea:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(95, 145, 181, 0.12);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.14);
         }
-
 
         /* =========================================================
            FORM ACTION
@@ -422,51 +232,16 @@
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-
             margin-top: 10px;
         }
 
         .form-privacy {
             max-width: 430px;
             margin: 0;
-
-            color: #7b8790;
-            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.82rem;
             line-height: 1.55;
         }
-
-        .submit-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 52px;
-            padding: 14px 25px;
-
-            border: 1px solid var(--navy);
-            background: var(--navy);
-            color: #ffffff;
-
-            font-weight: 600;
-            cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        .submit-button:hover {
-            background: #12314b;
-            border-color: #12314b;
-            transform: translateY(-1px);
-        }
-
-        .submit-button:focus-visible {
-            outline: 3px solid rgba(95, 145, 181, 0.25);
-            outline-offset: 3px;
-        }
-
 
         /* =========================================================
            MEDIA DESK
@@ -479,41 +254,43 @@
             align-items: center;
         }
 
-        .media-card {
-            padding: 38px;
+        .media-desk .section-intro {
+            margin-bottom: 0;
+        }
 
-            background: var(--navy);
+        .media-card {
+            padding: 42px;
+            background: var(--dark-navy);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px -25px rgba(7, 27, 51, 0.45);
             color: #ffffff;
         }
 
         .media-card h3 {
             margin: 0 0 14px;
-
-            font-size: 1.7rem;
-            font-weight: 500;
+            color: #ffffff;
+            font-size: 1.65rem;
+            font-weight: 600;
             line-height: 1.15;
             letter-spacing: -0.025em;
         }
 
         .media-card p {
             margin: 0;
-            color: rgba(255, 255, 255, 0.72);
+            color: #cbd5e1;
             line-height: 1.7;
         }
 
         .media-card .media-icon {
             width: 46px;
             height: 46px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             margin-bottom: 24px;
-
-            border: 1px solid rgba(255, 255, 255, 0.22);
-
-            color: var(--blue-light);
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            border-radius: 50%;
+            color: var(--accent-blue);
             font-size: 1.15rem;
         }
 
@@ -521,32 +298,37 @@
             margin-top: 28px;
         }
 
+        .media-form .field label {
+            color: #ffffff;
+        }
+
         .media-form .field input {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: #0f172a;
+            border-color: #334155;
             color: #ffffff;
         }
 
         .media-form .field input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: #64748b;
         }
 
         .media-form .field input:focus {
-            border-color: var(--blue-light);
-            box-shadow: 0 0 0 3px rgba(155, 187, 210, 0.12);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.14);
         }
 
-        .media-form .submit-button {
+        /* White button on the dark card */
+        .media-form .btn {
             background: #ffffff;
             border-color: #ffffff;
-            color: var(--navy);
+            color: var(--dark-navy);
         }
 
-        .media-form .submit-button:hover {
+        .media-form .btn:hover {
             background: var(--soft-blue);
             border-color: var(--soft-blue);
+            color: var(--dark-navy);
         }
-
 
         /* =========================================================
            DIRECT CONTACT
@@ -559,145 +341,89 @@
             align-items: start;
         }
 
+        .direct-contact .section-intro {
+            margin-bottom: 0;
+        }
+
         .contact-details {
             display: grid;
             gap: 1px;
-            background: var(--line);
-            border: 1px solid var(--line);
+            overflow: hidden;
+            background: var(--card-border);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
         }
 
         .contact-detail {
-            padding: 25px 26px;
+            padding: 24px 26px;
             background: #ffffff;
         }
 
         .contact-detail-label {
             display: block;
             margin-bottom: 6px;
-
-            color: #71808b;
-            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
         }
 
-        .contact-detail a,
-        .contact-detail span.value {
-            color: var(--navy);
+        .contact-detail a {
+            color: var(--text-dark);
             font-size: 1.02rem;
             font-weight: 500;
             overflow-wrap: anywhere;
         }
 
         .contact-detail a:hover {
-            color: #527d9b;
+            color: var(--primary);
         }
 
         .contact-message {
-            padding-top: 4px;
+            padding-top: 24px;
         }
 
         .contact-message p {
-            margin: 0 0 20px;
-            color: var(--muted);
-            line-height: 1.8;
+            margin: 0 0 18px;
+            color: var(--text-muted);
+            line-height: 1.75;
         }
-
-        .whatsapp-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 48px;
-            padding: 12px 20px;
-
-            border: 1px solid #b9c8d2;
-
-            color: var(--navy);
-            font-size: 0.92rem;
-            font-weight: 600;
-
-            transition:
-                background 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-        .whatsapp-link:hover {
-            background: var(--soft-blue);
-            border-color: var(--blue);
-        }
-
 
         /* =========================================================
-           SELF ROUTING
+           SELF ROUTING (cards use the shared .card)
         ========================================================= */
 
-        .routing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
         .routing-card {
-            display: block;
-
-            min-height: 180px;
-            padding: 28px;
-
-            border: 1px solid var(--line);
-            background: #ffffff;
-
-            transition:
-                transform 0.2s ease,
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .routing-card:hover {
-            transform: translateY(-3px);
-            border-color: #b4c8d5;
-            box-shadow: 0 12px 28px rgba(7, 21, 34, 0.07);
+            min-height: 200px;
         }
 
         .routing-card-number {
-            display: block;
-            margin-bottom: 25px;
-
-            color: #7894a7;
-            font-size: 0.8rem;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            border-radius: 50%;
+            background: var(--soft-blue);
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: 700;
         }
-
-        .routing-card h3 {
-            margin: 0 0 9px;
-
-            color: var(--navy);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .routing-card p {
-            margin: 0;
-
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.65;
-        }
-
 
         /* =========================================================
-           MOBILE
+           TABLET
         ========================================================= */
 
+        /* Keep the three routing cards in one row down to 769px
+           (the shared .grid-3 drops to 2 columns at 992px) */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .routing-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
         @media (max-width: 900px) {
-
-            .container {
-                width: min(100% - 36px, 720px);
-            }
-
-            .contact-section {
-                padding: 70px 0;
-            }
-
             .desk-layout,
             .media-desk,
             .direct-contact {
@@ -708,77 +434,27 @@
             .desk-intro {
                 position: static;
             }
-
-            .routing-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
         }
 
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
-        @media (max-width: 650px) {
-
-            .container {
-                width: calc(100% - 30px);
-            }
-
-            /* Hero */
-
+        @media (max-width: 700px) {
             .contact-hero {
-                min-height: 480px;
-                align-items: center;
-
                 background:
                     linear-gradient(
                         180deg,
-                        rgba(7, 21, 34, 0.88) 0%,
-                        rgba(7, 21, 34, 0.76) 45%,
-                        rgba(7, 21, 34, 0.96) 100%
+                        rgba(7, 27, 51, 0.84) 0%,
+                        rgba(7, 27, 51, 0.94) 100%
                     ),
                     url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=80')
                     center / cover no-repeat;
             }
 
-            .hero-tag {
-                font-size: 0.74rem;
-                margin-bottom: 17px;
-            }
-
-            .contact-title {
-                max-width: 100%;
-                margin-bottom: 20px;
-
-                font-size: clamp(2.8rem, 14vw, 4rem);
-                line-height: 0.98;
-            }
-
-            .contact-sub {
-                font-size: 0.96rem;
-                line-height: 1.7;
-            }
-
-            .contact-hero-rule {
-                margin-top: 25px;
-            }
-
-            /* Sections */
-
-            .contact-section {
-                padding: 58px 0;
-            }
-
             .section-intro {
                 margin-bottom: 34px;
             }
-
-            .section-title {
-                font-size: 2.15rem;
-            }
-
-            .section-copy {
-                font-size: 0.96rem;
-            }
-
-            /* Form */
 
             .enquiry-options {
                 grid-template-columns: 1fr;
@@ -807,72 +483,27 @@
                 order: 2;
             }
 
-            .submit-button {
+            .form-action .btn {
                 width: 100%;
                 order: 1;
             }
 
-            /* Media */
-
             .media-card {
-                padding: 28px 24px;
+                padding: 28px 22px;
             }
-
-            /* Contact details */
 
             .contact-detail {
-                padding: 21px 20px;
-            }
-
-            /* Routing */
-
-            .routing-grid {
-                grid-template-columns: 1fr;
+                padding: 20px;
             }
 
             .routing-card {
                 min-height: auto;
-                padding: 24px;
             }
         }
-
 
         @media (max-width: 400px) {
-
-            .contact-hero {
-                min-height: 450px;
-            }
-
-            .contact-title {
-                font-size: 2.65rem;
-            }
-
             .media-card {
-                padding: 25px 20px;
-            }
-
-            .routing-card {
-                padding: 22px;
-            }
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition-duration: 0.01ms !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
+                padding: 24px 20px;
             }
         }
     </style>
@@ -893,25 +524,23 @@
              1. HERO
         ===================================================== -->
 
-        <section class="contact-hero">
+        <section class="hero contact-hero">
             <div class="container">
 
-                <span class="hero-tag">
+                <span class="hero-badge">
                     Eightplus Contact Desk
                 </span>
 
-                <h1 class="contact-title">
+                <h1 class="hero-title">
                     Let's talk.
                 </h1>
 
-                <p class="contact-sub">
+                <p class="hero-lead">
                     Tell us what you're trying to solve. Good work usually
                     starts with a good conversation. Tell us what you're
                     working on, what you're navigating, or what you'd like
                     to build.
                 </p>
-
-                <div class="contact-hero-rule"></div>
 
             </div>
         </section>
@@ -921,7 +550,7 @@
              2. CONTACT DESK
         ===================================================== -->
 
-        <section class="contact-section">
+        <section class="page-section contact-section">
             <div class="container">
 
                 <div class="desk-layout">
@@ -930,7 +559,7 @@
 
                         <div class="section-intro">
 
-                            <span class="section-kicker">
+                            <span class="section-tag">
                                 Start here
                             </span>
 
@@ -1201,7 +830,7 @@
 
                                 <button
                                     type="submit"
-                                    class="submit-button"
+                                    class="btn btn-primary submit-button"
                                 >
                                     Send enquiry
                                 </button>
@@ -1222,14 +851,14 @@
              3. MEDIA DESK
         ===================================================== -->
 
-        <section class="contact-section soft">
+        <section class="page-section section-alt contact-section">
             <div class="container">
 
                 <div class="media-desk">
 
                     <div class="section-intro">
 
-                        <span class="section-kicker">
+                        <span class="section-tag">
                             Media desk
                         </span>
 
@@ -1271,10 +900,7 @@
                         >
 
                             <div class="field">
-                                <label
-                                    for="media-email"
-                                    style="color:#ffffff;"
-                                >
+                                <label for="media-email">
                                     Email address
                                 </label>
 
@@ -1290,7 +916,7 @@
 
                             <button
                                 type="submit"
-                                class="submit-button"
+                                class="btn btn-primary submit-button"
                             >
                                 Join the media desk
                             </button>
@@ -1309,14 +935,14 @@
              4. DIRECT CONTACT
         ===================================================== -->
 
-        <section class="contact-section">
+        <section class="page-section contact-section">
             <div class="container">
 
                 <div class="direct-contact">
 
                     <div class="section-intro">
 
-                        <span class="section-kicker">
+                        <span class="section-tag">
                             Direct contact
                         </span>
 
@@ -1386,7 +1012,7 @@
                             </p>
 
                             <a
-                                class="whatsapp-link"
+                                class="btn btn-secondary whatsapp-link"
                                 href="https://wa.me/260776869096"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -1408,12 +1034,12 @@
              5. SELF ROUTING
         ===================================================== -->
 
-        <section class="contact-section soft">
+        <section class="page-section section-alt contact-section">
             <div class="container">
 
                 <div class="section-intro">
 
-                    <span class="section-kicker">
+                    <span class="section-tag">
                         Not sure where to start?
                     </span>
 
@@ -1430,11 +1056,11 @@
                 </div>
 
 
-                <div class="routing-grid">
+                <div class="routing-grid grid-3">
 
                     <a
                         href="#contactForm"
-                        class="routing-card"
+                        class="routing-card card"
                     >
                         <span class="routing-card-number">
                             01
@@ -1453,7 +1079,7 @@
 
                     <a
                         href="#contactForm"
-                        class="routing-card"
+                        class="routing-card card"
                     >
                         <span class="routing-card-number">
                             02
@@ -1472,7 +1098,7 @@
 
                     <a
                         href="#contactForm"
-                        class="routing-card"
+                        class="routing-card card"
                     >
                         <span class="routing-card-number">
                             03
