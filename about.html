@@ -17,8 +17,6 @@
         ========================= */
 
         .page-hero {
-            position: relative;
-            padding: 110px 0 90px;
             background:
                 linear-gradient(
                     90deg,
@@ -29,22 +27,6 @@
                 url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')
                 center / cover no-repeat;
             color: #ffffff;
-        }
-
-        .page-hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent-blue));
-        }
-
-        /* Smaller than the home/takeover hero title */
-        .page-hero .hero-title {
-            font-size: clamp(2.4rem, 6vw, 4.2rem);
-            margin-bottom: 22px;
         }
 
         .page-hero .hero-lead {
@@ -446,7 +428,6 @@
 
         @media (max-width: 768px) {
             .page-hero {
-                padding: 80px 0 64px;
                 background:
                     linear-gradient(
                         180deg,
@@ -527,7 +508,7 @@
              HERO
         ========================= -->
 
-        <section class="page-hero">
+        <section class="hero page-hero">
             <div class="container">
 
                 <span class="hero-badge">
