@@ -412,6 +412,61 @@
         }
 
         /* =========================================================
+           SELF ROUTING: dark banner section
+        ========================================================= */
+
+        .routing-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(7, 27, 51, 0.95) 0%,
+                    rgba(15, 40, 71, 0.95) 100%
+                ),
+                url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80')
+                center / cover no-repeat;
+            color: #ffffff;
+        }
+
+        .routing-section .section-tag {
+            color: var(--accent-blue);
+        }
+
+        .routing-section .section-title {
+            color: #ffffff;
+        }
+
+        .routing-section .section-copy {
+            color: #cbd5e1;
+        }
+
+        .routing-section .card {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.14);
+            box-shadow: none;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+
+        .routing-section .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-blue);
+            box-shadow: 0 25px 45px -20px rgba(0, 0, 0, 0.5);
+        }
+
+        .routing-section .card h3 {
+            color: #ffffff;
+        }
+
+        .routing-section .card p {
+            color: #cbd5e1;
+        }
+
+        .routing-section .routing-card-number {
+            background: rgba(125, 211, 252, 0.12);
+            color: var(--accent-blue);
+        }
+
+        /* =========================================================
            TABLET
         ========================================================= */
 
@@ -1034,7 +1089,7 @@
              5. SELF ROUTING
         ===================================================== -->
 
-        <section class="page-section section-alt contact-section">
+        <section class="page-section routing-section contact-section">
             <div class="container">
 
                 <div class="section-intro">
